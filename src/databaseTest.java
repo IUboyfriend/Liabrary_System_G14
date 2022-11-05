@@ -43,6 +43,7 @@ public class databaseTest {
 
             System.out.println("server ssh version： " + session.getServerVersion());
             System.out.println("client ssh version： " + session.getClientVersion());
+            System.out.println("123123");
         } catch (JSchException e) {
             System.out.println("Cannot connect the ssh" + e.getMessage());
         }
