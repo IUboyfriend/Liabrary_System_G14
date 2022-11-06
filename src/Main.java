@@ -24,9 +24,7 @@ public class Main {
 
                 String url="jdbc:oracle:thin:@studora.comp.polyu.edu.hk:1521:dbms";
                 url = "jdbc:oracle:thin:@localhost:61522/dbms";
-                OracleConnection conn =
-                        (OracleConnection) DriverManager.getConnection(
-                                url, username, pwd);
+                OracleConnection conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
                 Statement stmt = conn.createStatement();
                 ResultSet rset = stmt.executeQuery("SELECT EMPNO, ENAME, JOB FROM EMP");
                 while (rset.next()) {
@@ -34,7 +32,6 @@ public class Main {
                             + " " + rset.getString(2)
                             + " " + rset.getString(3));
                 }
-                System.out.println();
                 if (rset!=null) rset.close();
                 if (stmt!=null) stmt.close();
                 if (conn!=null) conn.close();
@@ -48,8 +45,6 @@ public class Main {
         } catch (JSchException e) {
             System.out.println("Cannot connect the ssh" + e.getMessage());
         }
-
-
     }
 }
 

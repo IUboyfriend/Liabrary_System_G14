@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="123">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/Initial.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/Initial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/databaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "140",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "366",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/class/大三上/COMP2411/COMP2411-project-main",
+    "last_opened_file_path": "E:/class/大三上/COMP2411/intellij/Liabrary_System_G14",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -71,6 +67,8 @@
       <updated>1667659578128</updated>
       <workItem from="1667659579330" duration="217000" />
       <workItem from="1667659891250" duration="29417000" />
+      <workItem from="1667727631582" duration="48000" />
+      <workItem from="1667727791416" duration="444000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1667660900381</created>
