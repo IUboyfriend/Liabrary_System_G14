@@ -6,7 +6,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import oracle.jdbc.driver.*;
 
-public class databaseTest {
+public class Main {
     public static void main(String args[]) throws SQLException, IOException {
         JSch jSch = new JSch();
         try {
@@ -24,9 +24,7 @@ public class databaseTest {
 
                 String url="jdbc:oracle:thin:@studora.comp.polyu.edu.hk:1521:dbms";
                 url = "jdbc:oracle:thin:@localhost:61522/dbms";
-                OracleConnection conn =
-                        (OracleConnection) DriverManager.getConnection(
-                                url, username, pwd);
+                OracleConnection conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
                 Statement stmt = conn.createStatement();
                 ResultSet rset = stmt.executeQuery("SELECT EMPNO, ENAME, JOB FROM EMP");
                 while (rset.next()) {
@@ -34,8 +32,9 @@ public class databaseTest {
                             + " " + rset.getString(2)
                             + " " + rset.getString(3));
                 }
-                System.out.println();
-                conn.close();
+                if (rset!=null) rset.close();
+                if (stmt!=null) stmt.close();
+                if (conn!=null) conn.close();
             } catch (Exception e) {
                 System.out.println("Error");
             }
@@ -43,12 +42,9 @@ public class databaseTest {
 
             System.out.println("server ssh version： " + session.getServerVersion());
             System.out.println("client ssh version： " + session.getClientVersion());
-            System.out.println("123123");
         } catch (JSchException e) {
             System.out.println("Cannot connect the ssh" + e.getMessage());
         }
-
-
     }
 }
 
