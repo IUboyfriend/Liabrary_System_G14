@@ -6,7 +6,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import oracle.jdbc.driver.*;
 
-public class databaseTest {
+public class Main {
     public static void main(String args[]) throws SQLException, IOException {
         JSch jSch = new JSch();
         try {
@@ -35,7 +35,9 @@ public class databaseTest {
                             + " " + rset.getString(3));
                 }
                 System.out.println();
-                conn.close();
+                if (rset!=null) rset.close();
+                if (stmt!=null) stmt.close();
+                if (conn!=null) conn.close();
             } catch (Exception e) {
                 System.out.println("Error");
             }
@@ -43,7 +45,6 @@ public class databaseTest {
 
             System.out.println("server ssh version： " + session.getServerVersion());
             System.out.println("client ssh version： " + session.getClientVersion());
-            System.out.println("123123");
         } catch (JSchException e) {
             System.out.println("Cannot connect the ssh" + e.getMessage());
         }
