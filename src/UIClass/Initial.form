@@ -13,7 +13,7 @@
       <grid id="44d84" binding="headerPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints border-constraint="North"/>
         <properties>
-          <background color="-8537171"/>
+          <background color="-7086643"/>
         </properties>
         <border type="bevel-lowered"/>
         <children>

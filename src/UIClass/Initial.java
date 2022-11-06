@@ -27,7 +27,7 @@ public class Initial {
     private JPasswordField JPasswordFieldPassword;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Initial");
+        JFrame frame = new JFrame("Admin");
         frame.setContentPane(new Initial().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(520, 320);
@@ -65,7 +65,7 @@ public class Initial {
         mainPanel.setForeground(new Color(-8806227));
         headerPanel = new JPanel();
         headerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        headerPanel.setBackground(new Color(-8537171));
+        headerPanel.setBackground(new Color(-7086643));
         mainPanel.add(headerPanel, BorderLayout.NORTH);
         headerPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         headerJLabel = new JLabel();

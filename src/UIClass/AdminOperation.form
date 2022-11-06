@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UIClass.AdminOperation">
+  <grid id="27dc6" binding="JPMain" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="130" y="109" width="509" height="391"/>
+    </constraints>
+    <properties>
+      <background color="-11373958"/>
+      <font name="Arial Black" size="20"/>
+      <toolTipText value="123"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="7d734" binding="JPHead" layout-manager="GridBagLayout">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-7086643"/>
+        </properties>
+        <border type="bevel-lowered">
+          <title-color color="-4473925"/>
+        </border>
+        <children>
+          <component id="9fc59" class="javax.swing.JLabel" binding="JLabelWelcomeAdmin">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="0" bottom="5" right="150" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <font name="Arial Black" size="20"/>
+              <foreground color="-394759"/>
+              <text value="Welcome, Jay!"/>
+            </properties>
+          </component>
+          <component id="4a9a5" class="javax.swing.JButton" binding="JButtonLogout">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag top="5" left="0" bottom="5" right="0" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <enabled value="true"/>
+              <font name="Arial" size="12"/>
+              <foreground color="-9737365"/>
+              <horizontalTextPosition value="11"/>
+              <text value="Logout"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="fc27d" binding="JPButtons" layout-manager="FlowLayout" hgap="10" vgap="10" flow-align="1">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="-6828067"/>
+          <foreground color="-6828067"/>
+        </properties>
+        <border type="bevel-lowered"/>
+        <children>
+          <component id="f4ae0" class="javax.swing.JButton" binding="JBUser">
+            <constraints/>
+            <properties>
+              <actionCommand value=""/>
+              <autoscrolls value="false"/>
+              <background color="-9017150"/>
+              <enabled value="true"/>
+              <foreground color="-1907998"/>
+              <text value="User Management"/>
+            </properties>
+          </component>
+          <component id="7230" class="javax.swing.JButton" binding="JBLog">
+            <constraints/>
+            <properties>
+              <background color="-15022631"/>
+              <foreground color="-789517"/>
+              <text value="Admin Log System"/>
+            </properties>
+          </component>
+          <component id="2bf3b" class="javax.swing.JButton" binding="bookManagementButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <actionCommand value="JBBook"/>
+              <background color="-13345850"/>
+              <foreground color="-789517"/>
+              <text value="Book Management"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
