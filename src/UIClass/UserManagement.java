@@ -61,7 +61,7 @@ public class UserManagement {
         JTUserID = new JTextField();
         JPInput.add(JTUserID, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         JPButtons = new JPanel();
-        JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 5));
+        JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 10));
         JPButtons.setBackground(new Color(-6828067));
         Panel.add(JPButtons, BorderLayout.CENTER);
         JBActivate = new JButton();
