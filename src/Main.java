@@ -1,10 +1,10 @@
-import java.io.*;
-import java.sql.*;
-
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
-import oracle.jdbc.driver.*;
+import oracle.jdbc.driver.OracleConnection;
+
+import java.io.*;
+import java.sql.*;
 
 public class Main {
     public static void main(String args[]) throws SQLException, IOException {
