@@ -31,10 +31,6 @@ public class USER_ACCOUNT {
     public boolean checkUserExisted(String userID,String password) {
         try {
             ResultSet rs = this.connection.createStatement().executeQuery("SELECT * FROM USER_ACCOUNT WHERE 'LoginID' = '" + userID + "' AND 'Password' = '" + password + "'");
-            while (rs.next()) {
-                System.out.println(rs.getString(1)
-                        + " " + rs.getString(2));
-            }
             if (rs.next()) {
                 return true;
             }
