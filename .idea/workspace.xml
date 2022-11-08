@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add User Operation interface">
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookBorrow.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookBorrow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.java" afterDir="false" />
+    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add three MyBook interfaces">
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/SearchBook.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/SearchBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIClass/User/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/User/NewUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +83,7 @@
       <workItem from="1667727631582" duration="48000" />
       <workItem from="1667727791416" duration="26230000" />
       <workItem from="1667869586728" duration="60000" />
-      <workItem from="1667869738014" duration="9927000" />
+      <workItem from="1667869738014" duration="11939000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1667660900381</created>
@@ -163,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667875749568</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add three MyBook interfaces">
+      <created>1667879852510</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1667879852510</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +180,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -192,7 +210,8 @@
     <MESSAGE value="Finish admin interfaces" />
     <MESSAGE value="add New user interface" />
     <MESSAGE value="add User Operation interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="add User Operation interface" />
+    <MESSAGE value="add three MyBook interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="add three MyBook interfaces" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

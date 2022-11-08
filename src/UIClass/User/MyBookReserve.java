@@ -13,7 +13,7 @@ public class MyBookReserve {
     private JButton JBCancel;
     private JButton JBBack;
     private JPanel JPTable;
-    private JTable JTableBorrow;
+    private JTable JTableReserve;
     private JPanel JPMain;
 
 
@@ -21,8 +21,8 @@ public class MyBookReserve {
         String[] titles = {"Book Name", "Publisher", "Author", "Category", "Reserve time", "Expected Pick-up time"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
-        JTableBorrow.setModel(model);
-        JScrollPane s = new JScrollPane(JTableBorrow);
+        JTableReserve.setModel(model);
+        JScrollPane s = new JScrollPane(JTableReserve);
         JPTable.add(s, BorderLayout.CENTER);
     }
 
@@ -87,10 +87,10 @@ public class MyBookReserve {
         JPTable = new JPanel();
         JPTable.setLayout(new BorderLayout(0, 0));
         JPMain.add(JPTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        JTableBorrow = new JTable();
-        JTableBorrow.setBackground(new Color(-5007154));
-        JTableBorrow.setForeground(new Color(-16777216));
-        JPTable.add(JTableBorrow, BorderLayout.CENTER);
+        JTableReserve = new JTable();
+        JTableReserve.setBackground(new Color(-5007154));
+        JTableReserve.setForeground(new Color(-16777216));
+        JPTable.add(JTableReserve, BorderLayout.CENTER);
     }
 
     /**

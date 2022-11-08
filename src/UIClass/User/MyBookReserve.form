@@ -77,7 +77,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="65661" class="javax.swing.JTable" binding="JTableBorrow">
+          <component id="65661" class="javax.swing.JTable" binding="JTableReserve">
             <constraints border-constraint="Center"/>
             <properties>
               <background color="-5007154"/>
