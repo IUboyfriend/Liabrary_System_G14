@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UIClass.AdminOperation">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UIClass.Admin.AdminOperation">
   <grid id="27dc6" binding="JPMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="130" y="109" width="509" height="391"/>

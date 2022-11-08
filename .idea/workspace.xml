@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add the AdminLog interface">
-      <change afterPath="$PROJECT_DIR$/src/UIClass/BookManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/BookManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add the BookManagement interface">
+      <change beforePath="$PROJECT_DIR$/src/UIClass/AdminOperation.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/Admin/AdminOperation.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/AdminOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/Admin/AdminOperation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +72,7 @@
       <workItem from="1667727631582" duration="48000" />
       <workItem from="1667727791416" duration="26230000" />
       <workItem from="1667869586728" duration="60000" />
-      <workItem from="1667869738014" duration="2754000" />
+      <workItem from="1667869738014" duration="3063000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1667660900381</created>
@@ -125,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667842769115</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add the BookManagement interface">
+      <created>1667872763034</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667872763034</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +155,8 @@
     <MESSAGE value="delete the login.java" />
     <MESSAGE value="add the userManagement interface" />
     <MESSAGE value="add the AdminLog interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="add the AdminLog interface" />
+    <MESSAGE value="add the BookManagement interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="add the BookManagement interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
