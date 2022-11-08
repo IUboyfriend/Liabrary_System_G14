@@ -21,6 +21,7 @@ public class NewUser {
     private JButton JBBack;
     private JButton JBsubmit;
 
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("NewUser");
         frame.setContentPane(new NewUser().panel1);

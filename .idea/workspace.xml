@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add New user interface">
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/UserOperation.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/UserOperation.java" afterDir="false" />
+    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add User Operation interface">
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookBorrow.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookBorrow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/User/NewUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +48,7 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "229",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/class/大三上/COMP2411/intellij/Liabrary_System_G14",
+    "last_opened_file_path": "E:/class/大三上/COMP2411/intellij/Liabrary_System_G14/src/UIClass/User",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -56,6 +61,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\class\大三上\COMP2411\intellij\Liabrary_System_G14\src\UIClass\User" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\class\大三上\COMP2411\intellij\Liabrary_System_G14\src\UIClass" />
       <recent name="E:\class\大三上\COMP2411\intellij\Liabrary_System_G14\src\UIClass\Admin" />
@@ -76,7 +84,7 @@
       <workItem from="1667727631582" duration="48000" />
       <workItem from="1667727791416" duration="26230000" />
       <workItem from="1667869586728" duration="60000" />
-      <workItem from="1667869738014" duration="5692000" />
+      <workItem from="1667869738014" duration="9927000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1667660900381</created>
@@ -148,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667874441726</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add User Operation interface">
+      <created>1667875749568</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667875749568</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +191,8 @@
     <MESSAGE value="add the BookManagement interface" />
     <MESSAGE value="Finish admin interfaces" />
     <MESSAGE value="add New user interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="add New user interface" />
+    <MESSAGE value="add User Operation interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="add User Operation interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
