@@ -10,13 +10,14 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="a70c3" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="a70c3" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="20" left="20" bottom="20" right="20"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-7086643"/>
+          <foreground color="-460552"/>
         </properties>
         <border type="bevel-lowered"/>
         <children>
@@ -92,37 +93,19 @@
             </constraints>
             <properties/>
           </component>
-          <component id="cc53f" class="javax.swing.JLabel" binding="JLCategory">
+          <component id="c75d5" class="javax.swing.JLabel" binding="JLLocation">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="16"/>
-              <foreground color="-592138"/>
-              <text value="Category"/>
-            </properties>
-          </component>
-          <component id="cd5d4" class="javax.swing.JTextField" binding="TFCategory">
-            <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="c75d5" class="javax.swing.JLabel" binding="JLLocation">
-            <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="16"/>
-              <foreground color="-855310"/>
+              <foreground color="-460552"/>
               <text value="Location"/>
             </properties>
           </component>
           <component id="73f5e" class="javax.swing.JTextField" binding="TFLocation">
             <constraints>
-              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
