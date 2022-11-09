@@ -19,14 +19,14 @@ public class OracleDB {
             session.setPassword("Xunini19730611");
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
-            int assigned_port = session.setPortForwardingL(61522,"studora.comp.polyu.edu.hk",1521);
+            int assigned_port = session.setPortForwardingL(61523,"studora.comp.polyu.edu.hk",1521);
 
             // Connection
             try {
                 String username = "\"20084595d\"";
                 String pwd = "vkzabmqa";
                 DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-                String url = "jdbc:oracle:thin:@localhost:61522/dbms";
+                String url = "jdbc:oracle:thin:@localhost:61523/dbms";
                 conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
 
             } catch (Exception e) {
