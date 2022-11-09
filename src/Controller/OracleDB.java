@@ -12,25 +12,26 @@ public class OracleDB {
     private OracleConnection conn;
     private ResultSet rset;
     private Statement stmt;
+    private Session session;
     public OracleDB(){
         JSch jSch = new JSch();
         try {
-            Session session = jSch.getSession("20084595d", "csdoor.comp.polyu.edu.hk", 22);
+            session = jSch.getSession("20084595d", "csdoor.comp.polyu.edu.hk", 22);
             session.setPassword("Xunini19730611");
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
-            int assigned_port = session.setPortForwardingL(61523,"studora.comp.polyu.edu.hk",1521);
+            int assigned_port = session.setPortForwardingL(61522,"studora.comp.polyu.edu.hk",1521);
 
             // Connection
             try {
                 String username = "\"20084595d\"";
                 String pwd = "vkzabmqa";
                 DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-                String url = "jdbc:oracle:thin:@localhost:61523/dbms";
+                String url = "jdbc:oracle:thin:@localhost:61522/dbms";
                 conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
 
             } catch (Exception e) {
-                System.out.println("Error");
+                System.out.println("Error:" +e.getMessage());
             }
 
         } catch (JSchException e) {
@@ -51,6 +52,8 @@ public class OracleDB {
         if (rset!=null) rset.close();
         if (stmt!=null) stmt.close();
         if (conn!=null) conn.close();
+        session.disconnect();
+
     }
 
 

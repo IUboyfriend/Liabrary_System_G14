@@ -7,7 +7,11 @@ public class BookController {
 
     public static void searchAll(String searchText) throws SQLException {
         Controller.OracleDB oracleDB = new Controller.OracleDB();
-        ResultSet rset = oracleDB.executeQuery("SELECT * FROM BOOK");
+        String query = "SELECT * FROM BOOK WHERE \"BookName\" LIKE '%" + searchText + "%'" +
+                "OR \"Author\" LIKE '%" + searchText + "%'" +
+                "OR \"Category\" LIKE '%" + searchText + "%'"+
+                "OR \"Publisher\" LIKE '%" + searchText + "%'";
+        ResultSet rset = oracleDB.executeQuery(query);
         while (rset.next()) {
             System.out.println(rset.getInt(1)
                     + " " + rset.getString(2)
