@@ -1,6 +1,8 @@
 package View.User;
 
 import Controller.BookController;
+import Controller.OracleDB;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -8,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.print.Book;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SearchBook {
@@ -32,31 +36,47 @@ public class SearchBook {
         JBSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                OracleDB oracleDB = new OracleDB();
                 String searchText = TFSearchBar.getText();
-                if(selectedItem.equals("All")){
+                if (searchText.equals(""))
+                    JOptionPane.showMessageDialog(null, "Please type something in the search bar!");
+                else if (selectedItem.equals("All")) {
                     try {
-                        BookController.searchAll(searchText);
+                        ResultSet rset = BookController.searchAll(searchText, oracleDB);
+                        if (!rset.next())
+                            JOptionPane.showMessageDialog(null, "No records are found!");
+                        else {
+                            String[] row = {"1", "2", "3", "4"};
+                            model.addRow(row);
+                        }
+
+
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
-
-                }else if(selectedItem.equals("Name")){
-
-                }else if(selectedItem.equals("Publisher")){
-
-
-                }else if(selectedItem.equals("Author")){
-
-                }else if(selectedItem.equals("Category")){
-
+                } else {
+                    try {
+                        ResultSet rset = BookController.searchOneField(searchText, selectedItem, oracleDB);
+                        if (!rset.next())
+                            JOptionPane.showMessageDialog(null, "No records are found!");
+                        else
+                            System.out.println(123);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
 
+                try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         ComboBoxOption.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if(ItemEvent.SELECTED == e.getStateChange()){
+                if (ItemEvent.SELECTED == e.getStateChange()) {
                     selectedItem = e.getItem().toString();
                 }
             }
