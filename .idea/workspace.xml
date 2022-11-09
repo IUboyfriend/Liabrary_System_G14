@@ -2,11 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="add Search Book interface">
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/BookInformation.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIClass/User/BookInformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/NewUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OracleDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/BookManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/Admin/BookManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/BookManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIClass/Admin/BookManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/AdminOperation.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/AdminOperation.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/AdminOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/AdminOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/BookManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/BookManagement.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/BookManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/BookManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/Log.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/Log.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/UserManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/UserManagement.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Admin/UserManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/UserManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Initial.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Initial.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/Initial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Initial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/BookInformation.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/BookInformation.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/BookInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/BookInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookBorrow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookBorrow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookBorrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookBorrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookDesired.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookDesired.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookDesired.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookReserve.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/MyBookReserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookReserve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/NewUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/NewUser.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/NewUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/SearchBook.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/SearchBook.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/SearchBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/SearchBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/UserOperation.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/UserOperation.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIClass/User/UserOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/UserOperation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +47,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -36,27 +59,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "246",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "229",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/class/大三上/COMP2411/intellij/Liabrary_System_G14/src/UIClass/User",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propGUI"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;246&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;397&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/class/大三上/COMP2411-project-main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\class\大三上\COMP2411\intellij\Liabrary_System_G14\src\UIClass\User" />
@@ -82,6 +105,7 @@
       <workItem from="1667727791416" duration="26230000" />
       <workItem from="1667869586728" duration="60000" />
       <workItem from="1667869738014" duration="13661000" />
+      <workItem from="1667925641152" duration="10428000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1667660900381</created>

@@ -1,9 +1,13 @@
-package UIClass.User;
+package View.User;
+
+import Controller.NewUserController;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Locale;
 
 public class NewUser {
@@ -20,9 +24,56 @@ public class NewUser {
     private JLabel JLEmail;
     private JButton JBBack;
     private JButton JBsubmit;
+    private JPasswordField passwordField1;
+    private JPasswordField passwordField2;
 
+    private String userID;
+    private String nickName;
+    private String password;
+    private String password2;
+    private String Email;
+
+
+    public NewUser() {
+        JBsubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                userID = JTUserID.getText();
+                nickName = JTNickName.getText();
+                password = String.valueOf(passwordField1.getPassword());
+                password2 = String.valueOf(passwordField2.getPassword());
+                System.out.print(password);
+                System.out.println(password2);
+                Email = JTEmail.getText();
+                String message = checkEmpty();
+                if (!message.equals("")) {
+                    JOptionPane.showMessageDialog(null, message);
+                } else if (!password.equals(password2)) {
+                    JOptionPane.showMessageDialog(null, "The two passwords you entered were inconsistent");
+                } else {
+                    NewUserController newUserController = new NewUserController(userID,nickName,password,Email);
+                }
+            }
+        });
+    }
+
+
+    private String checkEmpty() {
+        if (userID.equals(""))
+            return "Your user ID cannot be empty!";
+        if (nickName.equals(""))
+            return "Your nick name cannot be empty!";
+        if (password.equals(""))
+            return "Your password connot be empty!";
+        if (password2.equals(""))
+            return "Please input your password again!";
+        if (Email.equals(""))
+            return "Your Email cannot be empty!";
+        return "";
+    }
 
     public static void main(String[] args) {
+        Locale.setDefault(new Locale("USA"));
         JFrame frame = new JFrame("NewUser");
         frame.setContentPane(new NewUser().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +118,7 @@ public class NewUser {
         Font JLNickNameFont = this.$$$getFont$$$(null, -1, 16, JLNickName.getFont());
         if (JLNickNameFont != null) JLNickName.setFont(JLNickNameFont);
         JLNickName.setForeground(new Color(-394759));
-        JLNickName.setText("NickName");
+        JLNickName.setText("Nick Name");
         panel2.add(JLNickName, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JTNickName = new JTextField();
         panel2.add(JTNickName, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(150, -1), null, 0, false));
@@ -77,16 +128,12 @@ public class NewUser {
         JLPassword.setForeground(new Color(-657931));
         JLPassword.setText("Password");
         panel2.add(JLPassword, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        JTPassword = new JTextField();
-        panel2.add(JTPassword, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(150, -1), null, 0, false));
         JLPasswordConfirm = new JLabel();
         Font JLPasswordConfirmFont = this.$$$getFont$$$(null, -1, 16, JLPasswordConfirm.getFont());
         if (JLPasswordConfirmFont != null) JLPasswordConfirm.setFont(JLPasswordConfirmFont);
         JLPasswordConfirm.setForeground(new Color(-526345));
         JLPasswordConfirm.setText("Password Confirm");
         panel2.add(JLPasswordConfirm, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        JTPassword2 = new JTextField();
-        panel2.add(JTPassword2, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(150, -1), null, 0, false));
         JLEmail = new JLabel();
         Font JLEmailFont = this.$$$getFont$$$(null, -1, 16, JLEmail.getFont());
         if (JLEmailFont != null) JLEmail.setFont(JLEmailFont);
@@ -95,6 +142,10 @@ public class NewUser {
         panel2.add(JLEmail, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JTEmail = new JTextField();
         panel2.add(JTEmail, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(150, -1), null, 0, false));
+        passwordField1 = new JPasswordField();
+        panel2.add(passwordField1, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        passwordField2 = new JPasswordField();
+        panel2.add(passwordField2, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 40, 5));
         panel3.setBackground(new Color(-6828067));

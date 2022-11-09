@@ -1,4 +1,4 @@
-package UIClass.User;
+package View.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

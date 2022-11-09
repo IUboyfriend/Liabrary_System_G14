@@ -1,4 +1,4 @@
-package UIClass.User;
+package View.Admin;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -7,22 +7,21 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.util.Locale;
 
-public class UserOperation {
-    private JPanel JPHead;
-    private JLabel JLWelcomeUser;
-    private JButton JBLogout;
-    private JPanel JPButtons;
-    private JButton JBMyBook;
-    private JButton JBSearch;
-    private JLabel JTVIP;
-    private JPanel JPVIP;
+public class AdminOperation {
     private JPanel JPMain;
+    private JButton JButtonLogout;
+    private JLabel JLabelWelcomeAdmin;
+    private JPanel JPHead;
+    private JPanel JPButtons;
+    private JButton JBUser;
+    private JButton JBLog;
+    private JButton bookManagementButton;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("UserOperation");
-        frame.setContentPane(new UserOperation().JPMain);
+        JFrame frame = new JFrame("AdminOperation");
+        frame.setContentPane(new AdminOperation().JPMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 160);
+        frame.setSize(500, 130);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
@@ -39,67 +38,71 @@ public class UserOperation {
      * >>> IMPORTANT!! <<<
      * DO NOT edit this method OR call it in your code!
      *
+     *
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
         JPMain = new JPanel();
         JPMain.setLayout(new BorderLayout(0, 0));
+        JPMain.setBackground(new Color(-11373958));
+        Font JPMainFont = this.$$$getFont$$$("Arial Black", -1, 20, JPMain.getFont());
+        if (JPMainFont != null) JPMain.setFont(JPMainFont);
+        JPMain.setToolTipText("123");
         JPHead = new JPanel();
         JPHead.setLayout(new GridBagLayout());
         JPHead.setBackground(new Color(-7086643));
         JPMain.add(JPHead, BorderLayout.NORTH);
         JPHead.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, new Color(-4473925)));
-        JLWelcomeUser = new JLabel();
-        Font JLWelcomeUserFont = this.$$$getFont$$$("Arial Black", -1, 20, JLWelcomeUser.getFont());
-        if (JLWelcomeUserFont != null) JLWelcomeUser.setFont(JLWelcomeUserFont);
-        JLWelcomeUser.setForeground(new Color(-394759));
-        JLWelcomeUser.setText("Welcome, Jay!");
+        JLabelWelcomeAdmin = new JLabel();
+        Font JLabelWelcomeAdminFont = this.$$$getFont$$$("Arial Black", -1, 20, JLabelWelcomeAdmin.getFont());
+        if (JLabelWelcomeAdminFont != null) JLabelWelcomeAdmin.setFont(JLabelWelcomeAdminFont);
+        JLabelWelcomeAdmin.setForeground(new Color(-394759));
+        JLabelWelcomeAdmin.setText("Welcome, Jay!");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 0, 5, 150);
-        JPHead.add(JLWelcomeUser, gbc);
-        JBLogout = new JButton();
-        JBLogout.setEnabled(true);
-        Font JBLogoutFont = this.$$$getFont$$$("Arial", -1, 12, JBLogout.getFont());
-        if (JBLogoutFont != null) JBLogout.setFont(JBLogoutFont);
-        JBLogout.setForeground(new Color(-9737365));
-        JBLogout.setHorizontalTextPosition(11);
-        JBLogout.setText("Logout");
+        JPHead.add(JLabelWelcomeAdmin, gbc);
+        JButtonLogout = new JButton();
+        JButtonLogout.setEnabled(true);
+        Font JButtonLogoutFont = this.$$$getFont$$$("Arial", -1, 12, JButtonLogout.getFont());
+        if (JButtonLogoutFont != null) JButtonLogout.setFont(JButtonLogoutFont);
+        JButtonLogout.setForeground(new Color(-9737365));
+        JButtonLogout.setHorizontalTextPosition(11);
+        JButtonLogout.setText("Logout");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 0, 5, 0);
-        JPHead.add(JBLogout, gbc);
+        JPHead.add(JButtonLogout, gbc);
         JPButtons = new JPanel();
-        JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
+        JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JPButtons.setBackground(new Color(-6828067));
         JPButtons.setForeground(new Color(-6828067));
-        JPMain.add(JPButtons, BorderLayout.SOUTH);
+        JPMain.add(JPButtons, BorderLayout.CENTER);
         JPButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
-        JBMyBook = new JButton();
-        JBMyBook.setActionCommand("");
-        JBMyBook.setAutoscrolls(false);
-        JBMyBook.setBackground(new Color(-9017150));
-        JBMyBook.setEnabled(true);
-        JBMyBook.setForeground(new Color(-1907998));
-        JBMyBook.setText("My Book");
-        JPButtons.add(JBMyBook);
-        JBSearch = new JButton();
-        JBSearch.setBackground(new Color(-15022631));
-        JBSearch.setForeground(new Color(-789517));
-        JBSearch.setText("Search Book");
-        JPButtons.add(JBSearch);
-        JPVIP = new JPanel();
-        JPVIP.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        JPVIP.setBackground(new Color(-6647090));
-        JPMain.add(JPVIP, BorderLayout.CENTER);
-        JTVIP = new JLabel();
-        JTVIP.setText("Your VIP score is 20. You are now our VIP user.");
-        JPVIP.add(JTVIP);
+        JBUser = new JButton();
+        JBUser.setActionCommand("");
+        JBUser.setAutoscrolls(false);
+        JBUser.setBackground(new Color(-9017150));
+        JBUser.setEnabled(true);
+        JBUser.setForeground(new Color(-1907998));
+        JBUser.setText("User Management");
+        JPButtons.add(JBUser);
+        JBLog = new JButton();
+        JBLog.setBackground(new Color(-15022631));
+        JBLog.setForeground(new Color(-789517));
+        JBLog.setText("Admin Log System");
+        JPButtons.add(JBLog);
+        bookManagementButton = new JButton();
+        bookManagementButton.setActionCommand("JBBook");
+        bookManagementButton.setBackground(new Color(-13345850));
+        bookManagementButton.setForeground(new Color(-789517));
+        bookManagementButton.setText("Book Management");
+        JPButtons.add(bookManagementButton);
     }
 
     /**
@@ -130,4 +133,5 @@ public class UserOperation {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }

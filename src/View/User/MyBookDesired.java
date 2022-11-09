@@ -1,34 +1,34 @@
-package UIClass.User;
+package View.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class MyBookBorrow {
-    private JPanel JPMain;
-    private JTable JTableBorrow;
+public class MyBookDesired {
+    private JPanel JPButtons1;
     private JButton JBBorrow;
     private JButton JBReservings;
     private JButton JBDesire;
-    private JButton JBReturn;
-    private JButton JBBack;
-    private JPanel JPButtons1;
     private JPanel JPButton2;
+    private JButton JBCancel;
+    private JButton JBBack;
     private JPanel JPTable;
+    private JTable JTableDesire;
+    private JPanel JPMain;
 
-    public MyBookBorrow() {
-        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Borrow time", "Expected Return time"};
+    public MyBookDesired() {
+        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
-        JTableBorrow.setModel(model);
-        JScrollPane s = new JScrollPane(JTableBorrow);
+        JTableDesire.setModel(model);
+        JScrollPane s = new JScrollPane(JTableDesire);
         JPTable.add(s, BorderLayout.CENTER);
 
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("MyBookBorrow");
-        frame.setContentPane(new MyBookBorrow().JPMain);
+        JFrame frame = new JFrame("MyBookDesired");
+        frame.setContentPane(new MyBookDesired().JPMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
@@ -53,23 +53,26 @@ public class MyBookBorrow {
         JPMain = new JPanel();
         JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
         JPMain.setBackground(new Color(-8806227));
+        JPMain.setForeground(new Color(-8806227));
         JPButtons1 = new JPanel();
         JPButtons1.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 15));
         JPButtons1.setBackground(new Color(-7086643));
         JPMain.add(JPButtons1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         JBBorrow = new JButton();
-        JBBorrow.setBackground(new Color(-9866386));
-        JBBorrow.setEnabled(false);
-        JBBorrow.setForeground(new Color(-16053493));
+        JBBorrow.setBackground(new Color(-2976583));
+        JBBorrow.setEnabled(true);
+        JBBorrow.setForeground(new Color(-328966));
         JBBorrow.setText("Borrowings");
         JPButtons1.add(JBBorrow);
         JBReservings = new JButton();
         JBReservings.setBackground(new Color(-15022631));
+        JBReservings.setEnabled(true);
         JBReservings.setForeground(new Color(-328966));
         JBReservings.setText("Reservings");
         JPButtons1.add(JBReservings);
         JBDesire = new JButton();
-        JBDesire.setBackground(new Color(-13345850));
+        JBDesire.setBackground(new Color(-9866386));
+        JBDesire.setEnabled(false);
         JBDesire.setForeground(new Color(-789517));
         JBDesire.setText("Desirings");
         JPButtons1.add(JBDesire);
@@ -77,19 +80,19 @@ public class MyBookBorrow {
         JPButton2.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
         JPButton2.setBackground(new Color(-6828067));
         JPMain.add(JPButton2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        JBReturn = new JButton();
-        JBReturn.setText("Return Book");
-        JPButton2.add(JBReturn);
+        JBCancel = new JButton();
+        JBCancel.setText("Cancel Desirings");
+        JPButton2.add(JBCancel);
         JBBack = new JButton();
         JBBack.setText("Back");
         JPButton2.add(JBBack);
         JPTable = new JPanel();
         JPTable.setLayout(new BorderLayout(0, 0));
         JPMain.add(JPTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        JTableBorrow = new JTable();
-        JTableBorrow.setBackground(new Color(-5007154));
-        JTableBorrow.setForeground(new Color(-16777216));
-        JPTable.add(JTableBorrow, BorderLayout.CENTER);
+        JTableDesire = new JTable();
+        JTableDesire.setBackground(new Color(-5007154));
+        JTableDesire.setForeground(new Color(-16777216));
+        JPTable.add(JTableDesire, BorderLayout.CENTER);
     }
 
     /**

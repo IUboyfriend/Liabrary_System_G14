@@ -1,10 +1,10 @@
-package UIClass.User;
+package View.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class MyBookDesired {
+public class MyBookReserve {
     private JPanel JPButtons1;
     private JButton JBBorrow;
     private JButton JBReservings;
@@ -13,22 +13,22 @@ public class MyBookDesired {
     private JButton JBCancel;
     private JButton JBBack;
     private JPanel JPTable;
-    private JTable JTableDesire;
+    private JTable JTableReserve;
     private JPanel JPMain;
 
-    public MyBookDesired() {
-        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available"};
+
+    public MyBookReserve() {
+        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Reserve time", "Expected Pick-up time"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
-        JTableDesire.setModel(model);
-        JScrollPane s = new JScrollPane(JTableDesire);
+        JTableReserve.setModel(model);
+        JScrollPane s = new JScrollPane(JTableReserve);
         JPTable.add(s, BorderLayout.CENTER);
-
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("MyBookDesired");
-        frame.setContentPane(new MyBookDesired().JPMain);
+        JFrame frame = new JFrame("MyBookReserve");
+        frame.setContentPane(new MyBookReserve().JPMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
@@ -53,7 +53,6 @@ public class MyBookDesired {
         JPMain = new JPanel();
         JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
         JPMain.setBackground(new Color(-8806227));
-        JPMain.setForeground(new Color(-8806227));
         JPButtons1 = new JPanel();
         JPButtons1.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 15));
         JPButtons1.setBackground(new Color(-7086643));
@@ -65,14 +64,13 @@ public class MyBookDesired {
         JBBorrow.setText("Borrowings");
         JPButtons1.add(JBBorrow);
         JBReservings = new JButton();
-        JBReservings.setBackground(new Color(-15022631));
-        JBReservings.setEnabled(true);
+        JBReservings.setBackground(new Color(-9866386));
+        JBReservings.setEnabled(false);
         JBReservings.setForeground(new Color(-328966));
         JBReservings.setText("Reservings");
         JPButtons1.add(JBReservings);
         JBDesire = new JButton();
-        JBDesire.setBackground(new Color(-9866386));
-        JBDesire.setEnabled(false);
+        JBDesire.setBackground(new Color(-13345850));
         JBDesire.setForeground(new Color(-789517));
         JBDesire.setText("Desirings");
         JPButtons1.add(JBDesire);
@@ -81,7 +79,7 @@ public class MyBookDesired {
         JPButton2.setBackground(new Color(-6828067));
         JPMain.add(JPButton2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         JBCancel = new JButton();
-        JBCancel.setText("Cancel Desirings");
+        JBCancel.setText("Cancel Reservation");
         JPButton2.add(JBCancel);
         JBBack = new JButton();
         JBBack.setText("Back");
@@ -89,10 +87,10 @@ public class MyBookDesired {
         JPTable = new JPanel();
         JPTable.setLayout(new BorderLayout(0, 0));
         JPMain.add(JPTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        JTableDesire = new JTable();
-        JTableDesire.setBackground(new Color(-5007154));
-        JTableDesire.setForeground(new Color(-16777216));
-        JPTable.add(JTableDesire, BorderLayout.CENTER);
+        JTableReserve = new JTable();
+        JTableReserve.setBackground(new Color(-5007154));
+        JTableReserve.setForeground(new Color(-16777216));
+        JPTable.add(JTableReserve, BorderLayout.CENTER);
     }
 
     /**

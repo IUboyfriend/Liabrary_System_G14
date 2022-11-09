@@ -1,4 +1,4 @@
-package UIClass.Admin;
+package View.Admin;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;

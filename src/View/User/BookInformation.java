@@ -1,4 +1,4 @@
-package UIClass.User;
+package View.User;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -49,7 +49,7 @@ public class BookInformation {
         JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         JPMain.setBackground(new Color(-8806227));
         JPBookInformation = new JPanel();
-        JPBookInformation.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 2, new Insets(15, 0, 10, 0), 30, -1));
+        JPBookInformation.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 2, new Insets(15, 0, 15, 0), 30, -1));
         JPBookInformation.setBackground(new Color(-7086643));
         JPBookInformation.setForeground(new Color(-460552));
         JPMain.add(JPBookInformation, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
