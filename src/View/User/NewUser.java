@@ -51,7 +51,7 @@ public class NewUser {
                 } else if (!password.equals(password2)) {
                     JOptionPane.showMessageDialog(null, "The two passwords you entered were inconsistent");
                 } else {
-                    NewUserController newUserController = new NewUserController(userID,nickName,password,Email);
+                    NewUserController newUserController = new NewUserController();
                 }
             }
         });

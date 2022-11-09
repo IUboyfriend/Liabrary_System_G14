@@ -1,8 +1,14 @@
 package View.User;
 
+import Controller.BookController;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.sql.SQLException;
 
 public class SearchBook {
     private JComboBox ComboBoxOption;
@@ -14,6 +20,8 @@ public class SearchBook {
     private JButton JBBack;
     private JPanel JPMain;
 
+    private String selectedItem = "All";
+
     public SearchBook() {
         String[] titles = {"Book Name", "Publisher", "Author", "Category", "Location", "Available"};
         String[][] data = {};
@@ -21,6 +29,38 @@ public class SearchBook {
         JTableSearch.setModel(model);
         JScrollPane s = new JScrollPane(JTableSearch);
         JPTable.add(s, BorderLayout.CENTER);
+        JBSearch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String searchText = TFSearchBar.getText();
+                if(selectedItem.equals("All")){
+                    try {
+                        BookController.searchAll(searchText);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                }else if(selectedItem.equals("Name")){
+
+                }else if(selectedItem.equals("Publisher")){
+
+
+                }else if(selectedItem.equals("Author")){
+
+                }else if(selectedItem.equals("Category")){
+
+                }
+
+            }
+        });
+        ComboBoxOption.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(ItemEvent.SELECTED == e.getStateChange()){
+                    selectedItem = e.getItem().toString();
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
