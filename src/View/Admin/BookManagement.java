@@ -1,5 +1,8 @@
 package View.Admin;
 
+import Controller.BookManagementController;
+import Controller.OracleDB;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.plaf.FontUIResource;
@@ -7,6 +10,8 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class BookManagement {
@@ -36,6 +41,120 @@ public class BookManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new AdminOperation(frame).JPMain);
+            }
+        });
+        JBDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               String id= TFBookID.getText();
+               OracleDB oracleDB = new OracleDB();
+                if(id.equals("")){
+                    JOptionPane.showMessageDialog(null, "The book id can not be empty!");
+                }else{
+                    try {
+                        ResultSet all = BookManagementController.getall(id, oracleDB);
+                        if(!all.next()){
+                            JOptionPane.showMessageDialog(null, "No records are found!");
+                        }
+                        else{
+                            String author=all.getString( "Author" );
+                            TFAuthor.setText(author);
+                            String publisher=all.getString("Publisher");
+                            TFPublisher.setText(publisher);
+                            String category=all.getString("Category");
+                            TFCategory.setText(category);
+                            String name=all.getString("BookName");
+                            TFBookName.setText(name);
+                            BookManagementController.delete(id,oracleDB);
+                        }
+                    }catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                }
+                try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        JBUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id= TFBookID.getText();
+                OracleDB oracleDB = new OracleDB();
+                if(id.equals("")){
+                    JOptionPane.showMessageDialog(null, "The book id can not be empty!");
+                }else{
+                    try {
+                        ResultSet all = BookManagementController.getall(id, oracleDB);
+                        if(!all.next()){
+                            JOptionPane.showMessageDialog(null, "No records are found!");
+                        }
+                        else{
+                            String author=TFAuthor.getText();
+                            String publisher= TFPublisher.getText();
+                            String category = TFCategory.getText();
+                            String name= TFBookName.getText();
+                            if(author.equals("")||publisher.equals("")||category.equals("")||name.equals("")) {
+                                JOptionPane.showMessageDialog(null, "Missing book information");
+
+                            }else{
+                                BookManagementController.update(id, oracleDB,publisher,author,name,category);
+                            }
+                        }
+                    }catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                }
+                try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        JBAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id= TFBookID.getText();
+                OracleDB oracleDB = new OracleDB();
+                if(id.equals("")){
+                    JOptionPane.showMessageDialog(null, "The book id can not be empty!");
+                }else{
+                    try {
+                        ResultSet all = BookManagementController.getall(id, oracleDB);
+                        if(!all.next()){
+                            JOptionPane.showMessageDialog(null, "No records are found!");
+                        }
+                        else{
+                            String author=TFAuthor.getText();
+                            String publisher= TFPublisher.getText();
+                            String category = TFCategory.getText();
+                            String name= TFBookName.getText();
+                            if(author.equals("")||publisher.equals("")||category.equals("")||name.equals("")) {
+                                JOptionPane.showMessageDialog(null, "Missing book information");
+
+                            }else{
+                                try {
+                                    BookManagementController.add(id, oracleDB, publisher, author, name, category);
+                                }catch (SQLException ex) {
+                                    throw new RuntimeException(ex);
+                                }
+                            }
+                        }
+                    }catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                }
+                try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

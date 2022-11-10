@@ -1,11 +1,15 @@
 package View.Admin;
 
+import Controller.OracleDB;
+import Controller.UserMangementController;
+
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class UserManagement {
@@ -29,6 +33,50 @@ public class UserManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new AdminOperation(frame).JPMain);
+            }
+        });
+        JBActivate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               String id=JTUserID.getText();
+                OracleDB oracleDB = new OracleDB();
+            if(id.equals("")){
+                JOptionPane.showMessageDialog(null, "The user id can not be empty!");
+            }
+            else{
+                try{
+                    UserMangementController.activate(id,oracleDB);
+                }catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+                try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        JBDeactivate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id=JTUserID.getText();
+                OracleDB oracleDB = new OracleDB();
+                if(id.equals("")){
+                    JOptionPane.showMessageDialog(null, "The user id can not be empty!");
+                }
+                else{
+                    try{
+                        UserMangementController.deactivate(id,oracleDB);
+                    }catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
