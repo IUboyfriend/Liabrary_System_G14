@@ -4,10 +4,12 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Locale;
 
 public class UserManagement {
-    private JPanel Panel;
+    JPanel JPMain;
     private JLabel JLableUserID;
     private JButton JBActivate;
     private JButton JBDeactivate;
@@ -17,13 +19,23 @@ public class UserManagement {
     private JTextField JTUserID;
 
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("UserManagement");
-        frame.setContentPane(new UserManagement().Panel);
+    public UserManagement(JFrame frame) {
+        frame.setTitle("UserManagement");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setSize(350, 120);
         frame.setVisible(true);
+        JBBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new AdminOperation(frame).JPMain);
+            }
+        });
+    }
+
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 
     {
@@ -41,12 +53,12 @@ public class UserManagement {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        Panel = new JPanel();
-        Panel.setLayout(new BorderLayout(0, 0));
+        JPMain = new JPanel();
+        JPMain.setLayout(new BorderLayout(0, 0));
         JPInput = new JPanel();
         JPInput.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 5, new Insets(10, 0, 10, 0), -1, -1));
         JPInput.setBackground(new Color(-7086643));
-        Panel.add(JPInput, BorderLayout.NORTH);
+        JPMain.add(JPInput, BorderLayout.NORTH);
         JLableUserID = new JLabel();
         Font JLableUserIDFont = this.$$$getFont$$$(null, -1, 14, JLableUserID.getFont());
         if (JLableUserIDFont != null) JLableUserID.setFont(JLableUserIDFont);
@@ -63,7 +75,7 @@ public class UserManagement {
         JPButtons = new JPanel();
         JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 10));
         JPButtons.setBackground(new Color(-6828067));
-        Panel.add(JPButtons, BorderLayout.CENTER);
+        JPMain.add(JPButtons, BorderLayout.CENTER);
         JBActivate = new JButton();
         JBActivate.setBackground(new Color(-9017150));
         JBActivate.setText("Activate");
@@ -104,11 +116,6 @@ public class UserManagement {
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return Panel;
-    }
-
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+        return JPMain;
     }
 }
