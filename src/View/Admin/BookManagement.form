@@ -93,17 +93,17 @@
             </constraints>
             <properties/>
           </component>
-          <component id="c75d5" class="javax.swing.JLabel" binding="JLLocation">
+          <component id="c75d5" class="javax.swing.JLabel" binding="JLCategory">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="16"/>
               <foreground color="-460552"/>
-              <text value="Location"/>
+              <text value="Category"/>
             </properties>
           </component>
-          <component id="73f5e" class="javax.swing.JTextField" binding="TFLocation">
+          <component id="73f5e" class="javax.swing.JTextField" binding="TFCategory">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
