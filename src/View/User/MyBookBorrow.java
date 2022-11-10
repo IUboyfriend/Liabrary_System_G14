@@ -18,34 +18,72 @@ public class MyBookBorrow {
     private JPanel JPButton2;
     private JPanel JPTable;
 
+    private String[] titles;
+
+    private String[][] data;
+
+
     public MyBookBorrow(JFrame frame) {
 
-        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Borrow time", "Expected Return time"};
-        String[][] data = {};
+        titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Borrow time", "Expected Return time"};
+        data = new String[][]{};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableBorrow.setModel(model);
         JScrollPane s = new JScrollPane(JTableBorrow);
         JPTable.add(s, BorderLayout.CENTER);
-
-        frame.setTitle("MyBook Borrow");
+        JBBorrow.setEnabled(false);
+        JBDesire.setEnabled(true);
+        JBReservings.setEnabled(true);
+        frame.setTitle("My Borrowing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        JBBorrow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Borrow time", "Expected Return time"};
+                data = new String[][]{};
+                DefaultTableModel model = new DefaultTableModel(data, titles);
+                JTableBorrow.setModel(model);
+                JBBorrow.setEnabled(false);
+                JBDesire.setEnabled(true);
+                JBReservings.setEnabled(true);
+                frame.setTitle("My Borrowing");
+                JBReturn.setText("Return Book");
+
+            }
+        });
         JBReservings.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                frame.setContentPane(new MyBookReserve(frame).JPMain);
+                titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Reserve time", "Expected Pick-up time"};
+                data = new String[][]{};
+                DefaultTableModel model = new DefaultTableModel(data, titles);
+                JTableBorrow.setModel(model);
+                JBBorrow.setEnabled(true);
+                JBDesire.setEnabled(true);
+                JBReservings.setEnabled(false);
+                frame.setTitle("My Reserving");
+                JBReturn.setText("Cancel Reservation");
             }
         });
         JBDesire.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new MyBookDesired(frame).JPMain);
+                titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Available"};
+                data = new String[][]{};
+                DefaultTableModel model = new DefaultTableModel(data, titles);
+                JTableBorrow.setModel(model);
+                JBBorrow.setEnabled(true);
+                JBDesire.setEnabled(false);
+                JBReservings.setEnabled(true);
+                frame.setTitle("My Desiring");
+                JBReturn.setText("Cancel Desiring");
             }
         });
+
     }
 
 
@@ -72,9 +110,9 @@ public class MyBookBorrow {
         JPButtons1.setBackground(new Color(-7086643));
         JPMain.add(JPButtons1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         JBBorrow = new JButton();
-        JBBorrow.setBackground(new Color(-9866386));
+        JBBorrow.setBackground(new Color(-2976583));
         JBBorrow.setEnabled(true);
-        JBBorrow.setForeground(new Color(-16053493));
+        JBBorrow.setForeground(new Color(-328966));
         JBBorrow.setText("Borrowings");
         JPButtons1.add(JBBorrow);
         JBReservings = new JButton();

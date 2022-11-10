@@ -22,9 +22,9 @@
           <component id="dbb64" class="javax.swing.JButton" binding="JBBorrow">
             <constraints/>
             <properties>
-              <background color="-9866386"/>
+              <background color="-2976583"/>
               <enabled value="true"/>
-              <foreground color="-16053493"/>
+              <foreground color="-328966"/>
               <text value="Borrowings"/>
             </properties>
           </component>
