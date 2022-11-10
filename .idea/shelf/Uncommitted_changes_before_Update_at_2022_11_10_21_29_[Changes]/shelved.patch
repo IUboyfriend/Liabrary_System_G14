@@ -1,0 +1,376 @@
+Index: src/View/User/NewUser.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<form xmlns=\"http://www.intellij.com/uidesigner/form/\" version=\"1\" bind-to-class=\"View.User.NewUser\">\r\n  <grid id=\"27dc6\" binding=\"JPMain\" layout-manager=\"GridLayoutManager\" row-count=\"2\" column-count=\"1\" same-size-horizontally=\"false\" same-size-vertically=\"false\" hgap=\"-1\" vgap=\"-1\">\r\n    <margin top=\"0\" left=\"0\" bottom=\"0\" right=\"0\"/>\r\n    <constraints>\r\n      <xy x=\"20\" y=\"20\" width=\"500\" height=\"447\"/>\r\n    </constraints>\r\n    <properties>\r\n      <background color=\"-8806227\"/>\r\n    </properties>\r\n    <border type=\"none\"/>\r\n    <children>\r\n      <grid id=\"3f531\" layout-manager=\"GridLayoutManager\" row-count=\"5\" column-count=\"2\" same-size-horizontally=\"false\" same-size-vertically=\"false\" hgap=\"-1\" vgap=\"-1\">\r\n        <margin top=\"20\" left=\"20\" bottom=\"20\" right=\"20\"/>\r\n        <constraints>\r\n          <grid row=\"0\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"3\" hsize-policy=\"3\" anchor=\"0\" fill=\"3\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <background color=\"-7086643\"/>\r\n          <font size=\"16\"/>\r\n        </properties>\r\n        <border type=\"none\"/>\r\n        <children>\r\n          <component id=\"45adb\" class=\"javax.swing.JLabel\" binding=\"JLUserID\">\r\n            <constraints>\r\n              <grid row=\"0\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n            </constraints>\r\n            <properties>\r\n              <font size=\"16\"/>\r\n              <foreground color=\"-460552\"/>\r\n              <text value=\"User ID\"/>\r\n            </properties>\r\n          </component>\r\n          <component id=\"9b75e\" class=\"javax.swing.JTextField\" binding=\"JTUserID\">\r\n            <constraints>\r\n              <grid row=\"0\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"3\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\">\r\n                <preferred-size width=\"150\" height=\"-1\"/>\r\n              </grid>\r\n            </constraints>\r\n            <properties/>\r\n          </component>\r\n          <component id=\"c62f1\" class=\"javax.swing.JLabel\" binding=\"JLNickName\">\r\n            <constraints>\r\n              <grid row=\"1\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n            </constraints>\r\n            <properties>\r\n              <font size=\"16\"/>\r\n              <foreground color=\"-394759\"/>\r\n              <text value=\"Nick Name\"/>\r\n            </properties>\r\n          </component>\r\n          <component id=\"bef06\" class=\"javax.swing.JTextField\" binding=\"JTNickName\">\r\n            <constraints>\r\n              <grid row=\"1\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"3\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\">\r\n                <preferred-size width=\"150\" height=\"-1\"/>\r\n              </grid>\r\n            </constraints>\r\n            <properties/>\r\n          </component>\r\n          <component id=\"85845\" class=\"javax.swing.JLabel\" binding=\"JLPassword\">\r\n            <constraints>\r\n              <grid row=\"2\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n            </constraints>\r\n            <properties>\r\n              <font size=\"16\"/>\r\n              <foreground color=\"-657931\"/>\r\n              <text value=\"Password\"/>\r\n            </properties>\r\n          </component>\r\n          <component id=\"96715\" class=\"javax.swing.JLabel\" binding=\"JLPasswordConfirm\">\r\n            <constraints>\r\n              <grid row=\"3\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n            </constraints>\r\n            <properties>\r\n              <font size=\"16\"/>\r\n              <foreground color=\"-526345\"/>\r\n              <text value=\"Password Confirm\"/>\r\n            </properties>\r\n          </component>\r\n          <component id=\"3b003\" class=\"javax.swing.JLabel\" binding=\"JLEmail\">\r\n            <constraints>\r\n              <grid row=\"4\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n            </constraints>\r\n            <properties>\r\n              <font size=\"16\"/>\r\n              <foreground color=\"-394759\"/>\r\n              <text value=\"Email\"/>\r\n            </properties>\r\n          </component>\r\n          <component id=\"43e3d\" class=\"javax.swing.JTextField\" binding=\"JTEmail\">\r\n            <constraints>\r\n              <grid row=\"4\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"2\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\">\r\n                <preferred-size width=\"150\" height=\"-1\"/>\r\n              </grid>\r\n            </constraints>\r\n            <properties/>\r\n          </component>\r\n          <component id=\"f950c\" class=\"javax.swing.JPasswordField\" binding=\"passwordField1\" default-binding=\"true\">\r\n            <constraints>\r\n              <grid row=\"3\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\">\r\n                <preferred-size width=\"150\" height=\"-1\"/>\r\n              </grid>\r\n            </constraints>\r\n            <properties/>\r\n          </component>\r\n          <component id=\"7d4fc\" class=\"javax.swing.JPasswordField\" binding=\"passwordField2\" default-binding=\"true\">\r\n            <constraints>\r\n              <grid row=\"2\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\">\r\n                <preferred-size width=\"150\" height=\"-1\"/>\r\n              </grid>\r\n            </constraints>\r\n            <properties/>\r\n          </component>\r\n        </children>\r\n      </grid>\r\n      <grid id=\"92a73\" layout-manager=\"FlowLayout\" hgap=\"40\" vgap=\"5\" flow-align=\"1\">\r\n        <constraints>\r\n          <grid row=\"1\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"3\" hsize-policy=\"3\" anchor=\"0\" fill=\"3\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <background color=\"-6828067\"/>\r\n        </properties>\r\n        <border type=\"none\"/>\r\n        <children>\r\n          <component id=\"7b719\" class=\"javax.swing.JButton\" binding=\"JBsubmit\">\r\n            <constraints/>\r\n            <properties>\r\n              <background color=\"-9017150\"/>\r\n              <text value=\"Submit\"/>\r\n            </properties>\r\n          </component>\r\n          <component id=\"60a9\" class=\"javax.swing.JButton\" binding=\"JBBack\">\r\n            <constraints/>\r\n            <properties>\r\n              <background color=\"-15022631\"/>\r\n              <text value=\"Back\"/>\r\n            </properties>\r\n          </component>\r\n        </children>\r\n      </grid>\r\n    </children>\r\n  </grid>\r\n</form>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/View/User/NewUser.form b/src/View/User/NewUser.form
+--- a/src/View/User/NewUser.form	(revision 93b97b2119c2104d5bb17317e040b575518d56b5)
++++ b/src/View/User/NewUser.form	(date 1668080798733)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.User.NewUser">
+-  <grid id="27dc6" binding="JPMain" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+     <margin top="0" left="0" bottom="0" right="0"/>
+     <constraints>
+       <xy x="20" y="20" width="500" height="447"/>
+Index: src/View/User/MyBookReserve.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package View.User;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.table.DefaultTableModel;\r\nimport java.awt.*;\r\n\r\npublic class MyBookReserve {\r\n    private JPanel JPButtons1;\r\n    private JButton JBBorrow;\r\n    private JButton JBReservings;\r\n    private JButton JBDesire;\r\n    private JPanel JPButton2;\r\n    private JButton JBCancel;\r\n    private JButton JBBack;\r\n    private JPanel JPTable;\r\n    private JTable JTableReserve;\r\n    private JPanel JPMain;\r\n\r\n\r\n    public MyBookReserve() {\r\n        String[] titles = {\"Book Name\", \"Publisher\", \"Author\", \"Category\", \"Reserve time\", \"Expected Pick-up time\"};\r\n        String[][] data = {};\r\n        DefaultTableModel model = new DefaultTableModel(data, titles);\r\n        JTableReserve.setModel(model);\r\n        JScrollPane s = new JScrollPane(JTableReserve);\r\n        JPTable.add(s, BorderLayout.CENTER);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        JFrame frame = new JFrame(\"MyBookReserve\");\r\n        frame.setContentPane(new MyBookReserve().JPMain);\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setSize(900, 400);\r\n        frame.setLocationRelativeTo(null);\r\n        frame.setVisible(true);\r\n    }\r\n\r\n    {\r\n// GUI initializer generated by IntelliJ IDEA GUI Designer\r\n// >>> IMPORTANT!! <<<\r\n// DO NOT EDIT OR ADD ANY CODE HERE!\r\n        $$$setupUI$$$();\r\n    }\r\n\r\n    /**\r\n     * Method generated by IntelliJ IDEA GUI Designer\r\n     * >>> IMPORTANT!! <<<\r\n     * DO NOT edit this method OR call it in your code!\r\n     *\r\n     * @noinspection ALL\r\n     */\r\n    private void $$$setupUI$$$() {\r\n        JPMain = new JPanel();\r\n        JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));\r\n        JPMain.setBackground(new Color(-8806227));\r\n        JPButtons1 = new JPanel();\r\n        JPButtons1.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 15));\r\n        JPButtons1.setBackground(new Color(-7086643));\r\n        JPMain.add(JPButtons1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JBBorrow = new JButton();\r\n        JBBorrow.setBackground(new Color(-2976583));\r\n        JBBorrow.setEnabled(true);\r\n        JBBorrow.setForeground(new Color(-328966));\r\n        JBBorrow.setText(\"Borrowings\");\r\n        JPButtons1.add(JBBorrow);\r\n        JBReservings = new JButton();\r\n        JBReservings.setBackground(new Color(-9866386));\r\n        JBReservings.setEnabled(false);\r\n        JBReservings.setForeground(new Color(-328966));\r\n        JBReservings.setText(\"Reservings\");\r\n        JPButtons1.add(JBReservings);\r\n        JBDesire = new JButton();\r\n        JBDesire.setBackground(new Color(-13345850));\r\n        JBDesire.setForeground(new Color(-789517));\r\n        JBDesire.setText(\"Desirings\");\r\n        JPButtons1.add(JBDesire);\r\n        JPButton2 = new JPanel();\r\n        JPButton2.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));\r\n        JPButton2.setBackground(new Color(-6828067));\r\n        JPMain.add(JPButton2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JBCancel = new JButton();\r\n        JBCancel.setText(\"Cancel Reservation\");\r\n        JPButton2.add(JBCancel);\r\n        JBBack = new JButton();\r\n        JBBack.setText(\"Back\");\r\n        JPButton2.add(JBBack);\r\n        JPTable = new JPanel();\r\n        JPTable.setLayout(new BorderLayout(0, 0));\r\n        JPMain.add(JPTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JTableReserve = new JTable();\r\n        JTableReserve.setBackground(new Color(-5007154));\r\n        JTableReserve.setForeground(new Color(-16777216));\r\n        JPTable.add(JTableReserve, BorderLayout.CENTER);\r\n    }\r\n\r\n    /**\r\n     * @noinspection ALL\r\n     */\r\n    public JComponent $$$getRootComponent$$$() {\r\n        return JPMain;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/View/User/MyBookReserve.java b/src/View/User/MyBookReserve.java
+--- a/src/View/User/MyBookReserve.java	(revision 93b97b2119c2104d5bb17317e040b575518d56b5)
++++ b/src/View/User/MyBookReserve.java	(date 1668080360205)
+@@ -65,7 +65,7 @@
+         JPButtons1.add(JBBorrow);
+         JBReservings = new JButton();
+         JBReservings.setBackground(new Color(-9866386));
+-        JBReservings.setEnabled(false);
++        JBReservings.setEnabled(true);
+         JBReservings.setForeground(new Color(-328966));
+         JBReservings.setText("Reservings");
+         JPButtons1.add(JBReservings);
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" project-jdk-name=\"openjdk-19\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 93b97b2119c2104d5bb17317e040b575518d56b5)
++++ b/.idea/misc.xml	(date 1668053159379)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/View/Initial.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package View;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.border.TitledBorder;\r\nimport javax.swing.plaf.FontUIResource;\r\nimport javax.swing.text.StyleContext;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.util.Locale;\r\n\r\npublic class Initial {\r\n    private JPanel mainPanel;\r\n    private JButton userLoginButton;\r\n    private JButton adminLoginButton;\r\n    private JButton newUserButton;\r\n    private JTextField JTextFieldID;\r\n    private JPanel headerPanel;\r\n    private JLabel headerJLabel;\r\n    private JPanel JPContent;\r\n    private JPanel JPInput;\r\n    private JPanel JPButton;\r\n    private JPanel JP01;\r\n    private JPanel JP02;\r\n    private JLabel JLableID;\r\n    private JLabel JLablePassword;\r\n    private JPasswordField JPasswordFieldPassword;\r\n\r\n    public static void main(String[] args) {\r\n        JFrame frame = new JFrame(\"Admin\");\r\n        frame.setContentPane(new Initial().mainPanel);\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setSize(520, 320);\r\n        frame.setLocationRelativeTo(null);\r\n        frame.setVisible(true);\r\n    }\r\n\r\n    public Initial() {\r\n        userLoginButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                System.out.println(123123);\r\n            }\r\n        });\r\n    }\r\n\r\n    {\r\n// GUI initializer generated by IntelliJ IDEA GUI Designer\r\n// >>> IMPORTANT!! <<<\r\n// DO NOT EDIT OR ADD ANY CODE HERE!\r\n        $$$setupUI$$$();\r\n    }\r\n\r\n    /**\r\n     * Method generated by IntelliJ IDEA GUI Designer\r\n     * >>> IMPORTANT!! <<<\r\n     * DO NOT edit this method OR call it in your code!\r\n     *\r\n     * @noinspection ALL\r\n     */\r\n    private void $$$setupUI$$$() {\r\n        mainPanel = new JPanel();\r\n        mainPanel.setLayout(new BorderLayout(0, 0));\r\n        mainPanel.setBackground(new Color(-8806227));\r\n        mainPanel.setForeground(new Color(-8806227));\r\n        headerPanel = new JPanel();\r\n        headerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));\r\n        headerPanel.setBackground(new Color(-7086643));\r\n        mainPanel.add(headerPanel, BorderLayout.NORTH);\r\n        headerPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));\r\n        headerJLabel = new JLabel();\r\n        Font headerJLabelFont = this.$$$getFont$$$(\"Arial Black\", -1, 26, headerJLabel.getFont());\r\n        if (headerJLabelFont != null) headerJLabel.setFont(headerJLabelFont);\r\n        headerJLabel.setForeground(new Color(-394759));\r\n        headerJLabel.setHorizontalAlignment(10);\r\n        headerJLabel.setText(\"Library Management System\");\r\n        headerPanel.add(headerJLabel);\r\n        JPContent = new JPanel();\r\n        JPContent.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));\r\n        JPContent.setBackground(new Color(-10586488));\r\n        mainPanel.add(JPContent, BorderLayout.CENTER);\r\n        JPContent.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));\r\n        JPInput = new JPanel();\r\n        JPInput.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(25, 0, 25, 0), -1, -1));\r\n        JPInput.setBackground(new Color(-6828067));\r\n        JPContent.add(JPInput, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JP01 = new JPanel();\r\n        JP01.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), 10, 10));\r\n        JP01.setBackground(new Color(-6828067));\r\n        JPInput.add(JP01, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JTextFieldID = new JTextField();\r\n        JP01.add(JTextFieldID, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));\r\n        JLableID = new JLabel();\r\n        Font JLableIDFont = this.$$$getFont$$$(null, -1, 18, JLableID.getFont());\r\n        if (JLableIDFont != null) JLableID.setFont(JLableIDFont);\r\n        JLableID.setText(\"User ID:    \");\r\n        JP01.add(JLableID, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));\r\n        JP02 = new JPanel();\r\n        JP02.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(22, 0, 0, 0), 10, 10));\r\n        JP02.setBackground(new Color(-6828067));\r\n        JPInput.add(JP02, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JLablePassword = new JLabel();\r\n        Font JLablePasswordFont = this.$$$getFont$$$(null, -1, 18, JLablePassword.getFont());\r\n        if (JLablePasswordFont != null) JLablePassword.setFont(JLablePasswordFont);\r\n        JLablePassword.setText(\"Password:\");\r\n        JP02.add(JLablePassword, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));\r\n        JPasswordFieldPassword = new JPasswordField();\r\n        JP02.add(JPasswordFieldPassword, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));\r\n        JPButton = new JPanel();\r\n        JPButton.setLayout(new BorderLayout(0, 0));\r\n        JPButton.setBackground(new Color(-10982490));\r\n        JPContent.add(JPButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, new Dimension(0, 35), null, 0, false));\r\n        userLoginButton = new JButton();\r\n        userLoginButton.setEnabled(true);\r\n        userLoginButton.setForeground(new Color(-6796613));\r\n        userLoginButton.setText(\"User Login\");\r\n        JPButton.add(userLoginButton, BorderLayout.WEST);\r\n        newUserButton = new JButton();\r\n        newUserButton.setForeground(new Color(-4498354));\r\n        newUserButton.setText(\"New User\");\r\n        JPButton.add(newUserButton, BorderLayout.CENTER);\r\n        adminLoginButton = new JButton();\r\n        adminLoginButton.setForeground(new Color(-14435416));\r\n        adminLoginButton.setText(\"Admin Login\");\r\n        JPButton.add(adminLoginButton, BorderLayout.EAST);\r\n    }\r\n\r\n    /**\r\n     * @noinspection ALL\r\n     */\r\n    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {\r\n        if (currentFont == null) return null;\r\n        String resultName;\r\n        if (fontName == null) {\r\n            resultName = currentFont.getName();\r\n        } else {\r\n            Font testFont = new Font(fontName, Font.PLAIN, 10);\r\n            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {\r\n                resultName = fontName;\r\n            } else {\r\n                resultName = currentFont.getName();\r\n            }\r\n        }\r\n        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());\r\n        boolean isMac = System.getProperty(\"os.name\", \"\").toLowerCase(Locale.ENGLISH).startsWith(\"mac\");\r\n        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());\r\n        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);\r\n    }\r\n\r\n    /**\r\n     * @noinspection ALL\r\n     */\r\n    public JComponent $$$getRootComponent$$$() {\r\n        return mainPanel;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/View/Initial.java b/src/View/Initial.java
+--- a/src/View/Initial.java	(revision 93b97b2119c2104d5bb17317e040b575518d56b5)
++++ b/src/View/Initial.java	(date 1668057744766)
+@@ -44,6 +44,10 @@
+         });
+     }
+ 
++    public JPanel getp() {
++        return mainPanel;
++    }
++
+     {
+ // GUI initializer generated by IntelliJ IDEA GUI Designer
+ // >>> IMPORTANT!! <<<
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"79ba2107-f1e3-4a2c-9066-06c5251c5a69\" name=\"Changes\" comment=\"11/8/ ZRY\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Controller/BookManagementController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Controller/UserMangementController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/OracleClass/AdminAccount.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/OracleClass/Adminbook.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/testing.form\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/testing.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/Admin/AdminOperation.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/Admin/AdminOperation.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/Admin/BookManagement.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/Admin/BookManagement.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/Admin/Log.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/Admin/Log.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/Admin/UserManagement.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/Admin/UserManagement.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/Initial.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/Initial.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/User/MyBookBorrow.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/User/MyBookBorrow.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/User/MyBookReserve.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/User/MyBookReserve.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/User/NewUser.form\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/User/NewUser.form\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"package-info\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2H8H1fEKgrv0lD2MagqscoIS9QI\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;246&quot;,\r\n    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,\r\n    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;229&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;E:/class/大三上/COMP2411/intellij/Liabrary_System_G14/src/UIClass/User&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;oracle&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\class\\大三上\\COMP2411\\intellij\\Liabrary_System_G14\\src\\UIClass\\User\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\class\\大三上\\COMP2411\\intellij\\Liabrary_System_G14\\src\\UIClass\" />\r\n      <recent name=\"E:\\class\\大三上\\COMP2411\\intellij\\Liabrary_System_G14\\src\\UIClass\\Admin\" />\r\n      <recent name=\"E:\\class\\thirdYear_first\\COMP2411\\intellij\\Liabrary_System_G14\\library\" />\r\n      <recent name=\"E:\\class\\thirdYear_first\\COMP2411\\intellij\\Liabrary_System_G14\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"79ba2107-f1e3-4a2c-9066-06c5251c5a69\" name=\"Changes\" comment=\"\" />\r\n      <created>1667659578128</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667659578128</updated>\r\n      <workItem from=\"1667659579330\" duration=\"217000\" />\r\n      <workItem from=\"1667659891250\" duration=\"29417000\" />\r\n      <workItem from=\"1667727631582\" duration=\"48000\" />\r\n      <workItem from=\"1667727791416\" duration=\"26230000\" />\r\n      <workItem from=\"1667869586728\" duration=\"60000\" />\r\n      <workItem from=\"1667869738014\" duration=\"13661000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"123\">\r\n      <created>1667660900381</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667660900381</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"测试下\">\r\n      <created>1667728298320</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667728298320</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"1234\">\r\n      <created>1667736762140</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667736762140</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"The interface for an admin to choose an operation\">\r\n      <created>1667749665610</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667749665610</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"delete the login.java\">\r\n      <created>1667749795761</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667749795761</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"add the userManagement interface\">\r\n      <created>1667839975073</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667839975073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"add the AdminLog interface\">\r\n      <created>1667842769115</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667842769115</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"add the BookManagement interface\">\r\n      <created>1667872763034</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667872763034</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Finish admin interfaces\">\r\n      <created>1667872855022</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667872855022</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"add New user interface\">\r\n      <created>1667874441726</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667874441726</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"add User Operation interface\">\r\n      <created>1667875749568</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667875749568</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"add three MyBook interfaces\">\r\n      <created>1667879852510</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667879852510</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"add Search Book interface\">\r\n      <created>1667884711503</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667884711503</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"123\" />\r\n    <MESSAGE value=\"测试下\" />\r\n    <MESSAGE value=\"1234\" />\r\n    <MESSAGE value=\"The interface for an admin to choose an operation\" />\r\n    <MESSAGE value=\"delete the login.java\" />\r\n    <MESSAGE value=\"add the userManagement interface\" />\r\n    <MESSAGE value=\"add the AdminLog interface\" />\r\n    <MESSAGE value=\"add the BookManagement interface\" />\r\n    <MESSAGE value=\"Finish admin interfaces\" />\r\n    <MESSAGE value=\"add New user interface\" />\r\n    <MESSAGE value=\"add User Operation interface\" />\r\n    <MESSAGE value=\"add three MyBook interfaces\" />\r\n    <MESSAGE value=\"add Search Book interface\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"add Search Book interface\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 93b97b2119c2104d5bb17317e040b575518d56b5)
++++ b/.idea/workspace.xml	(date 1668086797300)
+@@ -1,19 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="11/8/ ZRY">
+-      <change afterPath="$PROJECT_DIR$/src/Controller/BookManagementController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Controller/UserMangementController.java" afterDir="false" />
++    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="11/10/ ZRY">
+       <change afterPath="$PROJECT_DIR$/src/OracleClass/AdminAccount.java" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/OracleClass/Adminbook.java" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/testing.form" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/testing.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/View/Admin/AdminOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/AdminOperation.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/View/Admin/BookManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/BookManagement.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/View/Admin/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/Log.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/View/Admin/UserManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/UserManagement.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/View/Initial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Initial.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/View/User/MyBookBorrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookBorrow.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/View/User/MyBookReserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/User/MyBookReserve.java" afterDir="false" />
+@@ -185,7 +179,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1667884711503</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="11/10/ ZRY">
++      <created>1668085836614</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1668085836614</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -228,7 +229,8 @@
+     <MESSAGE value="add User Operation interface" />
+     <MESSAGE value="add three MyBook interfaces" />
+     <MESSAGE value="add Search Book interface" />
+-    <option name="LAST_COMMIT_MESSAGE" value="add Search Book interface" />
++    <MESSAGE value="11/10/ ZRY" />
++    <option name="LAST_COMMIT_MESSAGE" value="11/10/ ZRY" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: src/testing.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/testing.java b/src/testing.java
+new file mode 100644
+--- /dev/null	(date 1668053159372)
++++ b/src/testing.java	(date 1668053159372)
+@@ -0,0 +1,45 @@
++import javax.swing.*;
++import java.awt.*;
++
++public class testing {
++    private JPanel panel1;
++    private JButton button1;
++
++    {
++// GUI initializer generated by IntelliJ IDEA GUI Designer
++// >>> IMPORTANT!! <<<
++// DO NOT EDIT OR ADD ANY CODE HERE!
++        $$$setupUI$$$();
++    }
++
++    /**
++     * Method generated by IntelliJ IDEA GUI Designer
++     * >>> IMPORTANT!! <<<
++     * DO NOT edit this method OR call it in your code!
++     *
++     * @noinspection ALL
++     */
++    private void $$$setupUI$$$() {
++        panel1 = new JPanel();
++        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
++        final JPanel panel2 = new JPanel();
++        panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
++        panel1.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
++        final JPanel panel3 = new JPanel();
++        panel3.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
++        panel2.add(panel3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
++        button1 = new JButton();
++        button1.setText("Button");
++        panel3.add(button1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
++        final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
++        panel3.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
++    }
++
++    /**
++     * @noinspection ALL
++     */
++    public JComponent $$$getRootComponent$$$() {
++        return panel1;
++    }
++
++}
+Index: src/OracleClass/AdminAccount.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/OracleClass/AdminAccount.java b/src/OracleClass/AdminAccount.java
+new file mode 100644
+--- /dev/null	(date 1668053159383)
++++ b/src/OracleClass/AdminAccount.java	(date 1668053159383)
+@@ -0,0 +1,28 @@
++package OracleClass;
++
++import oracle.jdbc.driver.OracleConnection;
++
++import java.sql.ResultSet;
++import java.sql.Statement;
++
++public class AdminAccount {
++    private String nickname;
++    private String password;
++    private int id;
++    private OracleConnection connect;
++    public AdminAccount(OracleConnection conn){
++        connect=conn;
++    }
++    public boolean check(int id,String pwd){
++        try {
++            Statement stmt = connect.createStatement();
++            ResultSet rs = stmt.executeQuery("SELECT Password FROM AdminAccount WHERE LoginID="+id);
++            if(rs.next()){
++
++            }
++        }catch (Exception e) {
++            System.out.println("Error");
++        }
++        return true;
++    }
++}
+Index: src/View/User/MyBookBorrow.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package View.User;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.table.DefaultTableModel;\r\nimport java.awt.*;\r\n\r\npublic class MyBookBorrow {\r\n    private JPanel JPMain;\r\n    private JTable JTableBorrow;\r\n    private JButton JBBorrow;\r\n    private JButton JBReservings;\r\n    private JButton JBDesire;\r\n    private JButton JBReturn;\r\n    private JButton JBBack;\r\n    private JPanel JPButtons1;\r\n    private JPanel JPButton2;\r\n    private JPanel JPTable;\r\n\r\n    public MyBookBorrow() {\r\n        String[] titles = {\"Book Name\", \"Publisher\", \"Author\", \"Category\", \"Borrow time\", \"Expected Return time\"};\r\n        String[][] data = {};\r\n        DefaultTableModel model = new DefaultTableModel(data, titles);\r\n        JTableBorrow.setModel(model);\r\n        JScrollPane s = new JScrollPane(JTableBorrow);\r\n        JPTable.add(s, BorderLayout.CENTER);\r\n\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        JFrame frame = new JFrame(\"MyBookBorrow\");\r\n        frame.setContentPane(new MyBookBorrow().JPMain);\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setSize(900, 400);\r\n        frame.setLocationRelativeTo(null);\r\n        frame.setVisible(true);\r\n    }\r\n\r\n    {\r\n// GUI initializer generated by IntelliJ IDEA GUI Designer\r\n// >>> IMPORTANT!! <<<\r\n// DO NOT EDIT OR ADD ANY CODE HERE!\r\n        $$$setupUI$$$();\r\n    }\r\n\r\n    /**\r\n     * Method generated by IntelliJ IDEA GUI Designer\r\n     * >>> IMPORTANT!! <<<\r\n     * DO NOT edit this method OR call it in your code!\r\n     *\r\n     * @noinspection ALL\r\n     */\r\n    private void $$$setupUI$$$() {\r\n        JPMain = new JPanel();\r\n        JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));\r\n        JPMain.setBackground(new Color(-8806227));\r\n        JPButtons1 = new JPanel();\r\n        JPButtons1.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 15));\r\n        JPButtons1.setBackground(new Color(-7086643));\r\n        JPMain.add(JPButtons1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JBBorrow = new JButton();\r\n        JBBorrow.setBackground(new Color(-9866386));\r\n        JBBorrow.setEnabled(false);\r\n        JBBorrow.setForeground(new Color(-16053493));\r\n        JBBorrow.setText(\"Borrowings\");\r\n        JPButtons1.add(JBBorrow);\r\n        JBReservings = new JButton();\r\n        JBReservings.setBackground(new Color(-15022631));\r\n        JBReservings.setForeground(new Color(-328966));\r\n        JBReservings.setText(\"Reservings\");\r\n        JPButtons1.add(JBReservings);\r\n        JBDesire = new JButton();\r\n        JBDesire.setBackground(new Color(-13345850));\r\n        JBDesire.setForeground(new Color(-789517));\r\n        JBDesire.setText(\"Desirings\");\r\n        JPButtons1.add(JBDesire);\r\n        JPButton2 = new JPanel();\r\n        JPButton2.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));\r\n        JPButton2.setBackground(new Color(-6828067));\r\n        JPMain.add(JPButton2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JBReturn = new JButton();\r\n        JBReturn.setText(\"Return Book\");\r\n        JPButton2.add(JBReturn);\r\n        JBBack = new JButton();\r\n        JBBack.setText(\"Back\");\r\n        JPButton2.add(JBBack);\r\n        JPTable = new JPanel();\r\n        JPTable.setLayout(new BorderLayout(0, 0));\r\n        JPMain.add(JPTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));\r\n        JTableBorrow = new JTable();\r\n        JTableBorrow.setBackground(new Color(-5007154));\r\n        JTableBorrow.setForeground(new Color(-16777216));\r\n        JPTable.add(JTableBorrow, BorderLayout.CENTER);\r\n    }\r\n\r\n    /**\r\n     * @noinspection ALL\r\n     */\r\n    public JComponent $$$getRootComponent$$$() {\r\n        return JPMain;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/View/User/MyBookBorrow.java b/src/View/User/MyBookBorrow.java
+--- a/src/View/User/MyBookBorrow.java	(revision 93b97b2119c2104d5bb17317e040b575518d56b5)
++++ b/src/View/User/MyBookBorrow.java	(date 1668080360033)
+@@ -59,7 +59,7 @@
+         JPMain.add(JPButtons1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+         JBBorrow = new JButton();
+         JBBorrow.setBackground(new Color(-9866386));
+-        JBBorrow.setEnabled(false);
++        JBBorrow.setEnabled(true);
+         JBBorrow.setForeground(new Color(-16053493));
+         JBBorrow.setText("Borrowings");
+         JPButtons1.add(JBBorrow);
+Index: src/testing.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/testing.form b/src/testing.form
+new file mode 100644
+--- /dev/null	(date 1668053159365)
++++ b/src/testing.form	(date 1668053159365)
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="testing">
++  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++    <margin top="0" left="0" bottom="0" right="0"/>
++    <constraints>
++      <xy x="20" y="20" width="510" height="398"/>
++    </constraints>
++    <properties/>
++    <border type="none"/>
++    <children>
++      <grid id="ae560" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++        <margin top="0" left="0" bottom="0" right="0"/>
++        <constraints>
++          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
++        </constraints>
++        <properties/>
++        <border type="none"/>
++        <children>
++          <grid id="ded5a" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++            <margin top="0" left="0" bottom="0" right="0"/>
++            <constraints>
++              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
++            </constraints>
++            <properties/>
++            <border type="none"/>
++            <children>
++              <component id="3de4e" class="javax.swing.JButton" binding="button1" default-binding="true">
++                <constraints>
++                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Button"/>
++                </properties>
++              </component>
++              <vspacer id="cdb25">
++                <constraints>
++                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
++                </constraints>
++              </vspacer>
++            </children>
++          </grid>
++        </children>
++      </grid>
++    </children>
++  </grid>
++</form>
+Index: src/OracleClass/Adminbook.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/OracleClass/Adminbook.java b/src/OracleClass/Adminbook.java
+new file mode 100644
+--- /dev/null	(date 1668053167364)
++++ b/src/OracleClass/Adminbook.java	(date 1668053167364)
+@@ -0,0 +1,64 @@
++package OracleClass;
++import oracle.jdbc.driver.OracleConnection;
++
++import java.sql.ResultSet;
++import java.sql.Statement;
++
++public class Adminbook {
++
++    private OracleConnection connect;
++    private Statement stmt;
++    public Adminbook(OracleConnection conn){
++        connect=conn;
++        try{
++            stmt=connect.createStatement();
++        }catch(Exception e){
++            System.out.println("Error");
++        }
++    }
++    public boolean hasbook(String id){
++        try {
++            ResultSet rs = stmt.executeQuery("SELECT BookName FROM BOOK WHERE BookID="+id);
++            if(rs.next()) {
++                return true;
++            }
++        }catch (Exception e) {
++            System.out.println("Error");
++        }
++        return false;
++    }
++    public String getname(String id){
++        try {
++            ResultSet rs = stmt.executeQuery("SELECT BookName FROM BOOK WHERE BookID=" + id);
++            if (rs.next()) {
++                return rs.getString(1);
++            }
++        }catch (Exception e) {
++            System.out.println("Error");
++        }
++        return "can not find the book";
++    }
++    public String getpub(String id){
++        try {
++            ResultSet rs = stmt.executeQuery("SELECT BookName FROM BOOK WHERE BookID=" + id);
++            if (rs.next()) {
++                return rs.getString(5);
++            }
++        }catch (Exception e) {
++            System.out.println("Error");
++        }
++        return "can not find the book";
++    }
++    public String getau(String id){
++        try {
++            ResultSet rs = stmt.executeQuery("SELECT BookName FROM BOOK WHERE BookID=" + id);
++            if (rs.next()) {
++                return rs.getString(3);
++            }
++        }catch (Exception e) {
++            System.out.println("Error");
++        }
++        return "can not find the book";
++    }
++
++}
