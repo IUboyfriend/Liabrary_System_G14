@@ -3,31 +3,36 @@ package View.Admin;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Log {
     private JTable JTableLog;
-    private JPanel panel1;
+    JPanel JPMain;
+    private JPanel JPTable;
     private JButton JBBack;
-    private javax.swing.JPanel JPanel;
+    private JPanel JPButton2;
 
-    public Log() {
-        String[] titles = {"1", "2", "3"};
+    public Log(JFrame frame) {
+        String[] titles = {"Admin Account", "Operation Detail", "Operation Time"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableLog.setModel(model);
         JScrollPane s = new JScrollPane(JTableLog);
-        panel1.add(s, BorderLayout.NORTH);
+        JPMain.add(s, BorderLayout.NORTH);
 
-    }
-
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Admin Log");
-        frame.setContentPane(new Log().panel1);
+        frame.setTitle("Admin Log");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
+        frame.setSize(700, 520);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        JBBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new AdminOperation(frame).JPMain);
+            }
+        });
     }
 
 
@@ -46,65 +51,33 @@ public class Log {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        panel1 = new JPanel();
-        panel1.setLayout(new BorderLayout(0, 0));
+        JPMain = new JPanel();
+        JPMain.setLayout(new BorderLayout(0, 0));
+        JPTable = new JPanel();
+        JPTable.setLayout(new BorderLayout(0, 0));
+        JPMain.add(JPTable, BorderLayout.NORTH);
         JTableLog = new JTable();
-        JTableLog.setAutoCreateRowSorter(false);
-        JTableLog.setAutoResizeMode(2);
         JTableLog.setBackground(new Color(-7086643));
-        JTableLog.setFillsViewportHeight(true);
-        JTableLog.setUpdateSelectionOnSort(false);
-        JTableLog.putClientProperty("Table.isFileList", Boolean.FALSE);
-        panel1.add(JTableLog, BorderLayout.NORTH);
-        JPanel = new JPanel();
-        JPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
-        JPanel.setBackground(new Color(-6828067));
-        panel1.add(JPanel, BorderLayout.CENTER);
-        final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer1);
-        final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer2);
-        final com.intellij.uiDesigner.core.Spacer spacer3 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer3);
-        final com.intellij.uiDesigner.core.Spacer spacer4 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer4);
-        final com.intellij.uiDesigner.core.Spacer spacer5 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer5);
-        final com.intellij.uiDesigner.core.Spacer spacer6 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer6);
-        final com.intellij.uiDesigner.core.Spacer spacer7 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer7);
-        final com.intellij.uiDesigner.core.Spacer spacer8 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer8);
-        final com.intellij.uiDesigner.core.Spacer spacer9 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer9);
-        final com.intellij.uiDesigner.core.Spacer spacer10 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer10);
-        final com.intellij.uiDesigner.core.Spacer spacer11 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer11);
-        final com.intellij.uiDesigner.core.Spacer spacer12 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer12);
-        final com.intellij.uiDesigner.core.Spacer spacer13 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer13);
-        final com.intellij.uiDesigner.core.Spacer spacer14 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer14);
-        final com.intellij.uiDesigner.core.Spacer spacer15 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer15);
-        final com.intellij.uiDesigner.core.Spacer spacer16 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer16);
-        final com.intellij.uiDesigner.core.Spacer spacer17 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer17);
-        final com.intellij.uiDesigner.core.Spacer spacer18 = new com.intellij.uiDesigner.core.Spacer();
-        JPanel.add(spacer18);
+        JTableLog.setForeground(new Color(-16777216));
+        JPTable.add(JTableLog, BorderLayout.CENTER);
+        JPButton2 = new JPanel();
+        JPButton2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 2, new Insets(20, 0, 0, 30), -1, -1));
+        JPButton2.setBackground(new Color(-6828067));
+        JPMain.add(JPButton2, BorderLayout.CENTER);
         JBBack = new JButton();
         JBBack.setText("Back");
-        JPanel.add(JBBack);
+        JPButton2.add(JBBack, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
+        JPButton2.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
+        JPButton2.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return panel1;
+        return JPMain;
     }
+
 }

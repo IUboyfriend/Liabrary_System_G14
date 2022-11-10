@@ -41,6 +41,12 @@ public class UserOperation {
                 frame.setContentPane(new MyBookBorrow(frame).JPMain);
             }
         });
+        JBSearch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new SearchBook(frame).JPMain);
+            }
+        });
     }
 
     {

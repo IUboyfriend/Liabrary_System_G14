@@ -11,7 +11,7 @@ public class Main {
         Locale.setDefault(new Locale("USA"));
         OracleDB oracleDB = new OracleDB();
 
-        JFrame frame = new JFrame();
+        final JFrame frame = new JFrame();
         frame.setContentPane(new Initial(frame).JPMain);
 
         oracleDB.closeConnection();

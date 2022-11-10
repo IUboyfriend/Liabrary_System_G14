@@ -22,18 +22,23 @@ public class SearchBook {
     private JPanel JPTable;
     private JPanel JPSearchBar;
     private JButton JBBack;
-    private JPanel JPMain;
+    JPanel JPMain;
 
     private String selectedItem = "All";
 
-    public static JFrame frame;
-    public SearchBook() {
+    public SearchBook(JFrame frame) {
         String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
         JScrollPane s = new JScrollPane(JTableSearch);
         JPTable.add(s, BorderLayout.CENTER);
+        frame.setTitle("SearchBook");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(900, 400);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
         JBSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,15 +111,6 @@ public class SearchBook {
                 frame.setContentPane(new UserOperation(frame).JPMain);
             }
         });
-    }
-
-    public static void main(String[] args) {
-        frame = new JFrame("SearchBook");
-        frame.setContentPane(new SearchBook().JPMain);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900, 400);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
     }
 
     {

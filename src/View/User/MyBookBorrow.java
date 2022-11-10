@@ -1,5 +1,7 @@
 package View.User;
 
+import View.Initial;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -84,6 +86,12 @@ public class MyBookBorrow {
             }
         });
 
+        JBBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new UserOperation(frame).JPMain);
+            }
+        });
     }
 
 

@@ -1,6 +1,7 @@
 package View.User;
 
 import Controller.NewUserController;
+import View.Initial;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -58,6 +59,12 @@ public class NewUser {
                 } else {
                     NewUserController newUserController = new NewUserController();
                 }
+            }
+        });
+        JBBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new Initial(frame).JPMain);
             }
         });
     }

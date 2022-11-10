@@ -1,92 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.Admin.Log">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="JPMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="679" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="cf178" class="javax.swing.JTable" binding="JTableLog">
+      <grid id="d5368" binding="JPTable" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="North"/>
-        <properties>
-          <autoCreateRowSorter value="false"/>
-          <autoResizeMode value="2"/>
-          <background color="-7086643"/>
-          <fillsViewportHeight value="true"/>
-          <updateSelectionOnSort value="false"/>
-        </properties>
-        <clientProperties>
-          <Table.isFileList class="java.lang.Boolean" value="false"/>
-        </clientProperties>
-      </component>
-      <grid id="63b92" binding="JPanel" layout-manager="FlowLayout" hgap="10" vgap="5" flow-align="1">
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="df83d" class="javax.swing.JTable" binding="JTableLog">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="-7086643"/>
+              <foreground color="-16777216"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="e6d9b" binding="JPButton2" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="20" left="0" bottom="0" right="30"/>
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-6828067"/>
         </properties>
         <border type="none"/>
         <children>
-          <hspacer id="ec778">
-            <constraints/>
-          </hspacer>
-          <hspacer id="a715e">
-            <constraints/>
-          </hspacer>
-          <hspacer id="ded99">
-            <constraints/>
-          </hspacer>
-          <hspacer id="2b116">
-            <constraints/>
-          </hspacer>
-          <hspacer id="f08c4">
-            <constraints/>
-          </hspacer>
-          <hspacer id="176ec">
-            <constraints/>
-          </hspacer>
-          <hspacer id="902d0">
-            <constraints/>
-          </hspacer>
-          <hspacer id="1488e">
-            <constraints/>
-          </hspacer>
-          <hspacer id="dab19">
-            <constraints/>
-          </hspacer>
-          <hspacer id="7f614">
-            <constraints/>
-          </hspacer>
-          <hspacer id="5f932">
-            <constraints/>
-          </hspacer>
-          <hspacer id="2f2cd">
-            <constraints/>
-          </hspacer>
-          <hspacer id="22cd1">
-            <constraints/>
-          </hspacer>
-          <hspacer id="9ff7e">
-            <constraints/>
-          </hspacer>
-          <hspacer id="76862">
-            <constraints/>
-          </hspacer>
-          <hspacer id="cd63b">
-            <constraints/>
-          </hspacer>
-          <hspacer id="83e47">
-            <constraints/>
-          </hspacer>
-          <hspacer id="d24">
-            <constraints/>
-          </hspacer>
-          <component id="73460" class="javax.swing.JButton" binding="JBBack">
-            <constraints/>
+          <component id="8d59c" class="javax.swing.JButton" binding="JBBack">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
               <text value="Back"/>
             </properties>
           </component>
+          <hspacer id="66c7">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <vspacer id="626ec">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
     </children>
