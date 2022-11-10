@@ -53,16 +53,15 @@ public class SearchBook {
                             JOptionPane.showMessageDialog(null, "No records are found!");
                         else {
                             do {
-                                String BookName = rset.getString("BookName");
-                                String Author = rset.getString("Author");
-                                String Category = rset.getString("Category");
-                                String Publisher = rset.getString("Publisher");
-                                int status = rset.getInt("Status");
+                                String BookName = rset.getString("BOOKNAME");
+                                String Author = rset.getString("AUTHOR");
+                                String Category = rset.getString("CATEGORY");
+                                String Publisher = rset.getString("PUBLISHER");
+                                int status = rset.getInt("STATUS");
                                 String whatStatus = status == 0 ? "Available" : status == 1 ? "Borrowed" : "Reserved";
                                 String[] row = {BookName, Publisher, Author, Category, whatStatus};
                                 model.addRow(row);
                             } while (rset.next());
-
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -74,11 +73,11 @@ public class SearchBook {
                             JOptionPane.showMessageDialog(null, "No records are found!");
                         else {
                             do {
-                                String BookName = rset.getString("BookName");
-                                String Author = rset.getString("Author");
-                                String Category = rset.getString("Category");
-                                String Publisher = rset.getString("Publisher");
-                                int status = rset.getInt("Status");
+                                String BookName = rset.getString("BOOKNAME");
+                                String Author = rset.getString("AUTHOR");
+                                String Category = rset.getString("CATEGORY");
+                                String Publisher = rset.getString("PUBLISHER");
+                                int status = rset.getInt("STATUS");
                                 String whatStatus = status == 0 ? "Available" : status == 1 ? "Borrowed" : "Reserved";
                                 String[] row = {BookName, Publisher, Author, Category, whatStatus};
                                 model.addRow(row);
