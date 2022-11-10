@@ -31,7 +31,7 @@ public class OracleDB {
                 conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
 
             } catch (Exception e) {
-                System.out.println("Error:" +e.getMessage());
+                System.out.println("Error1:" +e.getMessage());
             }
 
         } catch (JSchException e) {
