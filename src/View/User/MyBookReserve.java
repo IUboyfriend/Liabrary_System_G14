@@ -14,21 +14,18 @@ public class MyBookReserve {
     private JButton JBBack;
     private JPanel JPTable;
     private JTable JTableReserve;
-    private JPanel JPMain;
+    public JPanel JPMain;
 
 
-    public MyBookReserve() {
+    public MyBookReserve(JFrame frame) {
         String[] titles = {"Book Name", "Publisher", "Author", "Category", "Reserve time", "Expected Pick-up time"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableReserve.setModel(model);
         JScrollPane s = new JScrollPane(JTableReserve);
         JPTable.add(s, BorderLayout.CENTER);
-    }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("MyBookReserve");
-        frame.setContentPane(new MyBookReserve().JPMain);
+        frame.setTitle("MyBook Reserve");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
@@ -65,7 +62,7 @@ public class MyBookReserve {
         JPButtons1.add(JBBorrow);
         JBReservings = new JButton();
         JBReservings.setBackground(new Color(-9866386));
-        JBReservings.setEnabled(false);
+        JBReservings.setEnabled(true);
         JBReservings.setForeground(new Color(-328966));
         JBReservings.setText("Reservings");
         JPButtons1.add(JBReservings);

@@ -167,5 +167,4 @@ public class BookInformation {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
-
 }
