@@ -32,7 +32,7 @@
             <constraints/>
             <properties>
               <background color="-9866386"/>
-              <enabled value="false"/>
+              <enabled value="true"/>
               <foreground color="-328966"/>
               <text value="Reservings"/>
             </properties>

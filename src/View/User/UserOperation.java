@@ -1,10 +1,13 @@
 package View.User;
 
+import View.Initial;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Locale;
 
 public class UserOperation {
@@ -16,15 +19,27 @@ public class UserOperation {
     private JButton JBSearch;
     private JLabel JTVIP;
     private JPanel JPVIP;
-    private JPanel JPMain;
+    public JPanel JPMain;
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("UserOperation");
-        frame.setContentPane(new UserOperation().JPMain);
+    public UserOperation(JFrame frame) {
+        frame.setTitle("User Operation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 160);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        JBLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //delete the cookie, return to the initial interface
+                frame.setContentPane(new Initial(frame).JPMain);
+            }
+        });
+        JBMyBook.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new MyBookBorrow(frame).JPMain);
+            }
+        });
     }
 
     {

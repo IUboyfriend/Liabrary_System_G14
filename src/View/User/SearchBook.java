@@ -26,6 +26,7 @@ public class SearchBook {
 
     private String selectedItem = "All";
 
+    public static JFrame frame;
     public SearchBook() {
         String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available"};
         String[][] data = {};
@@ -99,10 +100,16 @@ public class SearchBook {
                 }
             }
         });
+        JBBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new UserOperation(frame).JPMain);
+            }
+        });
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("SearchBook");
+        frame = new JFrame("SearchBook");
         frame.setContentPane(new SearchBook().JPMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);

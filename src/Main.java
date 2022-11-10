@@ -1,18 +1,19 @@
 import Controller.OracleDB;
+import View.Initial;
+import View.User.UserOperation;
 
+import javax.swing.*;
 import java.sql.*;
+import java.util.Locale;
 
 public class Main {
     public static void main(String args[]) throws SQLException {
+        Locale.setDefault(new Locale("USA"));
         OracleDB oracleDB = new OracleDB();
-        ResultSet rset = oracleDB.executeQuery("SELECT EMPNO, ENAME, JOB FROM EMP");
-        while (rset.next()) {
-            System.out.println(rset.getString(1)
-                    + " " + rset.getString(2)
-                    + " " + rset.getString(3));
-        }
 
-        //oracleDB.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing2','Testing123','Jay',1,0,0,'571532474@qq.com')");
+        JFrame frame = new JFrame();
+        frame.setContentPane(new Initial(frame).JPMain);
+
         oracleDB.closeConnection();
 
     }

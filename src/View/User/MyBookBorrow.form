@@ -23,7 +23,7 @@
             <constraints/>
             <properties>
               <background color="-9866386"/>
-              <enabled value="false"/>
+              <enabled value="true"/>
               <foreground color="-16053493"/>
               <text value="Borrowings"/>
             </properties>
