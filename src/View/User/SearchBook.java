@@ -27,7 +27,7 @@ public class SearchBook {
     private String selectedItem = "All";
 
     public SearchBook() {
-        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Location", "Available"};
+        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
@@ -46,11 +46,18 @@ public class SearchBook {
                         if (!rset.next())
                             JOptionPane.showMessageDialog(null, "No records are found!");
                         else {
-                            String[] row = {"1", "2", "3", "4"};
-                            model.addRow(row);
+                            while (rset.next()) {
+                                String BookName = rset.getString(2);
+                                String Author = rset.getString(3);
+                                String Category = rset.getString(4);
+                                String Publisher = rset.getString(5);
+                                int status = rset.getInt(6);
+                                String whatStatus = status == 0 ? "Available" : status == 1 ? "Borrowed" : "Reserved";
+                                String[] row = {BookName, Author, Category, Publisher, whatStatus};
+                                model.addRow(row);
+                            }
+
                         }
-
-
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -59,8 +66,19 @@ public class SearchBook {
                         ResultSet rset = BookController.searchOneField(searchText, selectedItem, oracleDB);
                         if (!rset.next())
                             JOptionPane.showMessageDialog(null, "No records are found!");
-                        else
-                            System.out.println(123);
+                        else {
+                            while (rset.next()) {
+                                String BookName = rset.getString(2);
+                                String Author = rset.getString(3);
+                                String Category = rset.getString(4);
+                                String Publisher = rset.getString(5);
+                                int status = rset.getInt(6);
+                                String whatStatus = status == 0 ? "Available" : status == 1 ? "Borrowed" : "Reserved";
+                                String[] row = {BookName, Author, Category, Publisher, whatStatus};
+                                model.addRow(row);
+                            }
+                        }
+
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
