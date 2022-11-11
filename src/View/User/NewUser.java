@@ -9,6 +9,7 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class NewUser {
@@ -55,7 +56,12 @@ public class NewUser {
                 } else if (!password.equals(password2)) {
                     JOptionPane.showMessageDialog(null, "The two passwords you entered were inconsistent");
                 } else {
-                    NewUserController newUserController = new NewUserController();
+                    try {
+                        message = NewUserController.newUser(userID, nickName, password, Email);
+                        JOptionPane.showMessageDialog(null, message);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
