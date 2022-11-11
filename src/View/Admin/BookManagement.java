@@ -47,7 +47,7 @@ public class BookManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = TFBookID.getText();
-                OracleDB oracleDB = new OracleDB();
+                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
                 } else {
@@ -82,7 +82,7 @@ public class BookManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = TFBookID.getText();
-                OracleDB oracleDB = new OracleDB();
+                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
                 } else {
@@ -118,7 +118,7 @@ public class BookManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = TFBookID.getText();
-                OracleDB oracleDB = new OracleDB();
+                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
                 } else {

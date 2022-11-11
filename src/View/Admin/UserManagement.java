@@ -39,7 +39,7 @@ public class UserManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = JTUserID.getText();
-                OracleDB oracleDB = new OracleDB();
+                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The user id can not be empty!");
                 } else {
@@ -60,7 +60,7 @@ public class UserManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = JTUserID.getText();
-                OracleDB oracleDB = new OracleDB();
+                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The user id can not be empty!");
                 } else {

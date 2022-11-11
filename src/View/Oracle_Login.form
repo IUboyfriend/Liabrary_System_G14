@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.Oracle_Login">
+  <grid id="27dc6" binding="JPMain" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="f66f5" binding="headerPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-7086643"/>
+        </properties>
+        <border type="bevel-lowered"/>
+        <children>
+          <component id="ca31d" class="javax.swing.JLabel" binding="headerJLabel">
+            <constraints/>
+            <properties>
+              <font name="Arial Black" size="26"/>
+              <foreground color="-394759"/>
+              <horizontalAlignment value="10"/>
+              <text value="Connect to Your Oracle Server"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="e45f3" binding="JPContent" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="-10586488"/>
+        </properties>
+        <border type="bevel-lowered"/>
+        <children>
+          <grid id="7aa21" binding="JPInput" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="25" left="0" bottom="25" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-6828067"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="a0a6f" binding="JP01" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-6828067"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="df50e" class="javax.swing.JTextField" binding="JTAccount">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="f2322" class="javax.swing.JLabel" binding="JLableID">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font size="18"/>
+                      <text value="Oracle Account:"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="8d46f" binding="JP02" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
+                <margin top="22" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-6828067"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="318a9" class="javax.swing.JLabel" binding="JPPassword">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font size="18"/>
+                      <text value="      Password:    "/>
+                    </properties>
+                  </component>
+                  <component id="f834a" class="javax.swing.JPasswordField" binding="JPasswordFieldPassword">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="464ec" binding="JPButton" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="0" height="35"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-10982490"/>
+            </properties>
+            <border type="none">
+              <font/>
+            </border>
+            <children>
+              <component id="4df3e" class="javax.swing.JButton" binding="JBLOGIN">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <foreground color="-4498354"/>
+                  <text value="Log in"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

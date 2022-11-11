@@ -1,8 +1,6 @@
 package View;
 
-import View.Admin.AdminOperation;
-import View.User.NewUser;
-import View.User.UserOperation;
+import Controller.OracleDB;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -11,52 +9,73 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Locale;
 
-public class Initial {
-    public JPanel JPMain;
-    private JButton userLoginButton;
-    private JButton adminLoginButton;
-    private JButton newUserButton;
-    private JTextField JTextFieldID;
+public class Oracle_Login {
     private JPanel headerPanel;
     private JLabel headerJLabel;
     private JPanel JPContent;
     private JPanel JPInput;
-    private JPanel JPButton;
     private JPanel JP01;
-    private JPanel JP02;
+    private JTextField JTAccount;
     private JLabel JLableID;
-    private JLabel JLablePassword;
+    private JPanel JP02;
+    private JLabel JPPassword;
     private JPasswordField JPasswordFieldPassword;
+    private JPanel JPButton;
+    private JButton JBLOGIN;
+    public JPanel JPMain;
 
-    public Initial(JFrame frame) {
-        frame.setTitle("Welcome to the Library Management System");
+    static OracleDB oracleDB;
+
+    public Oracle_Login(JFrame frame) {
+
+        JBLOGIN.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String account = JTAccount.getText();
+                String password = String.valueOf(JPasswordFieldPassword.getPassword());
+                oracleDB = new OracleDB(account, password);
+                String query = "SELECT * FROM BOOK WHERE BOOKID = 123";
+                ResultSet rset = null;
+                try {
+                    rset = oracleDB.executeQuery(query);
+                    while (rset.next()) {
+                        System.out.println(rset.getString("BOOKNAME"));
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                frame.setContentPane(new Initial(frame).JPMain);
+            }
+        });
+
+    }
+
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Oracle_Login");
+        frame.setContentPane(new Oracle_Login(frame).JPMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(520, 320);
+        frame.setSize(500, 250);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-
-
-        userLoginButton.addActionListener(new ActionListener() {
+        frame.addWindowListener(new WindowAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                //if a user succeeds in logging in, jump to another page
-                frame.setContentPane(new UserOperation(frame).JPMain);
-            }
-        });
-        newUserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new NewUser(frame).JPMain);
-            }
-        });
-        adminLoginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new AdminOperation(frame).JPMain);
-
+            public void windowClosing(WindowEvent e) {
+                try {
+                    oracleDB.closeConnection();
+                    System.out.println("Successful");
+                } catch (SQLException ex) {
+                    System.out.println("fail");
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -79,8 +98,6 @@ public class Initial {
     private void $$$setupUI$$$() {
         JPMain = new JPanel();
         JPMain.setLayout(new BorderLayout(0, 0));
-        JPMain.setBackground(new Color(-8806227));
-        JPMain.setForeground(new Color(-8806227));
         headerPanel = new JPanel();
         headerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         headerPanel.setBackground(new Color(-7086643));
@@ -91,7 +108,7 @@ public class Initial {
         if (headerJLabelFont != null) headerJLabel.setFont(headerJLabelFont);
         headerJLabel.setForeground(new Color(-394759));
         headerJLabel.setHorizontalAlignment(10);
-        headerJLabel.setText("Library Management System");
+        headerJLabel.setText("Connect to Your Oracle Server");
         headerPanel.add(headerJLabel);
         JPContent = new JPanel();
         JPContent.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -106,41 +123,32 @@ public class Initial {
         JP01.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), 10, 10));
         JP01.setBackground(new Color(-6828067));
         JPInput.add(JP01, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        JTextFieldID = new JTextField();
-        JP01.add(JTextFieldID, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        JTAccount = new JTextField();
+        JP01.add(JTAccount, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         JLableID = new JLabel();
         Font JLableIDFont = this.$$$getFont$$$(null, -1, 18, JLableID.getFont());
         if (JLableIDFont != null) JLableID.setFont(JLableIDFont);
-        JLableID.setText("User ID:    ");
+        JLableID.setText("Oracle Account:");
         JP01.add(JLableID, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JP02 = new JPanel();
         JP02.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(22, 0, 0, 0), 10, 10));
         JP02.setBackground(new Color(-6828067));
         JPInput.add(JP02, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        JLablePassword = new JLabel();
-        Font JLablePasswordFont = this.$$$getFont$$$(null, -1, 18, JLablePassword.getFont());
-        if (JLablePasswordFont != null) JLablePassword.setFont(JLablePasswordFont);
-        JLablePassword.setText("Password:");
-        JP02.add(JLablePassword, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        JPPassword = new JLabel();
+        Font JPPasswordFont = this.$$$getFont$$$(null, -1, 18, JPPassword.getFont());
+        if (JPPasswordFont != null) JPPassword.setFont(JPPasswordFont);
+        JPPassword.setText("      Password:    ");
+        JP02.add(JPPassword, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JPasswordFieldPassword = new JPasswordField();
         JP02.add(JPasswordFieldPassword, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         JPButton = new JPanel();
         JPButton.setLayout(new BorderLayout(0, 0));
         JPButton.setBackground(new Color(-10982490));
         JPContent.add(JPButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, new Dimension(0, 35), null, 0, false));
-        userLoginButton = new JButton();
-        userLoginButton.setEnabled(true);
-        userLoginButton.setForeground(new Color(-6796613));
-        userLoginButton.setText("User Login");
-        JPButton.add(userLoginButton, BorderLayout.WEST);
-        newUserButton = new JButton();
-        newUserButton.setForeground(new Color(-4498354));
-        newUserButton.setText("New User");
-        JPButton.add(newUserButton, BorderLayout.CENTER);
-        adminLoginButton = new JButton();
-        adminLoginButton.setForeground(new Color(-14435416));
-        adminLoginButton.setText("Admin Login");
-        JPButton.add(adminLoginButton, BorderLayout.EAST);
+        JBLOGIN = new JButton();
+        JBLOGIN.setForeground(new Color(-4498354));
+        JBLOGIN.setText("Log in");
+        JPButton.add(JBLOGIN, BorderLayout.CENTER);
     }
 
     /**
@@ -171,4 +179,5 @@ public class Initial {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }

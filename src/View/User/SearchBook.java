@@ -42,7 +42,7 @@ public class SearchBook {
         JBSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OracleDB oracleDB = new OracleDB();
+                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 String searchText = TFSearchBar.getText();
                 if (searchText.equals(""))
                     JOptionPane.showMessageDialog(null, "Please type something in the search bar!");

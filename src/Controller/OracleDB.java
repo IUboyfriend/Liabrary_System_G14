@@ -4,6 +4,8 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import oracle.jdbc.driver.OracleConnection;
+
+import javax.swing.*;
 import java.io.*;
 import java.sql.*;
 
@@ -13,7 +15,7 @@ public class OracleDB {
     private ResultSet rset;
     private Statement stmt;
     private Session session;
-    public OracleDB(){
+    public OracleDB(String account, String password){
         JSch jSch = new JSch();
         try {
             session = jSch.getSession("20084595d", "csdoor.comp.polyu.edu.hk", 22);
@@ -24,13 +26,15 @@ public class OracleDB {
 
             // Connection
             try {
-                String username = "\"20084595d\"";
-                String pwd = "vkzabmqa";
+                String username = "\"" + account + "\"";
+                String pwd = password;
                 DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
                 String url = "jdbc:oracle:thin:@localhost:61522/dbms";
                 conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
 
             } catch (Exception e) {
+                session.disconnect();
+                JOptionPane.showMessageDialog(null,"Incorrect Oracle account and password, please try again. \nNote that you should not include the double quote in the account!");
                 System.out.println("Error1:" +e.getMessage());
             }
 

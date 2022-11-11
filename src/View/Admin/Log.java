@@ -28,7 +28,7 @@ public class Log {
         JTableLog.setModel(model);
         JScrollPane s = new JScrollPane(JTableLog);
         JPMain.add(s, BorderLayout.NORTH);
-        OracleDB oracleDB = new OracleDB();
+        OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
         try {
             ResultSet res1 = logController.rgetall(id, oracleDB);
             ResultSet res2 = logController.ogetall(id, oracleDB);
