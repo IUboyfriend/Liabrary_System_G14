@@ -40,7 +40,8 @@ public class Log {
                 do {
                     Vector<String> row = new Vector();
                     row.add(id);
-                    row.add(res1.getString("OPERATIONTYPE"));
+                    String record = "user " + res1.getString("LOGINID_USER") + "'s account has been " + res1.getString("OPERATIONTYPE");
+                    row.add(record);
                     row.add(res1.getString("REACTIVATIONTIME"));
                     model.addRow(row);
                 } while (res1.next());
@@ -51,7 +52,8 @@ public class Log {
                 do {
                     Vector<String> row = new Vector();
                     row.add(id);
-                    row.add(res2.getString("OPERATIONTYPE"));
+                    String record = "Book " + res2.getString("BOOKID") + " has been " + res2.getString("OPERATIONTYPE");
+                    row.add(record);
                     row.add(res2.getString("OPERATIONTIME"));
                     model.addRow(row);
                 } while (res2.next());
