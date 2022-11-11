@@ -42,13 +42,12 @@ public class SearchBook {
         JBSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
                 String searchText = TFSearchBar.getText();
                 if (searchText.equals(""))
                     JOptionPane.showMessageDialog(null, "Please type something in the search bar!");
                 else if (selectedItem.equals("All")) {
                     try {
-                        ResultSet rset = BookController.searchAll(searchText, oracleDB);
+                        ResultSet rset = BookController.searchAll(searchText);
                         if (!rset.next())
                             JOptionPane.showMessageDialog(null, "No records are found!");
                         else {
@@ -68,7 +67,7 @@ public class SearchBook {
                     }
                 } else {
                     try {
-                        ResultSet rset = BookController.searchOneField(searchText, selectedItem, oracleDB);
+                        ResultSet rset = BookController.searchOneField(searchText, selectedItem);
                         if (!rset.next())
                             JOptionPane.showMessageDialog(null, "No records are found!");
                         else {
@@ -89,11 +88,6 @@ public class SearchBook {
                     }
                 }
 
-                try {
-                    oracleDB.closeConnection();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
             }
         });
         ComboBoxOption.addItemListener(new ItemListener() {

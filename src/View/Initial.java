@@ -80,7 +80,6 @@ public class Initial {
             public void actionPerformed(ActionEvent e) {
 
 
-
                 frame.setContentPane(new NewUser(frame).JPMain);
             }
         });
@@ -173,7 +172,7 @@ public class Initial {
         JLableID = new JLabel();
         Font JLableIDFont = this.$$$getFont$$$(null, -1, 18, JLableID.getFont());
         if (JLableIDFont != null) JLableID.setFont(JLableIDFont);
-        JLableID.setText("User ID:    ");
+        JLableID.setText("User ID:     ");
         JP01.add(JLableID, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JP02 = new JPanel();
         JP02.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(22, 0, 0, 0), 10, 10));
