@@ -1,5 +1,6 @@
 package View.User;
 
+import Controller.LoginController;
 import View.Initial;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -8,6 +9,7 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class UserOperation {
@@ -27,6 +29,13 @@ public class UserOperation {
         frame.setSize(450, 160);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        try {
+            JLWelcomeUser.setText("Welcome, " + LoginController.getNickName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         JBLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

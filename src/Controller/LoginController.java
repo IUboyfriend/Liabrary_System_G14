@@ -1,7 +1,9 @@
 package Controller;
 
+import View.Initial;
 import View.Oracle_Login;
 
+import javax.management.Query;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -27,5 +29,15 @@ public class LoginController {
 
         return "";
     }
+
+
+    public static String getNickName() throws SQLException {
+        String userID = Initial.ID;
+        String query = "SELECT NICKNAME FROM USER_ACCOUNT WHERE LOGINID = '" + userID + "'";
+        ResultSet rset = Oracle_Login.oracleDB.executeQuery(query);
+        rset.next();
+        return rset.getString("NICKNAME");
+    }
+
 
 }
