@@ -20,7 +20,7 @@ public class UserMangementController {
             oracleDB.executeQuery(query);
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
-        query="INSERT INTO OPERATION_RECORD VALUES(\'" + Initial.ID + "\',\'"+ id +"\',\'activate\',"+"TIMESTAMP \'"+ts+"\')";
+        query="INSERT INTO REACTIVATION_RECORD VALUES(\'" + Initial.ID + "\',\'"+ id +"\',\'activate\',"+"TIMESTAMP \'"+ts+"\')";
         rset = oracleDB.executeQuery(query);
             JOptionPane.showMessageDialog(null, "The useraccount has been activated");
 
@@ -37,7 +37,7 @@ public class UserMangementController {
         oracleDB.executeQuery(query);
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
-        query="INSERT INTO OPERATION_RECORD VALUES(\'" + Initial.ID + "\',\'"+ id +"\',\'deactivate\',"+"TIMESTAMP \'"+ts+"\')";
+        query="INSERT INTO REACTIVATION_RECORD VALUES(\'" + Initial.ID + "\',\'"+ id +"\',\'deactivate\',"+"TIMESTAMP \'"+ts+"\')";
         rset = oracleDB.executeQuery(query);
         JOptionPane.showMessageDialog(null, "The useraccount has been deactivated");
         return true;

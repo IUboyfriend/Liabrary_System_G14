@@ -1,6 +1,7 @@
 package View;
 
 import Controller.OracleDB;
+import com.jcraft.jsch.JSchException;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -41,19 +42,15 @@ public class Oracle_Login {
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
                 //oracleDB = new OracleDB(account, password);
-                oracleDB = new OracleDB("20084595d", "vkzabmqa");
-//                String query = "SELECT * FROM BOOK WHERE BOOKID = '123'";
-//                ResultSet rset = null;
-//                try {
-//                    rset = oracleDB.executeQuery(query);
-//                    while (rset.next()) {
-//                        System.out.println(rset.getString("BOOKNAME"));
-//                    }
-//                } catch (SQLException ex) {
-//                    throw new RuntimeException(ex);
-//                }
+                oracleDB = new OracleDB("20076896d", "ufmgkkni");
+
 
                 frame.setContentPane(new Initial(frame).JPMain);
+                /*try {
+                    oracleDB.closeConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }*/
             }
         });
 
