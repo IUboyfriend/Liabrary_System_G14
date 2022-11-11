@@ -11,7 +11,7 @@ import java.sql.*;
 
 public class OracleDB {
 
-    private OracleConnection conn;
+    public OracleConnection conn;
     private ResultSet rset;
     private Statement stmt;
     private Session session;
@@ -31,10 +31,9 @@ public class OracleDB {
                 DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
                 String url = "jdbc:oracle:thin:@localhost:61523/dbms";
                 conn = (OracleConnection) DriverManager.getConnection(url, username, pwd);
-
             } catch (Exception e) {
                 session.disconnect();
-                JOptionPane.showMessageDialog(null,"Incorrect Oracle account and password, please try again. \nNote that you should not include the double quote in the account!");
+                JOptionPane.showMessageDialog(null,e.getMessage());
                 System.out.println("Error1:" +e.getMessage());
             }
 

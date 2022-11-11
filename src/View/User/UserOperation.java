@@ -19,14 +19,12 @@ public class UserOperation {
     private JPanel JPButtons;
     private JButton JBMyBook;
     private JButton JBSearch;
-    private JLabel JTVIP;
-    private JPanel JPVIP;
     public JPanel JPMain;
 
     public UserOperation(JFrame frame) {
         frame.setTitle("User Operation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 160);
+        frame.setSize(450, 130);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
@@ -109,7 +107,7 @@ public class UserOperation {
         JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
         JPButtons.setBackground(new Color(-6828067));
         JPButtons.setForeground(new Color(-6828067));
-        JPMain.add(JPButtons, BorderLayout.SOUTH);
+        JPMain.add(JPButtons, BorderLayout.CENTER);
         JPButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         JBMyBook = new JButton();
         JBMyBook.setActionCommand("");
@@ -124,13 +122,6 @@ public class UserOperation {
         JBSearch.setForeground(new Color(-789517));
         JBSearch.setText("Search Book");
         JPButtons.add(JBSearch);
-        JPVIP = new JPanel();
-        JPVIP.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        JPVIP.setBackground(new Color(-6647090));
-        JPMain.add(JPVIP, BorderLayout.CENTER);
-        JTVIP = new JLabel();
-        JTVIP.setText("Your VIP score is 20. You are now our VIP user.");
-        JPVIP.add(JTVIP);
     }
 
     /**
@@ -161,4 +152,5 @@ public class UserOperation {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }
