@@ -88,7 +88,17 @@ public class SearchBook {
         JBBorrow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                int rowIndex = JTableSearch.getSelectedRow();
+                String bookName = (String) model.getValueAt(rowIndex, 0);
+                String publisher = (String) model.getValueAt(rowIndex, 1);
+                String author = (String) model.getValueAt(rowIndex, 2);
+                String category = (String) model.getValueAt(rowIndex, 3);
+                try {
+                    String message = BookController.borrowBook(bookName, publisher, author, category);
+                    JOptionPane.showMessageDialog(null, message);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

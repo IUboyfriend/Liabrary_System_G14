@@ -72,7 +72,8 @@ public class Oracle_Login {
             @Override
             public void windowClosing(WindowEvent e) {
                 try {
-                    oracleDB.closeConnection();
+                    if (oracleDB != null)
+                        oracleDB.closeConnection();
                     System.out.println("Successful");
                 } catch (SQLException ex) {
                     System.out.println("fail");
