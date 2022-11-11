@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="11/10/ ZRY">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_10_12_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_10_12_05__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_10_12_05__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_10_12_05__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_10_21_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_10_21_29__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_7_15_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_7_15_25__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_7_15_25__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_7_15_25__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_8_17_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_8_17_52__Changes_.xml" afterDir="false" />
+    <list default="true" id="79ba2107-f1e3-4a2c-9066-06c5251c5a69" name="Changes" comment="11/12/ ZRY">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Admin/AdminOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/AdminOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Admin/BookManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/BookManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Admin/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Admin/UserManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Admin/UserManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InitialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InitialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserMangementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserMangementController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +171,42 @@
       <option name="project" value="LOCAL" />
       <updated>1667884711503</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="11/10/ ZRY">
+      <created>1668097257136</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668097257136</updated>
+    </task>
+    <task id="LOCAL-00015" summary="11/11/ ZRY">
+      <created>1668101590507</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668101590507</updated>
+    </task>
+    <task id="LOCAL-00016" summary="11/11/ ZRY">
+      <created>1668169845481</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668169845481</updated>
+    </task>
+    <task id="LOCAL-00017" summary="11/12/ ZRY">
+      <created>1668183826987</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668183826987</updated>
+    </task>
+    <task id="LOCAL-00018" summary="11/12/ ZRY">
+      <created>1668184637455</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668184637455</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +249,10 @@
     <MESSAGE value="add User Operation interface" />
     <MESSAGE value="add three MyBook interfaces" />
     <MESSAGE value="add Search Book interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Search Book interface" />
+    <MESSAGE value="11/10/ ZRY" />
+    <MESSAGE value="11/11/ ZRY" />
+    <MESSAGE value="11/12/ ZRY" />
+    <option name="LAST_COMMIT_MESSAGE" value="11/12/ ZRY" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
