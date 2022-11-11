@@ -71,6 +71,7 @@
 //                "(" +
 //                "    LoginID_ADMIN   VARCHAR2(10) not null," +
 //                "    LoginID_USER    VARCHAR2(10) not null," +
+//                "    OperationType  VARCHAR2(10) not null," +
 //                "    ReactivationTime TIMESTAMP(6) not null," +
 //                "    constraint REACTIVATION_RECORD_pk" +
 //                "        primary key (LoginID_ADMIN, LoginID_USER, ReactivationTime)" +
@@ -109,7 +110,7 @@
 //
 //        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing1','Testing123','Jay',1,0,0,'571532474@qq.com')");
 //    }
-
+//
 //    public static void main(String args[]) throws SQLException {
 //        OracleDB oracleDB = new OracleDB();
 //

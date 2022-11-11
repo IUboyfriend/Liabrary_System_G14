@@ -1,7 +1,6 @@
 package View.Admin;
 
 import Controller.OracleDB;
-import Controller.logController;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,6 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.*;
+import Controller.logController;
+import View.Initial;
+import View.Oracle_Login;
 
 public class Log {
     private JTable JTableLog;
@@ -28,23 +30,31 @@ public class Log {
         JTableLog.setModel(model);
         JScrollPane s = new JScrollPane(JTableLog);
         JPMain.add(s, BorderLayout.NORTH);
-        OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
+        OracleDB oracleDB = Oracle_Login.oracleDB;
         try {
-            ResultSet res1 = logController.rgetall(id, oracleDB);
-            ResultSet res2 = logController.ogetall(id, oracleDB);
-            if (res1.next()) {
-                Vector<String> row = new Vector();
-                row.add(id);
-                row.add("reactivate");
-                row.add(res1.getString("ReactivationTime"));
-                model.addRow(row);
+            ResultSet res1 = logController.rgetall(Initial.ID, oracleDB);
+            ResultSet res2 = logController.ogetall(Initial.ID, oracleDB);
+            if (!res1.next()) {
+                System.out.print("no");
+            } else {
+                do {
+                    Vector<String> row = new Vector();
+                    row.add(id);
+                    row.add(res1.getString("OPERATIONTYPE"));
+                    row.add(res1.getString("REACTIVATIONTIME"));
+                    model.addRow(row);
+                } while (res1.next());
             }
-            if (res2.next()) {
-                Vector<String> row = new Vector();
-                row.add(id);
-                row.add(res2.getString("OperationType"));
-                row.add(res2.getString("OperationTime"));
-                model.addRow(row);
+            if (!res2.next()) {
+                System.out.print("yes");
+            } else {
+                do {
+                    Vector<String> row = new Vector();
+                    row.add(id);
+                    row.add(res2.getString("OPERATIONTYPE"));
+                    row.add(res2.getString("OPERATIONTIME"));
+                    model.addRow(row);
+                } while (res2.next());
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
@@ -60,6 +70,7 @@ public class Log {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new AdminOperation(frame).JPMain);
+
             }
         });
     }
