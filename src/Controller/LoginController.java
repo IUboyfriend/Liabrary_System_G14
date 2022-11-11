@@ -14,17 +14,14 @@ public class LoginController {
             ResultSet rset = Oracle_Login.oracleDB.executeQuery(query);
             if(!rset.next())
                 return "Invalid account or password! Please try again!";
-            do{
-                System.out.println(rset.getString("NICKNAME"));
-            } while (rset.next());
+            if(rset.getInt("ACCOUNTSTATUS") == 1)
+                    return "Your account has been deactivated! Ask an administrator for help!";
+
         }else if (role.equals("Admin")){
             String query = "SELECT * FROM ADMIN_ACCOUNT WHERE LOGINID = '" + ID + "' AND PASSWORD = '" + password + "'";
             ResultSet rset = Oracle_Login.oracleDB.executeQuery(query);
             if(!rset.next())
                 return "Invalid account or password! Please try again!";
-            do{
-                System.out.println(rset.getString("LOGINID"));
-            } while (rset.next());
         }
 
         return "";

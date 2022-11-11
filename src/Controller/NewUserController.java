@@ -13,8 +13,8 @@ public class NewUserController {
         if(Oracle_Login.oracleDB.executeQuery(query).next()){
             return "The user ID has already exists! Please try another one!";
         }
-        query = "INSERT INTO USER_ACCOUNT (LOGINID,PASSWORD,NICKNAME,ACCOUNTSTATUS,NUMOFBORROWS,VIPSCORE,EMAIL) VALUES('" + userID + "','" + password + "','" +
-                nickName + "','" + "0','" + "0','" + "0','" + Email +"')";
+        query = "INSERT INTO USER_ACCOUNT (LOGINID,PASSWORD,NICKNAME,ACCOUNTSTATUS,NUMOFBORROWS,EMAIL) VALUES('" + userID + "','" + password + "','" +
+                nickName + "','" + "0','" + "0','"  + Email +"')";
         System.out.println(Oracle_Login.oracleDB.executeUpdate(query));
         return "Successfully create user: " + userID;
     }

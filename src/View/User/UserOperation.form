@@ -43,7 +43,7 @@
         </children>
       </grid>
       <grid id="4a40a" binding="JPButtons" layout-manager="FlowLayout" hgap="30" vgap="10" flow-align="1">
-        <constraints border-constraint="South"/>
+        <constraints border-constraint="Center"/>
         <properties>
           <background color="-6828067"/>
           <foreground color="-6828067"/>
@@ -67,21 +67,6 @@
               <background color="-15022631"/>
               <foreground color="-789517"/>
               <text value="Search Book"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-      <grid id="f910" binding="JPVIP" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-        <constraints border-constraint="Center"/>
-        <properties>
-          <background color="-6647090"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="229be" class="javax.swing.JLabel" binding="JTVIP">
-            <constraints/>
-            <properties>
-              <text value="Your VIP score is 20. You are now our VIP user."/>
             </properties>
           </component>
         </children>

@@ -23,15 +23,16 @@ public class BookController {
         }
         else
         {
-
             String searchField = searchType.equals("Name")? "BOOKNAME":searchType;
-
             query += " WHERE " + searchField.toUpperCase() + " LIKE '%" + searchVal + "%'";
-
         }
         ResultSet rset = oracleDB.executeQuery(query);
         return rset;
     }
+
+
+
+
 
 
 }

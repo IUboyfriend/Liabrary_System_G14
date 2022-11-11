@@ -32,7 +32,7 @@ public class SearchBook {
     private String selectedItem = "All";
 
     public SearchBook(JFrame frame) {
-        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available"};
+        String[] titles = {"Book Name", "Publisher", "Author", "Category"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
@@ -83,6 +83,12 @@ public class SearchBook {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new UserOperation(frame).JPMain);
+            }
+        });
+        JBBorrow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

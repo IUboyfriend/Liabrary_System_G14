@@ -78,8 +78,6 @@ public class Initial {
         newUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
                 frame.setContentPane(new NewUser(frame).JPMain);
             }
         });
