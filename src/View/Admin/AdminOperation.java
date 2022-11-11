@@ -1,5 +1,6 @@
 package View.Admin;
 
+import Controller.LoginController;
 import View.Initial;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class AdminOperation {
@@ -27,6 +29,9 @@ public class AdminOperation {
         frame.setSize(500, 130);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        JLabelWelcomeAdmin.setText("Welcome, " + Initial.ID);
+
+
         JButtonLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
