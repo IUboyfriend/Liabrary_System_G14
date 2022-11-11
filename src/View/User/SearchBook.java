@@ -4,6 +4,7 @@ import Controller.BookController;
 import Controller.OracleDB;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,10 @@ public class SearchBook {
     private JPanel JPSearchBar;
     private JButton JBBack;
     JPanel JPMain;
+    private JPanel JPButtons;
+    private JButton JBBorrow;
+    private JButton JBReserve;
+    private JButton JBDesire;
 
     private String selectedItem = "All";
 
@@ -33,7 +38,7 @@ public class SearchBook {
         JTableSearch.setModel(model);
         JScrollPane s = new JScrollPane(JTableSearch);
         JPTable.add(s, BorderLayout.CENTER);
-        frame.setTitle("SearchBook");
+        frame.setTitle("Search Book");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
@@ -42,51 +47,27 @@ public class SearchBook {
         JBSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                model.setRowCount(0);
                 String searchText = TFSearchBar.getText();
-                if (searchText.equals(""))
-                    JOptionPane.showMessageDialog(null, "Please type something in the search bar!");
-                else if (selectedItem.equals("All")) {
-                    try {
-                        ResultSet rset = BookController.searchAll(searchText);
-                        if (!rset.next())
-                            JOptionPane.showMessageDialog(null, "No records are found!");
-                        else {
-                            do {
-                                String BookName = rset.getString("BOOKNAME");
-                                String Author = rset.getString("AUTHOR");
-                                String Category = rset.getString("CATEGORY");
-                                String Publisher = rset.getString("PUBLISHER");
-                                int status = rset.getInt("STATUS");
-                                String whatStatus = status == 0 ? "Available" : status == 1 ? "Borrowed" : "Reserved";
-                                String[] row = {BookName, Publisher, Author, Category, whatStatus};
-                                model.addRow(row);
-                            } while (rset.next());
-                        }
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+                String searchType = selectedItem;
+                try {
+                    ResultSet rset = BookController.searchAll(searchText, searchType);
+                    if (!rset.next())
+                        JOptionPane.showMessageDialog(null, "No records are found!");
+                    else {
+                        do {
+                            String BookName = rset.getString("BOOKNAME");
+                            String Author = rset.getString("AUTHOR");
+                            String Category = rset.getString("CATEGORY");
+                            String Publisher = rset.getString("PUBLISHER");
+                            String[] row = {BookName, Publisher, Author, Category};
+                            model.addRow(row);
+                        } while (rset.next());
                     }
-                } else {
-                    try {
-                        ResultSet rset = BookController.searchOneField(searchText, selectedItem);
-                        if (!rset.next())
-                            JOptionPane.showMessageDialog(null, "No records are found!");
-                        else {
-                            do {
-                                String BookName = rset.getString("BOOKNAME");
-                                String Author = rset.getString("AUTHOR");
-                                String Category = rset.getString("CATEGORY");
-                                String Publisher = rset.getString("PUBLISHER");
-                                int status = rset.getInt("STATUS");
-                                String whatStatus = status == 0 ? "Available" : status == 1 ? "Borrowed" : "Reserved";
-                                String[] row = {BookName, Publisher, Author, Category, whatStatus};
-                                model.addRow(row);
-                            } while (rset.next());
-                        }
-
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
                 }
+
 
             }
         });
@@ -122,7 +103,7 @@ public class SearchBook {
      */
     private void $$$setupUI$$$() {
         JPMain = new JPanel();
-        JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+        JPMain.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
         JPMain.setBackground(new Color(-8806227));
         JPSearchBar = new JPanel();
         JPSearchBar.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(20, 20, 20, 20), -1, -1));
@@ -145,7 +126,8 @@ public class SearchBook {
         JBSearch.setText("Search\n");
         JPSearchBar.add(JBSearch, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JBBack = new JButton();
-        JBBack.setForeground(new Color(-7105645));
+        JBBack.setBackground(new Color(-3374631));
+        JBBack.setForeground(new Color(-723724));
         JBBack.setText("Back\n");
         JPSearchBar.add(JBBack, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JPTable = new JPanel();
@@ -153,6 +135,23 @@ public class SearchBook {
         JPMain.add(JPTable, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         JTableSearch = new JTable();
         JPTable.add(JTableSearch, BorderLayout.CENTER);
+        JPButtons = new JPanel();
+        JPButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
+        JPButtons.setBackground(new Color(-6828067));
+        JPMain.add(JPButtons, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        JPButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+        JBBorrow = new JButton();
+        JBBorrow.setBackground(new Color(-9017150));
+        JBBorrow.setText("Borrow");
+        JPButtons.add(JBBorrow);
+        JBReserve = new JButton();
+        JBReserve.setBackground(new Color(-15022631));
+        JBReserve.setText("Reserve");
+        JPButtons.add(JBReserve);
+        JBDesire = new JButton();
+        JBDesire.setBackground(new Color(-13345850));
+        JBDesire.setText("Desire");
+        JPButtons.add(JBDesire);
     }
 
     /**

@@ -40,8 +40,9 @@ public class Oracle_Login {
 
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
-                //oracleDB = new OracleDB(account, password);
                 oracleDB = new OracleDB("20084595d", "vkzabmqa");
+
+//                oracleDB = new OracleDB("20076896d", "ufmgkkni");
 //                String query = "SELECT * FROM BOOK WHERE BOOKID = '123'";
 //                ResultSet rset = null;
 //                try {
@@ -52,8 +53,8 @@ public class Oracle_Login {
 //                } catch (SQLException ex) {
 //                    throw new RuntimeException(ex);
 //                }
-
-                frame.setContentPane(new Initial(frame).JPMain);
+                if (oracleDB.conn != null)
+                    frame.setContentPane(new Initial(frame).JPMain);
             }
         });
 
