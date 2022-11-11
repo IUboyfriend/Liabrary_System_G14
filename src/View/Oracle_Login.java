@@ -30,7 +30,7 @@ public class Oracle_Login {
     private JButton JBLOGIN;
     public JPanel JPMain;
 
-    static OracleDB oracleDB;
+    public static OracleDB oracleDB;
 
     public Oracle_Login(JFrame frame) {
 
@@ -40,17 +40,18 @@ public class Oracle_Login {
 
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
-                oracleDB = new OracleDB(account, password);
-                String query = "SELECT * FROM BOOK WHERE BOOKID = 123";
-                ResultSet rset = null;
-                try {
-                    rset = oracleDB.executeQuery(query);
-                    while (rset.next()) {
-                        System.out.println(rset.getString("BOOKNAME"));
-                    }
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+                //oracleDB = new OracleDB(account, password);
+                oracleDB = new OracleDB("20084595d", "vkzabmqa");
+//                String query = "SELECT * FROM BOOK WHERE BOOKID = '123'";
+//                ResultSet rset = null;
+//                try {
+//                    rset = oracleDB.executeQuery(query);
+//                    while (rset.next()) {
+//                        System.out.println(rset.getString("BOOKNAME"));
+//                    }
+//                } catch (SQLException ex) {
+//                    throw new RuntimeException(ex);
+//                }
 
                 frame.setContentPane(new Initial(frame).JPMain);
             }

@@ -1,5 +1,7 @@
 package View;
 
+import Controller.LoginController;
+import Controller.OracleDB;
 import View.Admin.AdminOperation;
 import View.User.NewUser;
 import View.User.UserOperation;
@@ -11,6 +13,7 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class Initial {
@@ -30,6 +33,13 @@ public class Initial {
     private JLabel JLablePassword;
     private JPasswordField JPasswordFieldPassword;
 
+    public static String ID;
+
+    public static String role;
+
+    private String inputID;
+    private String inputPassword;
+
     public Initial(JFrame frame) {
         frame.setTitle("Welcome to the Library Management System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,27 +48,79 @@ public class Initial {
         frame.setVisible(true);
 
 
-
         userLoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //if a user succeeds in logging in, jump to another page
-                frame.setContentPane(new UserOperation(frame).JPMain);
+                inputID = JTextFieldID.getText();
+                inputPassword = String.valueOf(JPasswordFieldPassword.getPassword());
+                String message = checkEmpty();
+                if (!message.equals("")) {
+                    JOptionPane.showMessageDialog(null, message);
+                } else {
+                    try {
+                        message = LoginController.Login(inputID, inputPassword, "User");
+                        if (!message.equals("")) {
+                            JOptionPane.showMessageDialog(null, message);
+                            return;
+                        } else {
+                            ID = inputID;
+                            role = "User";
+                        }
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    //if a user succeeds in logging in, jump to another page
+                    frame.setContentPane(new UserOperation(frame).JPMain);
+                }
+
             }
         });
         newUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
+
                 frame.setContentPane(new NewUser(frame).JPMain);
             }
         });
         adminLoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new AdminOperation(frame).JPMain);
+                inputID = JTextFieldID.getText();
+                inputPassword = String.valueOf(JPasswordFieldPassword.getPassword());
+                String message = checkEmpty();
+                if (!message.equals("")) {
+                    JOptionPane.showMessageDialog(null, message);
+                } else {
+                    try {
+                        message = LoginController.Login(inputID, inputPassword, "Admin");
+                        if (!message.equals("")) {
+                            JOptionPane.showMessageDialog(null, message);
+                            return;
+                        } else {
+                            ID = inputID;
+                            role = "Admin";
+                        }
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    //if an admin succeeds in logging in, jump to another page
+                    frame.setContentPane(new AdminOperation(frame).JPMain);
+                }
 
             }
         });
+    }
+
+    private String checkEmpty() {
+        if (inputID.equals("")) {
+            return "The account cannot be empty!";
+        }
+        if (inputPassword.equals("")) {
+            return "The password cannot be empty!";
+        }
+        return "";
     }
 
 
@@ -171,4 +233,5 @@ public class Initial {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }

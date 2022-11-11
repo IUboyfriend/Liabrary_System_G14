@@ -48,8 +48,6 @@ public class NewUser {
                 nickName = JTNickName.getText();
                 password = String.valueOf(passwordField1.getPassword());
                 password2 = String.valueOf(passwordField2.getPassword());
-                System.out.print(password);
-                System.out.println(password2);
                 Email = JTEmail.getText();
                 String message = checkEmpty();
                 if (!message.equals("")) {
