@@ -35,8 +35,6 @@ public class Initial {
 
     public static String ID;
 
-    public static String role;
-
     private String inputID;
     private String inputPassword;
 
@@ -64,7 +62,6 @@ public class Initial {
                             return;
                         } else {
                             ID = inputID;
-                            role = "User";
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -97,7 +94,6 @@ public class Initial {
                             return;
                         } else {
                             ID = inputID;
-                            role = "Admin";
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);

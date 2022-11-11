@@ -55,7 +55,7 @@ public class OracleDB {
         if (rset!=null) rset.close();
         if (stmt!=null) stmt.close();
         if (conn!=null) conn.close();
-        session.disconnect();
+        if(session!=null) session.disconnect();
 
     }
 
