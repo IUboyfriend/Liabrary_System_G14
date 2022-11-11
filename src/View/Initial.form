@@ -70,7 +70,7 @@
                     </constraints>
                     <properties>
                       <font size="18"/>
-                      <text value="User ID:    "/>
+                      <text value="User ID:     "/>
                     </properties>
                   </component>
                 </children>
