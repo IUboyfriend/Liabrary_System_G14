@@ -46,28 +46,27 @@ public class BookManagement {
         JBDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               String id= TFBookID.getText();
-               OracleDB oracleDB = new OracleDB();
-                if(id.equals("")){
+                String id = TFBookID.getText();
+                OracleDB oracleDB = new OracleDB();
+                if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
-                }else{
+                } else {
                     try {
                         ResultSet all = BookManagementController.getall(id, oracleDB);
-                        if(!all.next()){
+                        if (!all.next()) {
                             JOptionPane.showMessageDialog(null, "No records are found!");
-                        }
-                        else{
-                            String author=all.getString( "Author" );
+                        } else {
+                            String author = all.getString("Author");
                             TFAuthor.setText(author);
-                            String publisher=all.getString("Publisher");
+                            String publisher = all.getString("Publisher");
                             TFPublisher.setText(publisher);
-                            String category=all.getString("Category");
+                            String category = all.getString("Category");
                             TFCategory.setText(category);
-                            String name=all.getString("BookName");
+                            String name = all.getString("BookName");
                             TFBookName.setText(name);
-                            BookManagementController.delete(id,oracleDB);
+                            BookManagementController.delete(id, oracleDB);
                         }
-                    }catch (SQLException ex) {
+                    } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
 
@@ -82,29 +81,28 @@ public class BookManagement {
         JBUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id= TFBookID.getText();
+                String id = TFBookID.getText();
                 OracleDB oracleDB = new OracleDB();
-                if(id.equals("")){
+                if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
-                }else{
+                } else {
                     try {
                         ResultSet all = BookManagementController.getall(id, oracleDB);
-                        if(!all.next()){
+                        if (!all.next()) {
                             JOptionPane.showMessageDialog(null, "No records are found!");
-                        }
-                        else{
-                            String author=TFAuthor.getText();
-                            String publisher= TFPublisher.getText();
+                        } else {
+                            String author = TFAuthor.getText();
+                            String publisher = TFPublisher.getText();
                             String category = TFCategory.getText();
-                            String name= TFBookName.getText();
-                            if(author.equals("")||publisher.equals("")||category.equals("")||name.equals("")) {
+                            String name = TFBookName.getText();
+                            if (author.equals("") || publisher.equals("") || category.equals("") || name.equals("")) {
                                 JOptionPane.showMessageDialog(null, "Missing book information");
 
-                            }else{
-                                BookManagementController.update(id, oracleDB,publisher,author,name,category);
+                            } else {
+                                BookManagementController.update(id, oracleDB, publisher, author, name, category);
                             }
                         }
-                    }catch (SQLException ex) {
+                    } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
 
@@ -119,33 +117,32 @@ public class BookManagement {
         JBAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id= TFBookID.getText();
+                String id = TFBookID.getText();
                 OracleDB oracleDB = new OracleDB();
-                if(id.equals("")){
+                if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
-                }else{
+                } else {
                     try {
                         ResultSet all = BookManagementController.getall(id, oracleDB);
-                        if(!all.next()){
+                        if (!all.next()) {
                             JOptionPane.showMessageDialog(null, "No records are found!");
-                        }
-                        else{
-                            String author=TFAuthor.getText();
-                            String publisher= TFPublisher.getText();
+                        } else {
+                            String author = TFAuthor.getText();
+                            String publisher = TFPublisher.getText();
                             String category = TFCategory.getText();
-                            String name= TFBookName.getText();
-                            if(author.equals("")||publisher.equals("")||category.equals("")||name.equals("")) {
+                            String name = TFBookName.getText();
+                            if (author.equals("") || publisher.equals("") || category.equals("") || name.equals("")) {
                                 JOptionPane.showMessageDialog(null, "Missing book information");
 
-                            }else{
+                            } else {
                                 try {
                                     BookManagementController.add(id, oracleDB, publisher, author, name, category);
-                                }catch (SQLException ex) {
+                                } catch (SQLException ex) {
                                     throw new RuntimeException(ex);
                                 }
                             }
                         }
-                    }catch (SQLException ex) {
+                    } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
 

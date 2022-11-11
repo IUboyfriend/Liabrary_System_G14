@@ -38,18 +38,17 @@ public class UserManagement {
         JBActivate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               String id=JTUserID.getText();
+                String id = JTUserID.getText();
                 OracleDB oracleDB = new OracleDB();
-            if(id.equals("")){
-                JOptionPane.showMessageDialog(null, "The user id can not be empty!");
-            }
-            else{
-                try{
-                    UserMangementController.activate(id,oracleDB);
-                }catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                if (id.equals("")) {
+                    JOptionPane.showMessageDialog(null, "The user id can not be empty!");
+                } else {
+                    try {
+                        UserMangementController.activate(id, oracleDB);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
-            }
                 try {
                     oracleDB.closeConnection();
                 } catch (SQLException ex) {
@@ -60,15 +59,14 @@ public class UserManagement {
         JBDeactivate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id=JTUserID.getText();
+                String id = JTUserID.getText();
                 OracleDB oracleDB = new OracleDB();
-                if(id.equals("")){
+                if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The user id can not be empty!");
-                }
-                else{
-                    try{
-                        UserMangementController.deactivate(id,oracleDB);
-                    }catch (SQLException ex) {
+                } else {
+                    try {
+                        UserMangementController.deactivate(id, oracleDB);
+                    } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
@@ -166,4 +164,5 @@ public class UserManagement {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }

@@ -1,6 +1,7 @@
 package View.Admin;
 
 import Controller.OracleDB;
+import Controller.logController;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -22,32 +23,33 @@ public class Log {
     public Log(JFrame frame) {
         String[] titles = {"Admin Account", "Operation Detail", "Operation Time"};
         String[][] data = {};
-        String id="1";
+        String id = "1";
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableLog.setModel(model);
         JScrollPane s = new JScrollPane(JTableLog);
         JPMain.add(s, BorderLayout.NORTH);
         OracleDB oracleDB = new OracleDB();
-        try{
-        ResultSet res1=logController.rgetall(id,oracleDB);
-        ResultSet res2=logController.ogetall(id,oracleDB);
-        }catch (SQLException ex) {
+        try {
+            ResultSet res1 = logController.rgetall(id, oracleDB);
+            ResultSet res2 = logController.ogetall(id, oracleDB);
+            if (res1.next()) {
+                Vector<String> row = new Vector();
+                row.add(id);
+                row.add("reactivate");
+                row.add(res1.getString("ReactivationTime"));
+                model.addRow(row);
+            }
+            if (res2.next()) {
+                Vector<String> row = new Vector();
+                row.add(id);
+                row.add(res2.getString("OperationType"));
+                row.add(res2.getString("OperationTime"));
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        if(res1.next()){
-            Vector<String> row=new Vector();
-            row.add(id);
-            row.add("reactivate");
-            row.add(res1.getString("ReactivationTime"));
-            model.addRow(row);
-        }
-       if(res2.next()){
-           Vector<String> row=new Vector();
-           row.add(id);
-           row.add(res2.getString("OperationType"));
-           row.add(res2.getString("OperationTime"));
-           model.addRow(row);
-       }
+
         frame.setTitle("Admin Log");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 520);
