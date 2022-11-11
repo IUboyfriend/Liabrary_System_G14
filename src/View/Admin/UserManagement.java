@@ -2,6 +2,7 @@ package View.Admin;
 
 import Controller.OracleDB;
 import Controller.UserMangementController;
+import View.Oracle_Login;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -39,7 +40,7 @@ public class UserManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = JTUserID.getText();
-                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
+                OracleDB oracleDB = Oracle_Login.oracleDB;
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The user id can not be empty!");
                 } else {
@@ -49,18 +50,13 @@ public class UserManagement {
                         throw new RuntimeException(ex);
                     }
                 }
-                try {
-                    oracleDB.closeConnection();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
             }
         });
         JBDeactivate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = JTUserID.getText();
-                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
+                OracleDB oracleDB = Oracle_Login.oracleDB;
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The user id can not be empty!");
                 } else {
@@ -69,11 +65,6 @@ public class UserManagement {
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
-                }
-                try {
-                    oracleDB.closeConnection();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
                 }
             }
         });

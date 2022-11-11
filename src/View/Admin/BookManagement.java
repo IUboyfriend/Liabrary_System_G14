@@ -2,6 +2,7 @@ package View.Admin;
 
 import Controller.BookManagementController;
 import Controller.OracleDB;
+import View.Oracle_Login;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -30,6 +31,7 @@ public class BookManagement {
     private JButton JBUpdate;
     private JButton JBBack;
     private JButton JBAdd;
+    private JButton JBGet;
 
     public BookManagement(JFrame frame) {
         frame.setTitle("BookManagement");
@@ -47,34 +49,23 @@ public class BookManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = TFBookID.getText();
-                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
+                OracleDB oracleDB = Oracle_Login.oracleDB;
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
                 } else {
                     try {
                         ResultSet all = BookManagementController.getall(id, oracleDB);
                         if (!all.next()) {
-                            JOptionPane.showMessageDialog(null, "No records are found!");
+                            JOptionPane.showMessageDialog(null, "No Book are found!");
                         } else {
-                            String author = all.getString("Author");
-                            TFAuthor.setText(author);
-                            String publisher = all.getString("Publisher");
-                            TFPublisher.setText(publisher);
-                            String category = all.getString("Category");
-                            TFCategory.setText(category);
-                            String name = all.getString("BookName");
-                            TFBookName.setText(name);
+
                             BookManagementController.delete(id, oracleDB);
+                            JOptionPane.showMessageDialog(null, "The book has been deleted successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
 
-                }
-                try {
-                    oracleDB.closeConnection();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
                 }
             }
         });
@@ -82,14 +73,14 @@ public class BookManagement {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = TFBookID.getText();
-                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
+                OracleDB oracleDB = Oracle_Login.oracleDB;
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
                 } else {
                     try {
                         ResultSet all = BookManagementController.getall(id, oracleDB);
                         if (!all.next()) {
-                            JOptionPane.showMessageDialog(null, "No records are found!");
+                            JOptionPane.showMessageDialog(null, "No Book found!");
                         } else {
                             String author = TFAuthor.getText();
                             String publisher = TFPublisher.getText();
@@ -100,6 +91,7 @@ public class BookManagement {
 
                             } else {
                                 BookManagementController.update(id, oracleDB, publisher, author, name, category);
+                                JOptionPane.showMessageDialog(null, "The book has been updated successfully!");
                             }
                         }
                     } catch (SQLException ex) {
@@ -107,25 +99,20 @@ public class BookManagement {
                     }
 
                 }
-                try {
-                    oracleDB.closeConnection();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
             }
         });
         JBAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = TFBookID.getText();
-                OracleDB oracleDB = new OracleDB("\"20084595d\"", "vkzabmqa");
+                OracleDB oracleDB = Oracle_Login.oracleDB;
                 if (id.equals("")) {
                     JOptionPane.showMessageDialog(null, "The book id can not be empty!");
                 } else {
                     try {
                         ResultSet all = BookManagementController.getall(id, oracleDB);
-                        if (!all.next()) {
-                            JOptionPane.showMessageDialog(null, "No records are found!");
+                        if (all.next()) {
+                            JOptionPane.showMessageDialog(null, "Book already exsits !");
                         } else {
                             String author = TFAuthor.getText();
                             String publisher = TFPublisher.getText();
@@ -137,6 +124,7 @@ public class BookManagement {
                             } else {
                                 try {
                                     BookManagementController.add(id, oracleDB, publisher, author, name, category);
+                                    JOptionPane.showMessageDialog(null, "The book has been add successfully!");
                                 } catch (SQLException ex) {
                                     throw new RuntimeException(ex);
                                 }
@@ -147,10 +135,33 @@ public class BookManagement {
                     }
 
                 }
-                try {
-                    oracleDB.closeConnection();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+            }
+        });
+        JBGet.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id = TFBookID.getText();
+                OracleDB oracleDB = Oracle_Login.oracleDB;
+                if (id.equals("")) {
+                    JOptionPane.showMessageDialog(null, "The book id can not be empty!");
+                } else {
+                    try {
+                        ResultSet all = BookManagementController.getall(id, oracleDB);
+                        if (!all.next()) {
+                            JOptionPane.showMessageDialog(null, "No Book found!");
+                        } else {
+                            String author = all.getString("AUTHOR");
+                            TFAuthor.setText(author);
+                            String publisher = all.getString("PUBLISHER");
+                            TFPublisher.setText(publisher);
+                            String category = all.getString("CATEGORY");
+                            TFCategory.setText(category);
+                            String name = all.getString("BOOKNAME");
+                            TFBookName.setText(name);
+                        }
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -226,6 +237,10 @@ public class BookManagement {
         panel2.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));
         panel2.setBackground(new Color(-6828067));
         JPMain.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        JBGet = new JButton();
+        JBGet.setBackground(new Color(-4749322));
+        JBGet.setText("Get Book");
+        panel2.add(JBGet);
         JBDelete = new JButton();
         JBDelete.setBackground(new Color(-9017150));
         JBDelete.setText("Delete");
