@@ -1,6 +1,7 @@
 package View.User;
 
 import Controller.BookController;
+import Controller.BookHelpController;
 import Controller.OracleDB;
 
 import javax.swing.*;
@@ -43,6 +44,45 @@ public class SearchBook {
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+
+
+
+
+        JBReserve.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowIndex = JTableSearch.getSelectedRow();
+                String bookName = (String) model.getValueAt(rowIndex, 0);
+                String publisher = (String) model.getValueAt(rowIndex, 1);
+                String author = (String) model.getValueAt(rowIndex, 2);
+                String category = (String) model.getValueAt(rowIndex, 3);
+                try {
+                    String message = BookHelpController.reserveBook(bookName, publisher, author, category);
+                    JOptionPane.showMessageDialog(null, message);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
+        JBDesire.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowIndex = JTableSearch.getSelectedRow();
+                String bookName = (String) model.getValueAt(rowIndex, 0);
+                String publisher = (String) model.getValueAt(rowIndex, 1);
+                String author = (String) model.getValueAt(rowIndex, 2);
+                String category = (String) model.getValueAt(rowIndex, 3);
+                try {
+                    String message = BookHelpController.desireBook(bookName, publisher, author, category);
+                    JOptionPane.showMessageDialog(null, message);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
 
         JBSearch.addActionListener(new ActionListener() {
             @Override

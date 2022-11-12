@@ -40,7 +40,7 @@ public class Oracle_Login {
 
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
-                oracleDB = new OracleDB("20076896d", "ufmgkkni");
+                oracleDB = new OracleDB("20084595d", "vkzabmqa");
 
 //                oracleDB = new OracleDB("20076896d", "ufmgkkni");
 //                String query = "SELECT * FROM BOOK WHERE BOOKID = '123'";

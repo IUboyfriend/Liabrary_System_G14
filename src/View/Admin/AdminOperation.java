@@ -22,11 +22,12 @@ public class AdminOperation {
     private JButton JBUser;
     private JButton JBLog;
     private JButton bookManagementButton;
+    private JButton JBBookRecord;
 
     public AdminOperation(JFrame frame) {
         frame.setTitle("AdminOperation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 130);
+        frame.setSize(650, 130);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         JLabelWelcomeAdmin.setText("Welcome, " + Initial.ID);
@@ -54,6 +55,12 @@ public class AdminOperation {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new BookManagement(frame).JPMain);
+            }
+        });
+        JBBookRecord.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new BookRecord(frame).JPMain);
             }
         });
     }
@@ -135,6 +142,12 @@ public class AdminOperation {
         bookManagementButton.setForeground(new Color(-789517));
         bookManagementButton.setText("Book Management");
         JPButtons.add(bookManagementButton);
+        JBBookRecord = new JButton();
+        JBBookRecord.setActionCommand("JBBook");
+        JBBookRecord.setBackground(new Color(-6656570));
+        JBBookRecord.setForeground(new Color(-789517));
+        JBBookRecord.setText("Book Record");
+        JPButtons.add(JBBookRecord);
     }
 
     /**
@@ -165,5 +178,6 @@ public class AdminOperation {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }
 

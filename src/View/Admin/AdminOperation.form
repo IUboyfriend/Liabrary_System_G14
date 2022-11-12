@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.Admin.AdminOperation">
   <grid id="27dc6" binding="JPMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="130" y="109" width="509" height="391"/>
+      <xy x="130" y="109" width="627" height="391"/>
     </constraints>
     <properties>
       <background color="-11373958"/>
@@ -80,6 +80,15 @@
               <background color="-13345850"/>
               <foreground color="-789517"/>
               <text value="Book Management"/>
+            </properties>
+          </component>
+          <component id="691cf" class="javax.swing.JButton" binding="JBBookRecord">
+            <constraints/>
+            <properties>
+              <actionCommand value="JBBook"/>
+              <background color="-6656570"/>
+              <foreground color="-789517"/>
+              <text value="Book Record"/>
             </properties>
           </component>
         </children>

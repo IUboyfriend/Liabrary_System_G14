@@ -37,7 +37,7 @@ public class BookManagementController {
         String query="SELECT BookName FROM BOOK WHERE BookID=\'"+id+"\'";
         ResultSet rset = oracleDB.executeQuery(query);
 
-            query = "INSERT INTO BOOK (BookID,BookName,Author,Category,Publisher,Status) VALUES(\'" + id + "\',\'"+name+"\',\'"+aut+"\',\'"+cat+"\',\'"+pub+"\',\'"+1+"\')";
+            query = "INSERT INTO BOOK (BookID,BookName,Author,Category,Publisher,Status) VALUES(\'" + id + "\',\'"+name+"\',\'"+aut+"\',\'"+cat+"\',\'"+pub+"\',\'"+0+"\')";
             rset = oracleDB.executeQuery(query);
         String type="add";
         Date date = new Date();
