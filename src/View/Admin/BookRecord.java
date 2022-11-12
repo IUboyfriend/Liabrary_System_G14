@@ -1,8 +1,16 @@
 package View.Admin;
 
+import Controller.BookController;
+import Controller.BookRecordController;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class BookRecord {
     private JPanel JPSearchBar;
@@ -14,19 +22,55 @@ public class BookRecord {
     public JPanel JPMain;
 
     public BookRecord(JFrame frame) {
-        String[] titles = {"Book ID", "User ID", "Borrow Time", "Return Time"};
+        String[] titles = {"Book", "AUTHOR", "CATEGORY", "PUBLISHER", "User", "Status", "BorrowTime", "ReturnTime"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
         JScrollPane s = new JScrollPane(JTableSearch);
-        JPMain.add(JTableSearch, BorderLayout.CENTER);
+        JPMain.add(s, BorderLayout.CENTER);
         frame.setTitle("Borrow and Return Record");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900, 500);
+        frame.setSize(1000, 500);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        JBSearch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.setRowCount(0);
+                String searchText = TFSearchBar.getText();
+                try {
+                    ResultSet rset = BookRecordController.searchBorrowReturn(searchText);
+                    if (!rset.next())
+                        JOptionPane.showMessageDialog(null, "No records are found!");
+                    else {
+                        do {
+                            String BookName = rset.getString("BookName");
+                            String Author = rset.getString("AUTHOR");
+                            String Category = rset.getString("CATEGORY");
+                            String Publisher = rset.getString("PUBLISHER");
+                            String Nickname = rset.getString("Nickname");
+                            String StatusName = rset.getString("StatusName");
+                            String BorrowTime = rset.getString("BorrowTime");
+                            String ReturnTime = rset.getString("ReturnTime");
+                            String[] row = {Nickname, BookName, Publisher, Author, Category, StatusName, BorrowTime, ReturnTime};
+                            model.addRow(row);
+                        } while (rset.next());
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
 
+
+            }
+        });
+
+        JBBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new AdminOperation(frame).JPMain);
+            }
+        });
     }
 
     {

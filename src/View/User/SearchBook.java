@@ -33,7 +33,7 @@ public class SearchBook {
     private String selectedItem = "All";
 
     public SearchBook(JFrame frame) {
-        String[] titles = {"Book Name", "Publisher", "Author", "Category"};
+        String[] titles = {"Book Name", "Publisher", "Author", "Category", "Available Copies"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
@@ -44,9 +44,6 @@ public class SearchBook {
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-
-
 
 
         JBReserve.addActionListener(new ActionListener() {
@@ -95,12 +92,14 @@ public class SearchBook {
                     if (!rset.next())
                         JOptionPane.showMessageDialog(null, "No records are found!");
                     else {
+                        int count = 0;
                         do {
                             String BookName = rset.getString("BOOKNAME");
                             String Author = rset.getString("AUTHOR");
                             String Category = rset.getString("CATEGORY");
                             String Publisher = rset.getString("PUBLISHER");
-                            String[] row = {BookName, Publisher, Author, Category};
+                            String number = rset.getString("COUNT(*)");
+                            String[] row = {BookName, Publisher, Author, Category, number};
                             model.addRow(row);
                         } while (rset.next());
                     }

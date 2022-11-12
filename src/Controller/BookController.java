@@ -15,7 +15,7 @@ public class BookController {
         String query;
         if (searchType.equals("All"))
         {
-            query = "SELECT BOOKNAME,AUTHOR,PUBLISHER,CATEGORY FROM BOOK " + " WHERE BOOKNAME LIKE '%" + searchVal + "%'" +
+            query = "SELECT BOOKNAME,AUTHOR,PUBLISHER,CATEGORY,COUNT(*) FROM BOOK " + " WHERE BOOKNAME LIKE '%" + searchVal + "%'" +
                 "OR AUTHOR LIKE '%" + searchVal + "%'" +
                 "OR CATEGORY LIKE '%" + searchVal + "%'"+
                 "OR PUBLISHER LIKE '%" + searchVal + "%'" +
@@ -24,7 +24,7 @@ public class BookController {
         else
         {
             String searchField = searchType.equals("Name")? "BOOKNAME":searchType;
-            query = "SELECT BOOKNAME,AUTHOR,PUBLISHER,CATEGORY FROM BOOK  WHERE " + searchField.toUpperCase() + " LIKE '%" + searchVal + "%'"
+            query = "SELECT BOOKNAME,AUTHOR,PUBLISHER,CATEGORY, COUNT(*) FROM BOOK  WHERE " + searchField.toUpperCase() + " LIKE '%" + searchVal + "%'"
             + "GROUP BY BOOKNAME,AUTHOR,PUBLISHER,CATEGORY";
         }
         ResultSet rset = oracleDB.executeQuery(query);

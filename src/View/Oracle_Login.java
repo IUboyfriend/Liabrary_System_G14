@@ -41,18 +41,6 @@ public class Oracle_Login {
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
                 oracleDB = new OracleDB("20084595d", "vkzabmqa");
-
-//                oracleDB = new OracleDB("20076896d", "ufmgkkni");
-//                String query = "SELECT * FROM BOOK WHERE BOOKID = '123'";
-//                ResultSet rset = null;
-//                try {
-//                    rset = oracleDB.executeQuery(query);
-//                    while (rset.next()) {
-//                        System.out.println(rset.getString("BOOKNAME"));
-//                    }
-//                } catch (SQLException ex) {
-//                    throw new RuntimeException(ex);
-//                }
                 if (oracleDB.conn != null)
                     frame.setContentPane(new Initial(frame).JPMain);
             }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.Admin.AnalysisReport">
+  <grid id="27dc6" binding="JPMain" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="e72a1" binding="JPSearchBar" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="20" left="20" bottom="20" right="20"/>
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-7086643"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="d57ff" class="javax.swing.JComboBox" binding="ComboBoxOption">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="60" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Popular Book"/>
+                <item value="Popular Publisher"/>
+                <item value="Popular Category"/>
+                <item value="Popular Author"/>
+                <item value="Peak Hour"/>
+              </model>
+            </properties>
+          </component>
+          <component id="bb068" class="javax.swing.JButton" binding="JBSearch">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13345850"/>
+              <foreground color="-723724"/>
+              <text value="Generate Report"/>
+            </properties>
+          </component>
+          <component id="ab022" class="javax.swing.JButton" binding="JBBack">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-3374631"/>
+              <foreground color="-723724"/>
+              <text value="Back&#10;"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="24da1" binding="JPTable" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="44db5" class="javax.swing.JTable" binding="JTableSearch">
+            <constraints border-constraint="Center"/>
+            <properties/>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
