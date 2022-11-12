@@ -54,7 +54,6 @@ public class MyBookBorrow {
                 JBReservings.setEnabled(true);
                 frame.setTitle("My Borrowing");
                 JBReturn.setText("Return Book");
-
             }
         });
         JBReservings.addActionListener(new ActionListener() {

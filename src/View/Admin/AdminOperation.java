@@ -23,11 +23,12 @@ public class AdminOperation {
     private JButton JBLog;
     private JButton bookManagementButton;
     private JButton JBBookRecord;
+    private JButton JBReport;
 
     public AdminOperation(JFrame frame) {
         frame.setTitle("AdminOperation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(650, 130);
+        frame.setSize(800, 130);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         JLabelWelcomeAdmin.setText("Welcome, " + Initial.ID);
@@ -61,6 +62,12 @@ public class AdminOperation {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new BookRecord(frame).JPMain);
+            }
+        });
+        JBReport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new AnalysisReport(frame).JPMain);
             }
         });
     }
@@ -148,6 +155,12 @@ public class AdminOperation {
         JBBookRecord.setForeground(new Color(-789517));
         JBBookRecord.setText("Book Record");
         JPButtons.add(JBBookRecord);
+        JBReport = new JButton();
+        JBReport.setActionCommand("JBBook");
+        JBReport.setBackground(new Color(-6626143));
+        JBReport.setForeground(new Color(-789517));
+        JBReport.setText("Analysis Report");
+        JPButtons.add(JBReport);
     }
 
     /**
