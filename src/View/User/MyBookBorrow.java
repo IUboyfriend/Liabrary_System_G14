@@ -1,12 +1,20 @@
 package View.User;
 
+import Controller.BookController;
+import Controller.BookHelpController;
+import Controller.BookManagementController;
+import Controller.OracleDB;
 import View.Initial;
+import View.Oracle_Login;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+
 
 public class MyBookBorrow {
     public JPanel JPMain;
@@ -37,10 +45,37 @@ public class MyBookBorrow {
         JBDesire.setEnabled(true);
         JBReservings.setEnabled(true);
         frame.setTitle("My Borrowing");
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        model.setRowCount(0);
+        try {
+            ResultSet rset = BookController.searchReturnTable();
+            if (!rset.next())
+                JOptionPane.showMessageDialog(null, "No records are found!");
+            else {
+                do {
+                    String BookID = rset.getString("BOOKID");
+                    ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
+                    rsetbook.next();
+                    String BookName = rsetbook.getString("BOOKNAME");
+                    String Author = rsetbook.getString("AUTHOR");
+                    String Category = rsetbook.getString("CATEGORY");
+                    String Publisher = rsetbook.getString("PUBLISHER");
+
+                    String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("BORROWTIME"));
+                    String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDRETURNTIME"));
+
+                    String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
+                    model.addRow(row);
+                } while (rset.next());
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
 
         JBBorrow.addActionListener(new ActionListener() {
             @Override
@@ -55,6 +90,31 @@ public class MyBookBorrow {
                 frame.setTitle("My Borrowing");
                 JBReturn.setText("Return Book");
 
+                model.setRowCount(0);
+                try {
+                    ResultSet rset = BookController.searchReturnTable();
+                    if (!rset.next())
+                        JOptionPane.showMessageDialog(null, "No records are found!");
+                    else {
+                        do {
+                            String BookID = rset.getString("BOOKID");
+                            ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
+                            rsetbook.next();
+                            String BookName = rsetbook.getString("BOOKNAME");
+                            String Author = rsetbook.getString("AUTHOR");
+                            String Category = rsetbook.getString("CATEGORY");
+                            String Publisher = rsetbook.getString("PUBLISHER");
+
+                            String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("BORROWTIME"));
+                            String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDRETURNTIME"));
+
+                            String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
+                            model.addRow(row);
+                        } while (rset.next());
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         JBReservings.addActionListener(new ActionListener() {
@@ -69,6 +129,32 @@ public class MyBookBorrow {
                 JBReservings.setEnabled(false);
                 frame.setTitle("My Reserving");
                 JBReturn.setText("Cancel Reservation");
+
+                model.setRowCount(0);
+                try {
+                    ResultSet rset = BookController.searchTable("RESERVED_RECORD");
+                    if (!rset.next())
+                        JOptionPane.showMessageDialog(null, "No records are found!");
+                    else {
+                        do {
+                            String BookID = rset.getString("BOOKID");
+                            ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
+                            rsetbook.next();
+                            String BookName = rsetbook.getString("BOOKNAME");
+                            String Author = rsetbook.getString("AUTHOR");
+                            String Category = rsetbook.getString("CATEGORY");
+                            String Publisher = rsetbook.getString("PUBLISHER");
+
+                            String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("RESERVEDTIME"));
+                            String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDGETTIME"));
+
+                            String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
+                            model.addRow(row);
+                        } while (rset.next());
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         JBDesire.addActionListener(new ActionListener() {
@@ -83,6 +169,57 @@ public class MyBookBorrow {
                 JBReservings.setEnabled(true);
                 frame.setTitle("My Desiring");
                 JBReturn.setText("Cancel Desiring");
+
+                model.setRowCount(0);
+                try {
+                    ResultSet rset = BookController.searchTable("BOOK_DESIRED");
+                    if (!rset.next())
+                        JOptionPane.showMessageDialog(null, "No records are found!");
+                    else {
+                        do {
+                            String BookName = rset.getString("BOOKNAME");
+                            String Author = rset.getString("AUTHOR");
+                            String Category = rset.getString("CATEGORY");
+                            String Publisher = rset.getString("PUBLISHER");
+                            String Judge = BookManagementController.bookAvailable(BookName, Publisher, Author, Category, Oracle_Login.oracleDB) ? "YES" : "NO";
+                            String[] row = {BookName, Publisher, Author, Category, Judge};
+                            model.addRow(row);
+                        } while (rset.next());
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        JBReturn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowIndex = JTableBorrow.getSelectedRow();
+                try {
+                    String currentType = JBReturn.getText();
+                    if (currentType.equals("Return Book")) {
+
+                        Timestamp borrowtime = Timestamp.valueOf((String) model.getValueAt(rowIndex, 4));
+                        String message = BookHelpController.returnBook(BookManagementController.BfindBookId(Initial.ID, borrowtime, Oracle_Login.oracleDB), borrowtime);
+                        JOptionPane.showMessageDialog(null, message);
+                    } else if (currentType.equals("Cancel Reservation")) {
+                        Timestamp reservedtime = Timestamp.valueOf((String) model.getValueAt(rowIndex, 4));
+                        String message = BookHelpController.cancelReserveBook(BookManagementController.RfindBookId(Initial.ID, reservedtime, Oracle_Login.oracleDB), reservedtime);
+                        JOptionPane.showMessageDialog(null, message);
+                    } else if (currentType.equals("Cancel Desiring")) {
+
+                        String bookName = (String) model.getValueAt(rowIndex, 0);
+                        String publisher = (String) model.getValueAt(rowIndex, 1);
+                        String author = (String) model.getValueAt(rowIndex, 2);
+                        String category = (String) model.getValueAt(rowIndex, 3);
+
+                        String message = BookHelpController.cancelDesireBook(bookName, author, category, publisher);
+                        JOptionPane.showMessageDialog(null, message);
+                    }
+
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 

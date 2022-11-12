@@ -47,7 +47,7 @@ public class BookRecord {
         JPMain = new JPanel();
         JPMain.setLayout(new BorderLayout(0, 0));
         JPSearchBar = new JPanel();
-        JPSearchBar.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
+        JPSearchBar.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(20, 20, 20, 20), -1, -1));
         JPSearchBar.setBackground(new Color(-7086643));
         JPMain.add(JPSearchBar, BorderLayout.NORTH);
         TFSearchBar = new JTextField();

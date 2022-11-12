@@ -31,7 +31,19 @@ public class BookController {
         return rset;
     }
 
+    public static ResultSet searchTable(String tablename) throws SQLException {
+        OracleDB oracleDB = Oracle_Login.oracleDB;
+        String query = "SELECT * FROM "+ tablename;
+        ResultSet rset = oracleDB.executeQuery(query);
+        return rset;
+    }
 
+    public static ResultSet searchReturnTable() throws SQLException {
+        OracleDB oracleDB = Oracle_Login.oracleDB;
+        String query = "SELECT * FROM BORROW_AND_RETURN_RECORD WHERE RETURNTIME IS NULL";
+        ResultSet rset = oracleDB.executeQuery(query);
+        return rset;
+    }
     public static String borrowBook(String bookName, String publisher, String author, String category) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
         String query = "SELECT * FROM BOOK WHERE BOOKNAME = '" + bookName + "' AND PUBLISHER = '" + publisher + "' AND AUTHOR = '"

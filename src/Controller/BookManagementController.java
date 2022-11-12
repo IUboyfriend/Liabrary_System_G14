@@ -14,6 +14,27 @@ public class BookManagementController {
         ResultSet rset = oracleDB.executeQuery(query);
         return rset;
     }
+    public static boolean bookAvailable(String bookName, String publisher, String author, String category,Controller.OracleDB oracleDB) throws SQLException {
+        String query = "SELECT * FROM BOOK WHERE BOOKNAME = '" + bookName + "' AND PUBLISHER = '" + publisher + "' AND AUTHOR = '"
+                + author + "' AND CATEGORY = '" + category + "' AND STATUS = '0'" ;
+        ResultSet rset = oracleDB.executeQuery(query);
+        if(!rset.next())
+            return false;
+        return true;
+    }
+    public static String BfindBookId(String loginID, Timestamp time, Controller.OracleDB oracleDB) throws SQLException {
+        String query = "SELECT BOOKID FROM BORROW_AND_RETURN_RECORD WHERE LOGINID = '" + loginID + "' AND BORROWTIME = '" + time +"'";
+        ResultSet rset = oracleDB.executeQuery(query);
+        rset.next();
+        return rset.getString("BOOKID");
+    }
+
+    public static String RfindBookId(String loginID, Timestamp time, Controller.OracleDB oracleDB) throws SQLException {
+        String query = "SELECT BOOKID FROM RESERVED_RECORD WHERE LOGINID = '" + loginID + "' AND RESERVEDTIME = '" + time +"'";
+        ResultSet rset = oracleDB.executeQuery(query);
+        rset.next();
+        return rset.getString("BOOKID");
+    }
     public static void delete(String id,Controller.OracleDB oracleDB) throws SQLException {
         String query="DELETE FROM BOOK WHERE BookID=\'"+id+"\'";
         ResultSet rset = oracleDB.executeQuery(query);

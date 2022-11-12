@@ -34,7 +34,7 @@ public class BookHelpController {
             }
 
             String bookID = rset.getString("BOOKID");
-            query="UPDATE BOOK SET STATUS = '1' WHERE BOOKID = \'"+bookID+"\'";
+            query="UPDATE BOOK SET STATUS = '2' WHERE BOOKID = \'"+bookID+"\'";
             oracleDB.executeUpdate(query);
             Date date = new Date();
             Timestamp ts = new Timestamp(date.getTime());
@@ -46,6 +46,7 @@ public class BookHelpController {
         }
 
     }
+
 
     public static String desireBook(String bookName, String publisher, String author, String category) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
@@ -63,13 +64,57 @@ public class BookHelpController {
             ResultSet rsetBook = oracleDB.executeQuery(queryBook);
             rsetBook.next();
 
-            String bookID = rsetBook.getString("BOOKID");
+            //String bookID = rsetBook.getString("BOOKID");
 
             query = String.format("INSERT INTO BOOK_DESIRED (LoginID,BookName,Author,Category,Publisher) VALUES('%s','%s','%s','%s','%s')",
-                    Initial.ID,bookID,author,category,publisher);
+                    Initial.ID,bookName,author,category,publisher);
             oracleDB.executeUpdate(query);
             return "Successfully desire a book! ";
         }
 
     }
+    public static String returnBook(String bookID, Timestamp time) throws SQLException {
+        OracleDB oracleDB = Oracle_Login.oracleDB;
+        Date date = new Date();
+        Timestamp ts = new Timestamp(date.getTime());
+        String query = "UPDATE BORROW_AND_RETURN_RECORD SET RETURNTIME = " + ts + " WHERE BOOKID = '" + bookID + "' AND LOGINID = '" + Initial.ID + "' AND BORROWTIME = " + time;
+        oracleDB.executeUpdate(query);
+        query="UPDATE BOOK SET STATUS = '0' WHERE BOOKID = \'"+bookID+"\'";
+        oracleDB.executeUpdate(query);
+        query = "SELECT NUMOFBORROWS FROM USER_ACCOUNT WHERE LOGINID = '" + Initial.ID + "'";
+        ResultSet rsetUSER = oracleDB.executeQuery(query);
+        rsetUSER.next();
+        int currentBorrows = rsetUSER.getInt("NUMOFBORROWS");
+        currentBorrows--;
+        query="UPDATE USER_ACCOUNT SET NUMOFBORROWS = '"+ currentBorrows + "' WHERE LOGINID = '"+ Initial.ID +"'";
+        oracleDB.executeUpdate(query);
+        return "Successfully return a book! ";
+    }
+
+    public static String cancelReserveBook(String bookID, Timestamp time) throws SQLException {
+        OracleDB oracleDB = Oracle_Login.oracleDB;
+        Date date = new Date();
+        Timestamp ts = new Timestamp(date.getTime());
+        String query = "DELETE FROM RESERVED_RECORD WHERE BOOKID = '" + bookID + "' AND LOGINID = '" + Initial.ID + "' AND RESERVEDTIME = " + time;
+        oracleDB.executeUpdate(query);
+        query="UPDATE BOOK SET STATUS = '0' WHERE BOOKID = \'"+bookID+"\'";
+        oracleDB.executeUpdate(query);
+        query = "SELECT NUMOFBORROWS FROM USER_ACCOUNT WHERE LOGINID = '" + Initial.ID + "'";
+        ResultSet rsetUSER = oracleDB.executeQuery(query);
+        rsetUSER.next();
+        int currentBorrows = rsetUSER.getInt("NUMOFBORROWS");
+        currentBorrows--;
+        query="UPDATE USER_ACCOUNT SET NUMOFBORROWS = '"+ currentBorrows + "' WHERE LOGINID = '"+ Initial.ID +"'";
+        oracleDB.executeUpdate(query);
+        return "Successfully cancel reserve a book! ";
+    }
+
+    public static String cancelDesireBook(String bookname, String author, String category, String publisher) throws SQLException {
+        OracleDB oracleDB = Oracle_Login.oracleDB;
+        String query = String.format("DELETE FROM BOOK_DESIRED WHERE LoginID='%s' and BookName='%s' and Author='%s' and Category='%s' and Publisher='%s'",
+                Initial.ID,bookname,author,category,publisher);
+        oracleDB.executeUpdate(query);
+        return "Successfully cancel desire a book! ";
+    }
+
 }
