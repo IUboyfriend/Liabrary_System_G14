@@ -181,7 +181,7 @@ public class MyBookBorrow {
                             String Author = rset.getString("AUTHOR");
                             String Category = rset.getString("CATEGORY");
                             String Publisher = rset.getString("PUBLISHER");
-                            String Judge = BookManagementController.bookAvailable(BookName, Publisher, Author, Category, Oracle_Login.oracleDB) ? "YES" : "NO";
+                            String Judge = BookManagementController.bookAvailable(BookName, Publisher, Author, Category, Oracle_Login.oracleDB) > 0 ? "YES" : "NO";
                             String[] row = {BookName, Publisher, Author, Category, Judge};
                             model.addRow(row);
                         } while (rset.next());

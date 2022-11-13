@@ -48,7 +48,7 @@ public class BookHelpController {
     }
 
 
-    public static String desireBook(String bookName, String publisher, String author, String category, String number) throws SQLException {
+    public static String desireBook(String bookName, String publisher, String author, String category, String  number) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
 
         String query = String.format("SELECT * FROM BOOK_DESIRED WHERE LoginID='%s' and BookName='%s' and Author='%s' and Category='%s' and Publisher='%s'",

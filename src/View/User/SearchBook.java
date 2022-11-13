@@ -2,7 +2,9 @@ package View.User;
 
 import Controller.BookController;
 import Controller.BookHelpController;
+import Controller.BookManagementController;
 import Controller.OracleDB;
+import View.Oracle_Login;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -99,8 +101,8 @@ public class SearchBook {
                             String Author = rset.getString("AUTHOR");
                             String Category = rset.getString("CATEGORY");
                             String Publisher = rset.getString("PUBLISHER");
-                            String number = rset.getString("COUNT(*)");
-                            String[] row = {BookName, Publisher, Author, Category, number};
+                            int number = BookManagementController.bookAvailable(BookName, Publisher, Author, Category, Oracle_Login.oracleDB);
+                            String[] row = {BookName, Publisher, Author, Category, String.valueOf(number)};
                             model.addRow(row);
                         } while (rset.next());
                     }
