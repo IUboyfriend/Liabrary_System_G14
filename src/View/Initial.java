@@ -1,5 +1,6 @@
 package View;
 
+import Controller.InitialController;
 import Controller.LoginController;
 import Controller.OracleDB;
 import View.Admin.AdminOperation;
@@ -44,7 +45,6 @@ public class Initial {
         frame.setSize(520, 320);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
 
         userLoginButton.addActionListener(new ActionListener() {
             @Override

@@ -35,23 +35,23 @@ public class MyBookBorrow {
 
     public MyBookBorrow(JFrame frame) {
 
-        titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Borrow time", "Expected Return time"};
+        titles = new String[]{};
         data = new String[][]{};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableBorrow.setModel(model);
         JScrollPane s = new JScrollPane(JTableBorrow);
         JPTable.add(s, BorderLayout.CENTER);
-        JBBorrow.setEnabled(false);
+        JBBorrow.setEnabled(true);
         JBDesire.setEnabled(true);
         JBReservings.setEnabled(true);
-        frame.setTitle("My Borrowing");
+        frame.setTitle("Please choose one page to check....");
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        model.setRowCount(0);
+        /*model.setRowCount(0);
         try {
             ResultSet rset = BookController.searchReturnTable();
             if (!rset.next())
@@ -75,7 +75,7 @@ public class MyBookBorrow {
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
-        }
+        }*/
 
         JBBorrow.addActionListener(new ActionListener() {
             @Override
@@ -195,31 +195,34 @@ public class MyBookBorrow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int rowIndex = JTableBorrow.getSelectedRow();
-                try {
-                    String currentType = JBReturn.getText();
-                    if (currentType.equals("Return Book")) {
+                //System.out.println(rowIndex);
+                if (rowIndex >= 0) {
+                    try {
+                        String currentType = JBReturn.getText();
+                        if (currentType.equals("Return Book")) {
+                            String borrowtime = (String) model.getValueAt(rowIndex, 4);
+                            String message = BookHelpController.returnBook(BookManagementController.BfindBookId(Initial.ID, borrowtime, Oracle_Login.oracleDB), borrowtime);
+                            JOptionPane.showMessageDialog(null, message);
+                        } else if (currentType.equals("Cancel Reservation")) {
+                            //System.out.println((String) model.getValueAt(rowIndex, 0));
+                            String reservedtime = (String) model.getValueAt(rowIndex, 4);
 
-                        Timestamp borrowtime = Timestamp.valueOf((String) model.getValueAt(rowIndex, 4));
-                        String message = BookHelpController.returnBook(BookManagementController.BfindBookId(Initial.ID, borrowtime, Oracle_Login.oracleDB), borrowtime);
-                        JOptionPane.showMessageDialog(null, message);
-                    } else if (currentType.equals("Cancel Reservation")) {
-                        Timestamp reservedtime = Timestamp.valueOf((String) model.getValueAt(rowIndex, 4));
-                        String message = BookHelpController.cancelReserveBook(BookManagementController.RfindBookId(Initial.ID, reservedtime, Oracle_Login.oracleDB), reservedtime);
-                        JOptionPane.showMessageDialog(null, message);
-                    } else if (currentType.equals("Cancel Desiring")) {
+                            String message = BookHelpController.cancelReserveBook(BookManagementController.RfindBookId(Initial.ID, reservedtime, Oracle_Login.oracleDB), reservedtime);
+                            JOptionPane.showMessageDialog(null, message);
+                        } else if (currentType.equals("Cancel Desiring")) {
+                            String bookName = (String) model.getValueAt(rowIndex, 0);
+                            String publisher = (String) model.getValueAt(rowIndex, 1);
+                            String author = (String) model.getValueAt(rowIndex, 2);
+                            String category = (String) model.getValueAt(rowIndex, 3);
 
-                        String bookName = (String) model.getValueAt(rowIndex, 0);
-                        String publisher = (String) model.getValueAt(rowIndex, 1);
-                        String author = (String) model.getValueAt(rowIndex, 2);
-                        String category = (String) model.getValueAt(rowIndex, 3);
+                            String message = BookHelpController.cancelDesireBook(bookName, author, category, publisher);
+                            JOptionPane.showMessageDialog(null, message);
+                        }
 
-                        String message = BookHelpController.cancelDesireBook(bookName, author, category, publisher);
-                        JOptionPane.showMessageDialog(null, message);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
                     }
-
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+                } else JOptionPane.showMessageDialog(null, "Please select a line!");
             }
         });
 

@@ -23,15 +23,16 @@ public class BookManagementController {
             count++;
         return count;
     }
-    public static String BfindBookId(String loginID, Timestamp time, Controller.OracleDB oracleDB) throws SQLException {
-        String query = "SELECT BOOKID FROM BORROW_AND_RETURN_RECORD WHERE LOGINID = '" + loginID + "' AND BORROWTIME = '" + time +"'";
+    public static String BfindBookId(String loginID, String time, Controller.OracleDB oracleDB) throws SQLException {
+        //TO_TIMESTAMP(date_string,'YYYY-MM-DD HH24:MI:SS')
+        String query = "SELECT BOOKID FROM BORROW_AND_RETURN_RECORD WHERE LOGINID = '" + loginID + "' AND BORROWTIME = TO_TIMESTAMP('" + time +"','YYYY-MM-DD HH24:MI:SS')";
         ResultSet rset = oracleDB.executeQuery(query);
         rset.next();
         return rset.getString("BOOKID");
     }
 
-    public static String RfindBookId(String loginID, Timestamp time, Controller.OracleDB oracleDB) throws SQLException {
-        String query = "SELECT BOOKID FROM RESERVED_RECORD WHERE LOGINID = '" + loginID + "' AND RESERVEDTIME = '" + time +"'";
+    public static String RfindBookId(String loginID, String time, Controller.OracleDB oracleDB) throws SQLException {
+        String query = "SELECT BOOKID FROM RESERVED_RECORD WHERE LOGINID = '" + loginID + "' AND RESERVEDTIME = TO_TIMESTAMP('" + time +"','YYYY-MM-DD HH24:MI:SS')";
         ResultSet rset = oracleDB.executeQuery(query);
         rset.next();
         return rset.getString("BOOKID");

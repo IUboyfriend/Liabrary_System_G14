@@ -1,5 +1,6 @@
 package View;
 
+import Controller.InitialController;
 import Controller.OracleDB;
 
 import javax.swing.*;
@@ -40,9 +41,17 @@ public class Oracle_Login {
 
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
-                oracleDB = new OracleDB("20084595d", "vkzabmqa");
-                if (oracleDB.conn != null)
+                oracleDB = new OracleDB("20076279d", "ienatxzt");
+                if (oracleDB.conn != null) {
+                    try {
+                        InitialController.createTable(oracleDB);
+                        InitialController.initialInsert(oracleDB);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     frame.setContentPane(new Initial(frame).JPMain);
+                }
+
             }
         });
 

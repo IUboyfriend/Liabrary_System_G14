@@ -6,6 +6,7 @@ import View.Oracle_Login;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BookHelpController {
@@ -40,7 +41,7 @@ public class BookHelpController {
             Timestamp ts = new Timestamp(date.getTime());
             Timestamp tsLater = new Timestamp(date.getTime()+(long) 1000*3600*24*3);
             query = "INSERT INTO RESERVED_RECORD (BOOKID,LOGINID,ReservedTime,ExpectedGetTime) VALUES('" + bookID + "','" + Initial.ID + "'," +
-                    "TIMESTAMP \'" + ts + "\'," + "TIMESTAMP \'" + tsLater + "\')";
+                    "TIMESTAMP \'" + ts + "\'," + "TIMESTAMP '" + tsLater + "\')";
             oracleDB.executeUpdate(query);
             return "Successfully reserve a book! Please borrow it in three day!";
         }
@@ -70,11 +71,15 @@ public class BookHelpController {
         }
 
     }
-    public static String returnBook(String bookID, Timestamp time) throws SQLException {
+    public static String returnBook(String bookID, String time) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
+
+
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
-        String query = "UPDATE BORROW_AND_RETURN_RECORD SET RETURNTIME = " + ts + " WHERE BOOKID = '" + bookID + "' AND LOGINID = '" + Initial.ID + "' AND BORROWTIME = " + time;
+        String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(ts);
+
+        String query = "UPDATE BORROW_AND_RETURN_RECORD SET RETURNTIME = TO_TIMESTAMP('" + sd1 + "','YYYY-MM-DD HH24:MI:SS') WHERE BOOKID = '" + bookID + "' AND LOGINID = '" + Initial.ID + "' AND BORROWTIME = TO_TIMESTAMP('" + time +"','YYYY-MM-DD HH24:MI:SS')";
         oracleDB.executeUpdate(query);
         query="UPDATE BOOK SET STATUS = '0' WHERE BOOKID = \'"+bookID+"\'";
         oracleDB.executeUpdate(query);
@@ -88,11 +93,10 @@ public class BookHelpController {
         return "Successfully return a book! ";
     }
 
-    public static String cancelReserveBook(String bookID, Timestamp time) throws SQLException {
+    public static String cancelReserveBook(String bookID, String time) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
-        Date date = new Date();
-        Timestamp ts = new Timestamp(date.getTime());
-        String query = "DELETE FROM RESERVED_RECORD WHERE BOOKID = '" + bookID + "' AND LOGINID = '" + Initial.ID + "' AND RESERVEDTIME = " + time;
+
+        String query = "DELETE FROM RESERVED_RECORD WHERE BOOKID = '" + bookID + "' AND LOGINID = '" + Initial.ID + "' AND RESERVEDTIME = TO_TIMESTAMP('" + time +"','YYYY-MM-DD HH24:MI:SS')";
         oracleDB.executeUpdate(query);
         query="UPDATE BOOK SET STATUS = '0' WHERE BOOKID = \'"+bookID+"\'";
         oracleDB.executeUpdate(query);
