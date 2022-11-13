@@ -48,7 +48,7 @@ public class BookHelpController {
     }
 
 
-    public static String desireBook(String bookName, String publisher, String author, String category) throws SQLException {
+    public static String desireBook(String bookName, String publisher, String author, String category, String number) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
 
         String query = String.format("SELECT * FROM BOOK_DESIRED WHERE LoginID='%s' and BookName='%s' and Author='%s' and Category='%s' and Publisher='%s'",
@@ -58,18 +58,15 @@ public class BookHelpController {
         if(rset.next()){
             return "This book has been desired!";
         }else{
+            int available = Integer.parseInt(number);
+            if(available <= 0){
 
-            String queryBook = String.format("SELECT * FROM BOOK WHERE BookName='%s' and Author='%s' and Category='%s' and Publisher='%s'",
-                    bookName,author,category,publisher);
-            ResultSet rsetBook = oracleDB.executeQuery(queryBook);
-            rsetBook.next();
-
-            //String bookID = rsetBook.getString("BOOKID");
-
-            query = String.format("INSERT INTO BOOK_DESIRED (LoginID,BookName,Author,Category,Publisher) VALUES('%s','%s','%s','%s','%s')",
-                    Initial.ID,bookName,author,category,publisher);
-            oracleDB.executeUpdate(query);
-            return "Successfully desire a book! ";
+                query = String.format("INSERT INTO BOOK_DESIRED (LoginID,BookName,Author,Category,Publisher) VALUES('%s','%s','%s','%s','%s')",
+                        Initial.ID,bookName,author,category,publisher);
+                oracleDB.executeUpdate(query);
+                return "Successfully desire a book! ";
+            }
+            else return "This book has available copies!";
         }
 
     }

@@ -71,8 +71,9 @@ public class SearchBook {
                 String publisher = (String) model.getValueAt(rowIndex, 1);
                 String author = (String) model.getValueAt(rowIndex, 2);
                 String category = (String) model.getValueAt(rowIndex, 3);
+                String availablebook = (String) model.getValueAt(rowIndex, 4);
                 try {
-                    String message = BookHelpController.desireBook(bookName, publisher, author, category);
+                    String message = BookHelpController.desireBook(bookName, publisher, author, category, availablebook);
                     JOptionPane.showMessageDialog(null, message);
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
