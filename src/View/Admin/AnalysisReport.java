@@ -4,11 +4,17 @@ import Controller.AnalysisReportController;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class AnalysisReport {
     private JPanel JPSearchBar;
@@ -17,12 +23,14 @@ public class AnalysisReport {
     private JButton JBBack;
     private JPanel JPTable;
     private JTable JTableSearch;
+
     JPanel JPMain;
 
     String selectedItem = "Popular Book";
 
     public AnalysisReport(JFrame frame) {
-        String[] titles = {"Ranking", "Name", "Number of borrowings and desirings"};
+
+        String[] titles = {"Ranking", "BOOKNAME", "Borrows, desires and reserves"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
@@ -31,7 +39,7 @@ public class AnalysisReport {
 
         frame.setTitle("Analysis Report");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 300);
+        frame.setSize(600, 350);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
@@ -53,16 +61,36 @@ public class AnalysisReport {
         JBSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String searchType = selectedItem;
                 model.setRowCount(0);
+                String searchType = selectedItem;
+                String selectedItem = "";
                 if (searchType.equals("Popular Book"))
-                    AnalysisReportController.generateReport("BOOKNAME");
+                    selectedItem = "BOOKNAME";
                 else if (searchType.equals("Popular Publisher"))
-                    AnalysisReportController.generateReport("PUBLISHER");
+                    selectedItem = "PUBLISHER";
                 else if (searchType.equals("Popular Category"))
-                    AnalysisReportController.generateReport("CATEGORY");
+                    selectedItem = "CATEGORY";
                 else if (searchType.equals("Popular Author"))
-                    AnalysisReportController.generateReport("Author");
+                    selectedItem = "AUTHOR";
+
+                JTableHeader th = JTableSearch.getTableHeader();
+                TableColumnModel tcm = th.getColumnModel();
+                TableColumn tc = tcm.getColumn(1);
+                tc.setHeaderValue("Hottest " + selectedItem.toLowerCase());
+                th.repaint();
+
+                try {
+                    ResultSet rset = AnalysisReportController.generateReport(selectedItem);
+                    Integer ranking = 0;
+                    while (rset.next()) {
+                        ranking++;
+                        String[] row = {ranking.toString(), rset.getString(1), rset.getString(2)};
+                        model.addRow(row);
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
             }
         });
     }

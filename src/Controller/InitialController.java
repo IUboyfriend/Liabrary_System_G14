@@ -163,9 +163,9 @@ public class InitialController {
         conn.executeUpdate("INSERT INTO BOOK VALUES ('031','The Three-Body Problem','Liu Cixin','Science fiction','Chongqing Press',1)");
         conn.executeUpdate("INSERT INTO BOOK VALUES ('032','The Three-Body Problem','Liu Cixin','Science fiction','Chongqing Press',1)");
         conn.executeUpdate("INSERT INTO BOOK VALUES ('033','The Three-Body Problem','Liu Cixin','Science fiction','Chongqing Press',1)");
-        conn.executeUpdate("INSERT INTO BOOK VALUES ('034','The Three-Body Problem','Liu Cixin','Science fiction','Chongqing Press',0)");
-        conn.executeUpdate("INSERT INTO BOOK VALUES ('035','The Three-Body Problem','Liu Cixin','Science fiction','Chongqing Press',0)");
-        conn.executeUpdate("INSERT INTO BOOK VALUES ('036','The Three-Body Problem','Liu Cixin','Science fiction','Chongqing Press',0)");
+        conn.executeUpdate("INSERT INTO BOOK VALUES ('034','Village Teacher','Liu Cixin','Science fiction','Xin Hua Press',1)");
+        conn.executeUpdate("INSERT INTO BOOK VALUES ('035','Village Teacher','Liu Cixin','Science fiction','Xin Hua Press',1)");
+        conn.executeUpdate("INSERT INTO BOOK VALUES ('036','Village Teacher','Liu Cixin','Science fiction','Xin Hua Press',1)");
 
 
 //reserve records
@@ -173,11 +173,14 @@ public class InitialController {
         conn.executeUpdate("INSERT INTO RESERVED_RECORD VALUES ('Testing1','025', TO_TIMESTAMP('2022-11-16 19:58:03','YYYY-MM-DD HH24:MI:SS'), TO_TIMESTAMP('2022-1-19 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
         conn.executeUpdate("INSERT INTO RESERVED_RECORD VALUES ('Testing2','026', TO_TIMESTAMP('2022-11-17 19:58:03','YYYY-MM-DD HH24:MI:SS'), TO_TIMESTAMP('2022-1-20 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
 
+
 //desired records
         conn.executeUpdate("INSERT INTO BOOK_DESIRED VALUES ('Testing1','AI 2041', 'Lee, Kai-Fu','Computing & Information Technology','Crown Publishing Group')");
         conn.executeUpdate("INSERT INTO BOOK_DESIRED VALUES ('Testing2','AI 2041', 'Lee, Kai-Fu','Computing & Information Technology','Crown Publishing Group')");
         conn.executeUpdate("INSERT INTO BOOK_DESIRED VALUES ('Testing3','AI 2041', 'Lee, Kai-Fu','Computing & Information Technology','Crown Publishing Group')");
-
+        conn.executeUpdate("INSERT INTO BOOK_DESIRED VALUES ('Testing1','Village Teacher', 'Liu Cixin','Science fiction','Xin Hua Press')");
+        conn.executeUpdate("INSERT INTO BOOK_DESIRED VALUES ('Testing2','Village Teacher', 'Liu Cixin','Science fiction','Xin Hua Press')");
+        conn.executeUpdate("INSERT INTO BOOK_DESIRED VALUES ('Testing3','Village Teacher', 'Liu Cixin','Science fiction','Xin Hua Press')");
 
 //borrow and return records
         conn.executeUpdate("INSERT INTO BORROW_AND_RETURN_RECORD VALUES ('030','Testing1', TO_TIMESTAMP('2022-11-15 19:58:03','YYYY-MM-DD HH24:MI:SS'),null, TO_TIMESTAMP('2022-12-15 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
