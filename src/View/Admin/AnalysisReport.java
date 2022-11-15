@@ -1,10 +1,14 @@
 package View.Admin;
 
+import Controller.AnalysisReportController;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class AnalysisReport {
     private JPanel JPSearchBar;
@@ -15,8 +19,10 @@ public class AnalysisReport {
     private JTable JTableSearch;
     JPanel JPMain;
 
+    String selectedItem = "Popular Book";
+
     public AnalysisReport(JFrame frame) {
-        String[] titles = {"Ranking", "Name", "Times"};
+        String[] titles = {"Ranking", "Name", "Number of borrowings and desirings"};
         String[][] data = {};
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableSearch.setModel(model);
@@ -33,6 +39,30 @@ public class AnalysisReport {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new AdminOperation(frame).JPMain);
+            }
+        });
+
+        ComboBoxOption.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (ItemEvent.SELECTED == e.getStateChange()) {
+                    selectedItem = e.getItem().toString();
+                }
+            }
+        });
+        JBSearch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String searchType = selectedItem;
+                model.setRowCount(0);
+                if (searchType.equals("Popular Book"))
+                    AnalysisReportController.generateReport("BOOKNAME");
+                else if (searchType.equals("Popular Publisher"))
+                    AnalysisReportController.generateReport("PUBLISHER");
+                else if (searchType.equals("Popular Category"))
+                    AnalysisReportController.generateReport("CATEGORY");
+                else if (searchType.equals("Popular Author"))
+                    AnalysisReportController.generateReport("Author");
             }
         });
     }
@@ -65,7 +95,6 @@ public class AnalysisReport {
         defaultComboBoxModel1.addElement("Popular Publisher");
         defaultComboBoxModel1.addElement("Popular Category");
         defaultComboBoxModel1.addElement("Popular Author");
-        defaultComboBoxModel1.addElement("Peak Hour");
         ComboBoxOption.setModel(defaultComboBoxModel1);
         JPSearchBar.add(ComboBoxOption, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(60, -1), null, 0, false));
         JBSearch = new JButton();
@@ -91,4 +120,5 @@ public class AnalysisReport {
     public JComponent $$$getRootComponent$$$() {
         return JPMain;
     }
+
 }

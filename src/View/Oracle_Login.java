@@ -41,7 +41,7 @@ public class Oracle_Login {
 
                 String account = JTAccount.getText();
                 String password = String.valueOf(JPasswordFieldPassword.getPassword());
-                oracleDB = new OracleDB("20076279d", "ienatxzt");
+                oracleDB = new OracleDB("20084595d", "vkzabmqa");//20084595d,vkzabmqa
                 if (oracleDB.conn != null) {
                     try {
                         InitialController.createTable(oracleDB);

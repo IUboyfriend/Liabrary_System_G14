@@ -25,7 +25,7 @@ public class Log {
     public Log(JFrame frame) {
         String[] titles = {"Admin Account", "Operation Detail", "Operation Time"};
         String[][] data = {};
-        String id = "1";
+        String id = Initial.ID;
         DefaultTableModel model = new DefaultTableModel(data, titles);
         JTableLog.setModel(model);
         JScrollPane s = new JScrollPane(JTableLog);

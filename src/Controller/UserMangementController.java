@@ -16,17 +16,17 @@ public class UserMangementController {
             //return false;
         }else {
             int state=rset.getInt(4);
-            if(state==1){
-                JOptionPane.showMessageDialog(null, "The useraccount is already activated!");
+            if(state==0){
+                JOptionPane.showMessageDialog(null, "The user account has already been activated! Don't activate it again!");
             }
             else {
-                query = "UPDATE USER_ACCOUNT SET AccountStatus='1' WHERE LOGINID=\'" + id + "\'";
+                query = "UPDATE USER_ACCOUNT SET AccountStatus='0' WHERE LOGINID=\'" + id + "\'";
                 oracleDB.executeQuery(query);
                 Date date = new Date();
                 Timestamp ts = new Timestamp(date.getTime());
                 query = "INSERT INTO REACTIVATION_RECORD VALUES(\'" + Initial.ID + "\',\'" + id + "\',\'activate\'," + "TIMESTAMP \'" + ts + "\')";
                 rset = oracleDB.executeQuery(query);
-                JOptionPane.showMessageDialog(null, "The useraccount has been activated");
+                JOptionPane.showMessageDialog(null, "The user account is now activated!");
             }
         }
             //return true;
@@ -40,17 +40,17 @@ public class UserMangementController {
         }
         else {
             int state=rset.getInt(4);
-      if(state==0){
-          JOptionPane.showMessageDialog(null, "The useraccount is already deactivated!");
+      if(state==1){
+          JOptionPane.showMessageDialog(null, "The user account has already been deactivated! Don't deactivated it again!");
             }
       else {
-          query = "UPDATE USER_ACCOUNT SET AccountStatus='0' WHERE LOGINID=\'" + id + "\'";
+          query = "UPDATE USER_ACCOUNT SET AccountStatus='1' WHERE LOGINID=\'" + id + "\'";
           oracleDB.executeQuery(query);
           Date date = new Date();
           Timestamp ts = new Timestamp(date.getTime());
           query = "INSERT INTO REACTIVATION_RECORD VALUES(\'" + Initial.ID + "\',\'" + id + "\',\'deactivate\'," + "TIMESTAMP \'" + ts + "\')";
           rset = oracleDB.executeQuery(query);
-          JOptionPane.showMessageDialog(null, "The useraccount has been deactivated");
+          JOptionPane.showMessageDialog(null, "The useraccount is now deactivated!");
           //return true;
       }
         }

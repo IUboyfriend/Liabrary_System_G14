@@ -65,9 +65,9 @@ public class BookHelpController {
                 query = String.format("INSERT INTO BOOK_DESIRED (LoginID,BookName,Author,Category,Publisher) VALUES('%s','%s','%s','%s','%s')",
                         Initial.ID,bookName,author,category,publisher);
                 oracleDB.executeUpdate(query);
-                return "Successfully desire a book! ";
+                return "Successfully desire a book!";
             }
-            else return "This book has available copies!";
+            else return "This book has available copies! You can directly borrow it!";
         }
 
     }

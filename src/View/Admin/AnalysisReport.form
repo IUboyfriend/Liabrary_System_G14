@@ -27,7 +27,6 @@
                 <item value="Popular Publisher"/>
                 <item value="Popular Category"/>
                 <item value="Popular Author"/>
-                <item value="Peak Hour"/>
               </model>
             </properties>
           </component>

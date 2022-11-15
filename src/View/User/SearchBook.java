@@ -48,6 +48,25 @@ public class SearchBook {
         frame.setVisible(true);
 
 
+
+        JBBorrow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowIndex = JTableSearch.getSelectedRow();
+                String bookName = (String) model.getValueAt(rowIndex, 0);
+                String publisher = (String) model.getValueAt(rowIndex, 1);
+                String author = (String) model.getValueAt(rowIndex, 2);
+                String category = (String) model.getValueAt(rowIndex, 3);
+                try {
+                    String message = BookController.borrowBook(bookName, publisher, author, category);
+                    JOptionPane.showMessageDialog(null, message);
+                    JBSearch.doClick();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
         JBReserve.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +78,7 @@ public class SearchBook {
                 try {
                     String message = BookHelpController.reserveBook(bookName, publisher, author, category);
                     JOptionPane.showMessageDialog(null, message);
+                    JBSearch.doClick();
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -77,6 +97,7 @@ public class SearchBook {
                 try {
                     String message = BookHelpController.desireBook(bookName, publisher, author, category, availablebook);
                     JOptionPane.showMessageDialog(null, message);
+                    JBSearch.doClick();
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -127,22 +148,7 @@ public class SearchBook {
                 frame.setContentPane(new UserOperation(frame).JPMain);
             }
         });
-        JBBorrow.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int rowIndex = JTableSearch.getSelectedRow();
-                String bookName = (String) model.getValueAt(rowIndex, 0);
-                String publisher = (String) model.getValueAt(rowIndex, 1);
-                String author = (String) model.getValueAt(rowIndex, 2);
-                String category = (String) model.getValueAt(rowIndex, 3);
-                try {
-                    String message = BookController.borrowBook(bookName, publisher, author, category);
-                    JOptionPane.showMessageDialog(null, message);
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
+
     }
 
     {
