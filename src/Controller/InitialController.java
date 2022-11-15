@@ -147,7 +147,8 @@ public class InitialController {
         conn.executeUpdate("INSERT INTO BOOK VALUES ('021','Brave New World','Aldous Huxley','Science Fiction','Chatto & Windus',0)");
         conn.executeUpdate("INSERT INTO BOOK VALUES ('022','The Sun Also Rises','Ernest Hemingway','novel','Charles Scribner Sons',0)");
         conn.executeUpdate("INSERT INTO BOOK VALUES ('023','The Sun Also Rises','Ernest Hemingway','novel','Charles Scribner Sons',0)");
-        conn.executeUpdate("INSERT INTO BOOK VALUES ('024','The Sun Also Rises','Ernest Hemingway','novel','Jonathan Kapp',0)");
+        conn.executeUpdate("INSERT INTO BOOK VALUES ('024','The Sun Also Rises','Ernest Hemingway','novel','Jonathan Kapp',1)");
+        conn.executeUpdate("INSERT INTO BORROW_AND_RETURN_RECORD VALUES ('024','1', TO_TIMESTAMP('2022-11-15 19:58:03','YYYY-MM-DD HH24:MI:SS'),null, TO_TIMESTAMP('2022-12-15 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
     }
 
     public static boolean isExists(String tablename) {
