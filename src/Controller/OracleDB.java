@@ -56,7 +56,6 @@ public class OracleDB {
         if (stmt!=null) stmt.close();
         if (conn!=null) conn.close();
         if(session!=null) session.disconnect();
-
     }
 
 

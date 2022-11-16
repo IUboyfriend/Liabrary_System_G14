@@ -3,7 +3,6 @@ package View.User;
 import Controller.BookController;
 import Controller.BookHelpController;
 import Controller.BookManagementController;
-import Controller.OracleDB;
 import View.Initial;
 import View.Oracle_Login;
 
@@ -27,12 +26,15 @@ public class MyBookBorrow {
     private JPanel JPButtons1;
     private JPanel JPButton2;
     private JPanel JPTable;
+    private JButton JBPick;
 
     private String[] titles;
 
     private String[][] data;
 
     DefaultTableModel modelInitial, modelBorrow, modelReserve, modelDesire;
+
+    boolean showMessage = true;
 
     public MyBookBorrow(JFrame frame) {
 
@@ -52,11 +54,13 @@ public class MyBookBorrow {
         frame.setSize(900, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        JBPick.setVisible(false);
 
 
         JBBorrow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JBPick.setVisible(false);
                 titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Borrow time", "Expected Return time"};
                 data = new String[][]{};
                 modelBorrow = new DefaultTableModel(data, titles);
@@ -71,22 +75,22 @@ public class MyBookBorrow {
                 modelBorrow.setRowCount(0);
                 try {
                     ResultSet rset = BookController.searchReturnTable();
-                    if (rset.next())
-                        do {
-                            String BookID = rset.getString("BOOKID");
-                            ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
-                            rsetbook.next();
-                            String BookName = rsetbook.getString("BOOKNAME");
-                            String Author = rsetbook.getString("AUTHOR");
-                            String Category = rsetbook.getString("CATEGORY");
-                            String Publisher = rsetbook.getString("PUBLISHER");
+                    while (rset.next()) {
+                        String BookID = rset.getString("BOOKID");
+                        ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
+                        rsetbook.next();
+                        String BookName = rsetbook.getString("BOOKNAME");
+                        String Author = rsetbook.getString("AUTHOR");
+                        String Category = rsetbook.getString("CATEGORY");
+                        String Publisher = rsetbook.getString("PUBLISHER");
 
-                            String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("BORROWTIME"));
-                            String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDRETURNTIME"));
+                        String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("BORROWTIME"));
+                        String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDRETURNTIME"));
 
-                            String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
-                            modelBorrow.addRow(row);
-                        } while (rset.next());
+                        String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
+                        modelBorrow.addRow(row);
+                    }
+
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -107,24 +111,25 @@ public class MyBookBorrow {
                 JBReturn.setVisible(true);
 
                 modelReserve.setRowCount(0);
+
+                JBPick.setVisible(true);
                 try {
                     ResultSet rset = BookController.searchTable("RESERVED_RECORD");
-                    if (rset.next())
-                        do {
-                            String BookID = rset.getString("BOOKID");
-                            ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
-                            rsetbook.next();
-                            String BookName = rsetbook.getString("BOOKNAME");
-                            String Author = rsetbook.getString("AUTHOR");
-                            String Category = rsetbook.getString("CATEGORY");
-                            String Publisher = rsetbook.getString("PUBLISHER");
+                    while (rset.next()) {
+                        String BookID = rset.getString("BOOKID");
+                        ResultSet rsetbook = BookManagementController.getall(BookID, Oracle_Login.oracleDB);
+                        rsetbook.next();
+                        String BookName = rsetbook.getString("BOOKNAME");
+                        String Author = rsetbook.getString("AUTHOR");
+                        String Category = rsetbook.getString("CATEGORY");
+                        String Publisher = rsetbook.getString("PUBLISHER");
 
-                            String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("RESERVEDTIME"));
-                            String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDGETTIME"));
+                        String sd1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("RESERVEDTIME"));
+                        String sd2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(rset.getTimestamp("EXPECTEDGETTIME"));
 
-                            String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
-                            modelReserve.addRow(row);
-                        } while (rset.next());
+                        String[] row = {BookName, Publisher, Author, Category, sd1, sd2};
+                        modelReserve.addRow(row);
+                    }
 
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
@@ -135,6 +140,7 @@ public class MyBookBorrow {
         JBDesire.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JBPick.setVisible(false);
                 titles = new String[]{"Book Name", "Publisher", "Author", "Category", "Available"};
                 data = new String[][]{};
                 modelDesire = new DefaultTableModel(data, titles);
@@ -171,7 +177,6 @@ public class MyBookBorrow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int rowIndex = JTableBorrow.getSelectedRow();
-                //System.out.println(rowIndex);
                 if (rowIndex >= 0) {
                     try {
                         String currentType = JBReturn.getText();
@@ -187,7 +192,11 @@ public class MyBookBorrow {
                             String reservedtime = (String) modelReserve.getValueAt(rowIndex, 4);
 
                             String message = BookHelpController.cancelReserveBook(BookManagementController.RfindBookId(Initial.ID, reservedtime, Oracle_Login.oracleDB), reservedtime);
-                            JOptionPane.showMessageDialog(null, message);
+
+                            if (showMessage == true)
+                                JOptionPane.showMessageDialog(null, message);
+                            else
+                                showMessage = true;
                             JBReservings.setEnabled(true);
                             JBReservings.doClick();
                             JBReservings.setEnabled(false);
@@ -205,7 +214,6 @@ public class MyBookBorrow {
                         }
 
 
-
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -217,6 +225,40 @@ public class MyBookBorrow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setContentPane(new UserOperation(frame).JPMain);
+            }
+        });
+        JBPick.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowIndex = JTableBorrow.getSelectedRow();
+                if (rowIndex == -1) {
+                    JOptionPane.showMessageDialog(null, "Please select a book!");
+                    return;
+                }
+                String reservedtime = (String) modelReserve.getValueAt(rowIndex, 4);
+                try {
+                    String BookId = BookManagementController.RfindBookId(Initial.ID, reservedtime, Oracle_Login.oracleDB);
+                    System.out.println(BookId);
+                    ResultSet resultSet = BookManagementController.findBookInfoById(BookId);
+                    if (resultSet.next()) {
+                        String bookName = resultSet.getString("BOOKNAME");
+                        String publisher = resultSet.getString("PUBLISHER");
+                        String author = resultSet.getString("AUTHOR");
+                        String category = resultSet.getString("CATEGORY");
+                        String message = BookController.borrowBook(bookName, publisher, author, category, true);
+                        if (message.equals("Successfully borrow a book! Please return it in one month!")) {
+                            showMessage = false;
+                            JBReturn.doClick();
+                            JOptionPane.showMessageDialog(null, "Successfully borrow your reserved book!\nPlease return it in one month!");
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "This book doesn't exist any more!");
+                    }
+
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -264,6 +306,9 @@ public class MyBookBorrow {
         JPButton2.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
         JPButton2.setBackground(new Color(-6828067));
         JPMain.add(JPButton2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        JBPick = new JButton();
+        JBPick.setText("PickUp");
+        JPButton2.add(JBPick);
         JBReturn = new JButton();
         JBReturn.setText("Return Book");
         JPButton2.add(JBReturn);

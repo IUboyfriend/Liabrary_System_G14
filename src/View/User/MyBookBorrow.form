@@ -55,6 +55,12 @@
         </properties>
         <border type="none"/>
         <children>
+          <component id="4f4ce" class="javax.swing.JButton" binding="JBPick">
+            <constraints/>
+            <properties>
+              <text value="PickUp"/>
+            </properties>
+          </component>
           <component id="73538" class="javax.swing.JButton" binding="JBReturn">
             <constraints/>
             <properties>

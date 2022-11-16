@@ -1,9 +1,6 @@
 package View.User;
 
-import Controller.BookController;
-import Controller.BookHelpController;
-import Controller.BookManagementController;
-import Controller.OracleDB;
+import Controller.*;
 import View.Oracle_Login;
 
 import javax.swing.*;
@@ -48,7 +45,6 @@ public class SearchBook {
         frame.setVisible(true);
 
 
-
         JBBorrow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,7 +54,7 @@ public class SearchBook {
                 String author = (String) model.getValueAt(rowIndex, 2);
                 String category = (String) model.getValueAt(rowIndex, 3);
                 try {
-                    String message = BookController.borrowBook(bookName, publisher, author, category);
+                    String message = BookController.borrowBook(bookName, publisher, author, category, false);
                     JOptionPane.showMessageDialog(null, message);
                     JBSearch.doClick();
                 } catch (SQLException ex) {

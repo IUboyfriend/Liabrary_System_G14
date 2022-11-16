@@ -123,9 +123,11 @@ public class InitialController {
 
         conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('1','1','Jay',0,0,'571532474@qq.com')");
         conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('2','2','wh1223',0,0,'973459859@qq.com')");
-        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing1','2','Testing1',0,2,'973459859@qq.com')");
-        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing2','2','Testing2',0,2,'973459859@qq.com')");
-        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing3','2','Testing3',0,3,'973459859@qq.com')");
+        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing1','2','Testing1',0,2,'1@qq.com')");
+        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing2','2','Testing2',0,2,'2@qq.com')");
+        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('Testing3','2','Testing3',0,3,'3@qq.com')");
+        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('5','5','HAO Jiadong',0,0,'20084595d@connect.polyu.hk')");
+        conn.executeUpdate("INSERT INTO USER_ACCOUNT VALUES ('4','4','WANG Hao',0,0,'20076279d@connect.polyu.hk')");
 
 
         conn.executeUpdate("INSERT INTO ADMIN_ACCOUNT VALUES ('3','3')");
@@ -167,7 +169,6 @@ public class InitialController {
         conn.executeUpdate("INSERT INTO BOOK VALUES ('035','Village Teacher','Liu Cixin','Science fiction','Xin Hua Press',1)");
         conn.executeUpdate("INSERT INTO BOOK VALUES ('036','Village Teacher','Liu Cixin','Science fiction','Xin Hua Press',1)");
 
-
 //reserve records
         conn.executeUpdate("INSERT INTO RESERVED_RECORD VALUES ('Testing1','024', TO_TIMESTAMP('2022-11-15 19:58:03','YYYY-MM-DD HH24:MI:SS'), TO_TIMESTAMP('2022-1-18 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
         conn.executeUpdate("INSERT INTO RESERVED_RECORD VALUES ('Testing1','025', TO_TIMESTAMP('2022-11-16 19:58:03','YYYY-MM-DD HH24:MI:SS'), TO_TIMESTAMP('2022-1-19 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
@@ -187,14 +188,6 @@ public class InitialController {
         conn.executeUpdate("INSERT INTO BORROW_AND_RETURN_RECORD VALUES ('031','Testing2', TO_TIMESTAMP('2022-11-16 19:58:03','YYYY-MM-DD HH24:MI:SS'),null, TO_TIMESTAMP('2022-12-16 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
         conn.executeUpdate("INSERT INTO BORROW_AND_RETURN_RECORD VALUES ('032','Testing2', TO_TIMESTAMP('2022-11-17 19:58:03','YYYY-MM-DD HH24:MI:SS'),null, TO_TIMESTAMP('2022-12-17 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
         conn.executeUpdate("INSERT INTO BORROW_AND_RETURN_RECORD VALUES ('033','Testing3', TO_TIMESTAMP('2022-11-18 19:58:03','YYYY-MM-DD HH24:MI:SS'),null, TO_TIMESTAMP('2022-12-18 19:58:03','YYYY-MM-DD HH24:MI:SS'))");
-
-
-
-
-
-
-
-
 
 
     }

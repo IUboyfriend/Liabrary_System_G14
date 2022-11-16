@@ -1,6 +1,7 @@
 package Controller;
 
 import View.Initial;
+import View.Oracle_Login;
 
 import javax.swing.*;
 import java.sql.ResultSet;
@@ -67,6 +68,14 @@ public class BookManagementController {
         Timestamp ts = new Timestamp(date.getTime());
         query="INSERT INTO OPERATION_RECORD VALUES(\'" + id + "\',\'"+ Initial.ID +"\',TIMESTAMP \'"+ts+"\',\'"+type+"\')";
         rset = oracleDB.executeQuery(query);
+
+    }
+
+    public static ResultSet findBookInfoById(String BookId) throws SQLException {
+        OracleDB oracleDB = Oracle_Login.oracleDB;
+        String query="SELECT * FROM BOOK WHERE BookID=\'"+ BookId +"\'";
+        ResultSet rset = oracleDB.executeQuery(query);
+        return rset;
 
     }
 }

@@ -27,7 +27,7 @@ public class BookHelpController {
             rsetUSER.next();
             int currentBorrows = rsetUSER.getInt("NUMOFBORROWS");
             if(currentBorrows>=3){
-                return "You cannot keep more than three books at the same time!";
+                return "You cannot keep or reserve more than three books at the same time!";
             }else{
                 currentBorrows++;
                 query="UPDATE USER_ACCOUNT SET NUMOFBORROWS = '"+ currentBorrows + "' WHERE LOGINID = '"+ Initial.ID +"'";
@@ -90,8 +90,48 @@ public class BookHelpController {
         currentBorrows--;
         query="UPDATE USER_ACCOUNT SET NUMOFBORROWS = '"+ currentBorrows + "' WHERE LOGINID = '"+ Initial.ID +"'";
         oracleDB.executeUpdate(query);
-        return "Successfully return a book! ";
+
+
+        //When a book is returned, an email will be sent to those who desired this book
+
+        try {
+            // get the information of the returned book
+            ResultSet bookRS = oracleDB.executeQuery(String.format("select * from BOOK where BookID='%s' ", bookID));
+            if(bookRS.next()) {
+
+                String BookName = bookRS.getString("BookName");
+                String Author = bookRS.getString("Author");
+                String Category = bookRS.getString("Category");
+                String Publisher = bookRS.getString("Publisher");
+                // find all the desired records
+                ResultSet desireRS = oracleDB.executeQuery(String.format("select * from BOOK_DESIRED where BookName='%s' and Author='%s' and Category='%s' and Publisher='%s' ",
+                        BookName, Author, Category, Publisher));
+                while (desireRS.next()) {
+                    String loginId = desireRS.getString("LoginID");
+                    ResultSet userRS = oracleDB.executeQuery(String.format("select * from USER_ACCOUNT where LoginID='%s' ", loginId));
+                    if (userRS.next()) {
+                        String email = userRS.getString("Email");
+                        String subject = String.format("One Desired Book Available!", BookName);
+                        String description = String.format("The book '%s' you desired is now available, you can borrow it through our system!<br>", BookName);
+                        description += String.format("BookName: %s <br>", BookName);
+                        description += String.format("Author: %s <br>", Author);
+                        description += String.format("Category: %s <br>", Category);
+                        description += String.format("Publisher: %s <br>", Publisher);
+                        description += "PAO YUE-KONG LIBRARY<br>";
+                        description += sd1; //DATE
+                        new EmailControll().SendLibraryEmail(email, subject, description);
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Cannot send an email to the users desired this book：" + ex.getMessage());
+        }
+
+        return "Successfully return a book!";
     }
+
 
     public static String cancelReserveBook(String bookID, String time) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;

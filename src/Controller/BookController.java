@@ -33,39 +33,45 @@ public class BookController {
 
     public static ResultSet searchTable(String tablename) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
-        String query = "SELECT * FROM "+ tablename;
+        String query = "SELECT * FROM "+ tablename + " WHERE LOGINID = '" + Initial.ID + "'";
         ResultSet rset = oracleDB.executeQuery(query);
         return rset;
     }
 
     public static ResultSet searchReturnTable() throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
-        String query = "SELECT * FROM BORROW_AND_RETURN_RECORD WHERE RETURNTIME IS NULL";
+        String query = "SELECT * FROM BORROW_AND_RETURN_RECORD WHERE RETURNTIME IS NULL and LOGINID = '" + Initial.ID + "'";
         ResultSet rset = oracleDB.executeQuery(query);
         return rset;
     }
-    public static String borrowBook(String bookName, String publisher, String author, String category) throws SQLException {
+    public static String borrowBook(String bookName, String publisher, String author, String category,boolean reservation) throws SQLException {
         OracleDB oracleDB = Oracle_Login.oracleDB;
-        String query = "SELECT * FROM BOOK WHERE BOOKNAME = '" + bookName + "' AND PUBLISHER = '" + publisher + "' AND AUTHOR = '"
-                + author + "' AND CATEGORY = '" + category + "' AND STATUS = '0'" ;
+        String query;
+        if(reservation == true)
+        {
+            query = "SELECT * FROM BOOK WHERE BOOKNAME = '" + bookName + "' AND PUBLISHER = '" + publisher + "' AND AUTHOR = '"
+                    + author + "' AND CATEGORY = '" + category + "' AND STATUS = '2'" ;
+        }else{
+            query = "SELECT * FROM BOOK WHERE BOOKNAME = '" + bookName + "' AND PUBLISHER = '" + publisher + "' AND AUTHOR = '"
+                    + author + "' AND CATEGORY = '" + category + "' AND STATUS = '0'" ;
+        }
         ResultSet rset = oracleDB.executeQuery(query);
         if(!rset.next()){
             return "This book has no available copies!";
         }else{
-            query = "SELECT NUMOFBORROWS FROM USER_ACCOUNT WHERE LOGINID = '" + Initial.ID + "'";
-            ResultSet rsetUSER = oracleDB.executeQuery(query);
-            rsetUSER.next();
-            int currentBorrows = rsetUSER.getInt("NUMOFBORROWS");
-            if(currentBorrows>=3){
-                return "You cannot keep more than three books at the same time!";
-            }else{
-                currentBorrows++;
-                query="UPDATE USER_ACCOUNT SET NUMOFBORROWS = '"+ currentBorrows + "' WHERE LOGINID = '"+ Initial.ID +"'";
-                oracleDB.executeUpdate(query);
+            if(reservation==false){
+                query = "SELECT NUMOFBORROWS FROM USER_ACCOUNT WHERE LOGINID = '" + Initial.ID + "'";
+                ResultSet rsetUSER = oracleDB.executeQuery(query);
+                rsetUSER.next();
+                int currentBorrows = rsetUSER.getInt("NUMOFBORROWS");
+                if(currentBorrows>=3){
+                    return "You cannot keep or reserve more than three books at the same time!";
+                }else{
+                    currentBorrows++;
+                    query="UPDATE USER_ACCOUNT SET NUMOFBORROWS = '"+ currentBorrows + "' WHERE LOGINID = '"+ Initial.ID +"'";
+                    oracleDB.executeUpdate(query);
+                }
             }
-
-
-
             String bookID = rset.getString("BOOKID");
             query="UPDATE BOOK SET STATUS = '1' WHERE BOOKID = \'"+bookID+"\'";
             oracleDB.executeUpdate(query);
@@ -75,8 +81,11 @@ public class BookController {
             query = "INSERT INTO BORROW_AND_RETURN_RECORD (BOOKID,LOGINID,BORROWTIME,EXPECTEDRETURNTIME) VALUES('" + bookID + "','" + Initial.ID + "'," +
                     "TIMESTAMP \'" + ts + "\'," + "TIMESTAMP \'" + tsLater + "\')";
             oracleDB.executeUpdate(query);
-           return "Successfully borrow a book! Please return it in one month!";
+            return "Successfully borrow a book! Please return it in one month!";
         }
 
     }
+
+
+
 }

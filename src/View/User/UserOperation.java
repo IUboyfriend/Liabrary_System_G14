@@ -24,7 +24,7 @@ public class UserOperation {
     public UserOperation(JFrame frame) {
         frame.setTitle("User Operation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 130);
+        frame.setSize(550, 150);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
