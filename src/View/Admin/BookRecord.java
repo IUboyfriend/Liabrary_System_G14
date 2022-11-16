@@ -40,7 +40,10 @@ public class BookRecord {
                 model.setRowCount(0);
                 String searchText = TFSearchBar.getText();
                 try {
-                    ResultSet rset = BookRecordController.searchBorrowReturn(searchText);
+                    ResultSet rset;
+                    if(searchText.equals(""))
+                        rset = BookController.searchTable("BORROW_AND_RETURN_RECORD");
+                    else rset = BookRecordController.searchBorrowReturn(searchText);
                     if (!rset.next())
                         JOptionPane.showMessageDialog(null, "No records are found!");
                     else {
@@ -108,7 +111,7 @@ public class BookRecord {
         JPSearchBar.add(JBBack, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setForeground(new Color(-789517));
-        label1.setText("BookID:  ");
+        label1.setText("Book Information:  ");
         JPSearchBar.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         JPTable = new JPanel();
         JPTable.setLayout(new BorderLayout(0, 0));
