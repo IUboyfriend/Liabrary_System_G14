@@ -51,7 +51,7 @@ public class InitialController {
                 "    Category  VARCHAR2(50)," +
                 "    Publisher VARCHAR2(50)," +
                 "    constraint BOOK_DESIRED_pk" +
-                "        primary key (LoginID)" +
+                "        primary key (LoginID, BookName, Publisher)" +
                 ")");
 
         //BORROW_AND_RETURN_RECORD
